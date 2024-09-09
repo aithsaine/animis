@@ -1,23 +1,20 @@
-import firebase from "firebase/app"
-import 'firebase/auth'
-import { getAuth } from "firebase/auth"
-import "firebase/firestore"
+import { getApp, getApps, initializeApp } from "firebase/app"
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from 'firebase/auth';
+
 
 const clientCridentials = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    apiKey: "AIzaSyDmJ3HccmtzNCQKYNRntZ0RaHeJMv0bJVM",
+    authDomain: "animix-c09f6.firebaseapp.com",
+    projectId: "animix-c09f6",
+    storageBucket: "animix-c09f6.appspot.com",
+    messagingSenderId: "934760719082",
+    appId: "1:934760719082:web:7561acecb0f3b25d2f2d93",
+    measurementId: "G-EJV69HQRB2"
 }
 
-if (!firebase.getApps().length) {
-    firebase.initializeApp(clientCridentials)
-}
-
-export const auth = getAuth()
+const app = !getApps().length ? initializeApp(clientCridentials) : getApp();
 
 
+const auth = getAuth(app);
 
-export default firebase 
+export { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword };

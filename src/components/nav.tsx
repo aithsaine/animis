@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image"
 import logo from "../../public/assets/images/logo.png"
 import '../../public/assets/styles/nav.css'
@@ -8,10 +8,17 @@ import fakeProfileImage from "../../public/assets/images/asta.jpg"
 import { FaCaretDown } from 'react-icons/fa'
 import Link from 'next/link'
 import Modal from './authenticate'
+import { useAuth } from '@/hooks/useAuth'
 const Nav = () => {
     const [IsopenLoginModal, setIsOpenModalLogin] = useState(false)
     const [isOpenDropDownSettings, setIsOpenDropDownSettings] = useState(false)
     const islogged = false
+    const [action, setAction] = useState("signin")
+    const { user, loading } = useAuth()
+    useEffect(() => {
+        console.log(user)
+
+    }, [loading])
 
 
     return (
@@ -45,7 +52,10 @@ const Nav = () => {
                         onClick={() => setIsOpenModalLogin(true)}
                     />
                 }
-                <Modal handleClose={() => setIsOpenModalLogin(false)} isOpen={IsopenLoginModal} />
+                <Modal action={action} setAction={setAction} handleClose={() => {
+                    setIsOpenModalLogin(false)
+                    setAction("signin")
+                }} isOpen={IsopenLoginModal} />
 
 
 

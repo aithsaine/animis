@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
-
+import { toast } from "sonner";
+import { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "@/firebase/client";
 const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
@@ -45,8 +46,56 @@ const containerVariant = {
     exit: { y: "-50%" },
 };
 
-const Modal = ({ handleClose, isOpen }: any) => {
-    const [action, setAction] = useState("signup")
+const Modal = ({ handleClose, isOpen, action, setAction }: any) => {
+    const [registerForm, setRegisterForm] = useState({
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: ""
+    })
+
+    const signup = async (e: any) => {
+        e.preventDefault();
+        try {
+            if (!registerForm.name || !registerForm.email || !registerForm.password || !registerForm.password_confirmation) {
+                return toast.error("fill all demanded informations")
+            }
+            const userCredential = await createUserWithEmailAndPassword(auth, registerForm.email, registerForm.password);
+            const user = userCredential.user
+            await updateProfile(user, {
+                displayName: registerForm.name
+
+            });
+            await user.reload()
+            toast.success("your Account Created now singi")
+            setAction("signin")
+
+
+
+        } catch (error: any) {
+            if (error.code == "auth/email-already-in-use") {
+                return toast.error("email already in use")
+            }
+            return toast.error("internal server error ")
+        }
+    }
+    const [loginForm, setLoginForm] = useState({
+        email: "",
+        password: "",
+    })
+
+    const signin = async (e: any) => {
+        try {
+            const resp = await signInWithEmailAndPassword(auth, loginForm.email, loginForm.password)
+            console.log(resp)
+            handleClose()
+            return toast.success("logged in successfully")
+
+        } catch (error: any) {
+
+        }
+    }
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -97,6 +146,7 @@ const Modal = ({ handleClose, isOpen }: any) => {
 
                                 <form className="space-y-4">
                                     <input
+                                        onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
                                         type="email"
                                         name="email"
                                         id="email"
@@ -105,6 +155,8 @@ const Modal = ({ handleClose, isOpen }: any) => {
                                         className="w-full px-4 py-2 text-sm text-white bg-transparent border border-gray-700 rounded-md focus:ring-2 focus:ring-sky-500 outline-none"
                                     />
                                     <input
+                                        onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
+
                                         type="password"
                                         name="password"
                                         id="password"
@@ -113,7 +165,8 @@ const Modal = ({ handleClose, isOpen }: any) => {
                                     />
 
                                     <motion.button
-                                        type="submit"
+                                        onClick={signin}
+                                        type="button"
                                         whileTap={{ scale: 0.95 }}
                                         className="w-full py-2 flex items-center justify-center text-white bg-gradient-to-r from-blue-600 to-blue-400 rounded-md shadow-md hover:from-blue-700 hover:to-blue-500 focus:ring-2 focus:ring-sky-500 transition-all duration-200"
                                     >
@@ -148,21 +201,27 @@ const Modal = ({ handleClose, isOpen }: any) => {
                                 <div className="space-y-4">
 
                                     <input
+                                        onChange={e => setRegisterForm({ ...registerForm, name: e.target.value })}
                                         type="text"
                                         placeholder='Name'
                                         className='w-full px-4 py-2 text-sm text-white bg-transparent border border-gray-700 rounded-md focus:ring-2 focus:ring-sky-500 outline-none'
                                     />
                                     <input
+                                        onChange={e => setRegisterForm({ ...registerForm, email: e.target.value })}
+
                                         type="email"
                                         placeholder='Email'
                                         className='w-full px-4 py-2 text-sm text-white bg-transparent border border-gray-700 rounded-md focus:ring-2 focus:ring-sky-500 outline-none'
                                     />
                                     <input
+                                        onChange={e => setRegisterForm({ ...registerForm, password: e.target.value })}
+
                                         type="password"
                                         placeholder='Password'
                                         className='w-full px-4 py-2 text-sm text-white bg-transparent border border-gray-700 rounded-md focus:ring-2 focus:ring-sky-500 outline-none'
                                     />
                                     <input
+                                        onChange={e => setRegisterForm({ ...registerForm, password_confirmation: e.target.value })}
                                         type="password"
                                         placeholder='Confirm Password'
                                         className='w-full px-4 py-2 text-sm text-white bg-transparent border border-gray-700 rounded-md focus:ring-2 focus:ring-sky-500 outline-none'
@@ -170,6 +229,7 @@ const Modal = ({ handleClose, isOpen }: any) => {
                                 </div>
 
                                 <motion.button
+                                    onClick={signup}
                                     whileTap={{ scale: 0.95 }}
                                     className="w-full py-2 text-white bg-gradient-to-r from-blue-600 to-blue-400 rounded-md shadow-md hover:from-blue-700 hover:to-blue-500 focus:ring-2 focus:ring-sky-500 transition-all duration-200"
                                 >
