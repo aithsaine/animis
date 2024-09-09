@@ -7,7 +7,7 @@ import { BookmarkIcon, MagnifyingGlassIcon, Cog8ToothIcon, EyeIcon, XCircleIcon,
 import fakeProfileImage from "../../public/assets/images/asta.jpg"
 import { FaCaretDown } from 'react-icons/fa'
 import Link from 'next/link'
-import Modal from './login'
+import Modal from './authenticate'
 const Nav = () => {
     const [IsopenLoginModal, setIsOpenModalLogin] = useState(false)
     const [isOpenDropDownSettings, setIsOpenDropDownSettings] = useState(false)
