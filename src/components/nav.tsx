@@ -5,29 +5,28 @@ import logo from "../../public/assets/images/logo.png"
 import '../../public/assets/styles/nav.css'
 import { BookmarkIcon, MagnifyingGlassIcon, Cog8ToothIcon, EyeIcon, XCircleIcon, ArrowLeftEndOnRectangleIcon, UserIcon } from '@heroicons/react/24/outline'
 import fakeProfileImage from "../../public/assets/images/asta.jpg"
+import settingicon from "../../public/assets/images/settingico.gif"
 import { FaCaretDown } from 'react-icons/fa'
 import Link from 'next/link'
-import Modal from './authenticate'
 import { useDispatch, useSelector } from 'react-redux'
 import { signOut, auth } from '../firebase/client'
-import { addAuthenticateUser } from '@/redux/actions/actionCreator'
+import { addAuthenticateUser, toggleModalAuth } from '@/redux/actions/actionCreator'
+import { GrUpdate } from 'react-icons/gr'
+import { AdjustmentsHorizontalIcon } from '@heroicons/react/16/solid'
 const Nav = () => {
-    const [IsopenLoginModal, setIsOpenModalLogin] = useState(false)
     const [isOpenDropDownSettings, setIsOpenDropDownSettings] = useState(false)
-    const [action, setAction] = useState("signin")
     const { authenticate } = useSelector((state: any) => state)
     const dispatch = useDispatch()
+    console.log(authenticate)
     const signout = async () => {
         try {
             await signOut(auth)
             dispatch(addAuthenticateUser(null))
-
         } catch (error) {
             console.log(error)
 
         }
     }
-
     return (
         <nav className='flex fixed bg-gray-900 justify-between px-4 md:px-16 py-2 items-center w-full  '>
             <div className='flex h-full space-x-4  items-center text-fuchsia-900'>
@@ -44,25 +43,29 @@ const Nav = () => {
                 <Link href={"#"}><MagnifyingGlassIcon className='text-white hover:text-fuchsia-600  cursor-pointer w-6 hover:scale-110' /></Link>
                 <BookmarkIcon className='text-white w-6 cursor-pointer hover:text-fuchsia-600  hover:scale-110' />
                 {authenticate !== null ?
-                    (<button onClick={() => setIsOpenDropDownSettings(!isOpenDropDownSettings)} className='flex  relative hover:text-fuchsia-600  items-center'><Image width={40} className='cursor-pointer border-2 border-fuchsia-500 rounded-full' src={fakeProfileImage} alt="" /><FaCaretDown className='text-white w-4' />
+                    (<button onClick={() => setIsOpenDropDownSettings(!isOpenDropDownSettings)} className='flex  relative   items-center'><Image width={40} className='cursor-pointer border-2 border-fuchsia-500 rounded-full' src={fakeProfileImage} alt="" /><FaCaretDown className='text-white w-4' />
+                        <div className={`md:absolute fixed ${isOpenDropDownSettings ? "flex" : "hidden"} p-2  sm:top-12 rounded-xl navlinks sm:justify-start  flex-col  bg-gray-900 w-screen h-screen items-center justify-center top-5 -right-16 sm:w-96 md:min-h-screen  `}>
+                            <XCircleIcon className='bg-red fixed top-2 right-2 cursor-pointer block sm:hidden hover:text-red-700 w-11' />
+                            <div className='w-full p-3 flex items-center  justify-between'>
+                                <div className='flex items-center justify-start space-x-4 my-2'>
 
-                        <div className={`md:absolute fixed ${isOpenDropDownSettings ? "flex" : "hidden"} p-2  md:top-14  rounded-xl md:justify-start right-0 flex-col  bg-gray-900 w-screen h-screen items-center justify-center top-0 md:w-44 md:h-auto  `}>
-                            <XCircleIcon className='bg-red fixed top-2 right-2 cursor-pointer block md:hidden hover:text-red-700 w-11' />
-                            <button className='my-1 w-full hover:bg-fuchsia-600  px-2 py-1  rounded-lg bg-transparent text-white flex items-center '><Cog8ToothIcon width={20} className='mx-1' /> Settings</button>
-                            <button className='my-1  w-full hover:bg-fuchsia-600 px-2 py-1  rounded-lg bg-transparent text-white flex items-center '><EyeIcon width={20} className='mx-1' /> WachList</button>
+                                    <Image src={fakeProfileImage} alt='profile' className='w-14 h-w-14 rounded-full' />
+                                    <span>{authenticate && authenticate.displayName}</span>
+                                </div>
+                                <AdjustmentsHorizontalIcon className='w-8' />
+                                <hr />
+                            </div>
+                            <button className='my-1 w-full hover:bg-fuchsia-600  px-2 py-2  rounded-lg bg-transparent text-white flex items-center '><Cog8ToothIcon width={20} className='mx-1' /> Settings</button>
+                            <button className='my-1  w-full hover:bg-fuchsia-600 px-2 py-2  rounded-lg bg-transparent text-white flex items-center '><EyeIcon width={20} className='mx-1' /> WachList</button>
                             <button onClick={signout} className='my-1 w-full hover:bg-fuchsia-600   px-2 py-1 rounded-lg bg-transparent text-white flex items-center '><ArrowLeftEndOnRectangleIcon width={20} className='mx-1' /> Logout</button>
                         </div>
 
                     </button>) :
                     (<UserIcon
                         className='text-white w-6 cursor-pointer  hover:text-fuchsia-600  hover:scale-110'
-                        onClick={() => setIsOpenModalLogin(true)}
+                        onClick={() => dispatch(toggleModalAuth(true))}
                     />)
                 }
-                <Modal action={action} setAction={setAction} handleClose={() => {
-                    setIsOpenModalLogin(false)
-                    setAction("signin")
-                }} isOpen={IsopenLoginModal} />
 
 
 

@@ -1,12 +1,14 @@
 "use client"
+import Modal from "@/components/authenticate"
 import Loading from "@/components/loading"
 import Nav from "@/components/nav"
 import { useAuth } from "@/hooks/useAuth"
-import { addAuthenticateUser } from "@/redux/actions/actionCreator"
+import { addAuthenticateUser, toggleModalAuth, updateActionStatus } from "@/redux/actions/actionCreator"
 import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 export default function Template({ children }: { children: React.ReactNode }) {
+    const { isOpenLoginModal }: any = useSelector((state) => state)
     const dispatch = useDispatch()
     // const action: any = useSelector((state: any) => state.action)
     const { user, loading } = useAuth()
@@ -20,6 +22,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
     }
     return (<>
         <Nav />
+        <Modal handleClose={() => {
+            dispatch(toggleModalAuth(false))
+            dispatch(updateActionStatus("signin"))
+        }} isOpen={isOpenLoginModal} />
+
 
         {children}
     </>)

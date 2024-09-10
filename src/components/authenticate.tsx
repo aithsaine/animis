@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "sonner";
 import { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "@/firebase/client";
-import { useDispatch } from "react-redux";
-import { addAuthenticateUser } from "@/redux/actions/actionCreator";
+import { useDispatch, useSelector } from "react-redux";
+import { addAuthenticateUser, updateActionStatus } from "@/redux/actions/actionCreator";
 const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
@@ -48,7 +48,8 @@ const containerVariant = {
     exit: { y: "-50%" },
 };
 
-const Modal = ({ handleClose, isOpen, action, setAction }: any) => {
+const Modal = ({ handleClose, isOpen }: any) => {
+    const { action }: any = useSelector((state) => state)
     const dispatch = useDispatch()
     const [registerForm, setRegisterForm] = useState({
         name: '',
@@ -71,7 +72,7 @@ const Modal = ({ handleClose, isOpen, action, setAction }: any) => {
             });
             await user.reload()
             toast.success("your Account Created now singi")
-            setAction("signin")
+            dispatch(updateActionStatus("signin"))
 
 
 
@@ -193,7 +194,7 @@ const Modal = ({ handleClose, isOpen, action, setAction }: any) => {
                                     <span className="font-semibold">Sign in with Google</span>
                                 </motion.button>
 
-                                <button onClick={() => setAction("signup")} className="block mt-4 text-sm font-semibold text-center text-blue-400 hover:underline">
+                                <button onClick={() => dispatch(updateActionStatus("signup"))} className="block mt-4 text-sm font-semibold text-center text-blue-400 hover:underline">
 
                                     Don’t have an account? Sign Up
                                 </button>
@@ -256,7 +257,7 @@ const Modal = ({ handleClose, isOpen, action, setAction }: any) => {
                                     <span className="font-semibold">Sign in with Google</span>
                                 </motion.button>
 
-                                <button onClick={() => setAction("signin")} className="block mt-4 text-sm font-semibold text-center text-blue-400 hover:underline">
+                                <button onClick={() => dispatch(updateActionStatus("signin"))} className="block mt-4 text-sm font-semibold text-center text-blue-400 hover:underline">
                                     Already have an account? Sign in
                                 </button>
 
