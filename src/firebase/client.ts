@@ -1,5 +1,5 @@
 import { getApp, getApps, initializeApp } from "firebase/app"
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 
 const clientCridentials = {
@@ -17,4 +17,4 @@ const app = !getApps().length ? initializeApp(clientCridentials) : getApp();
 
 const auth = getAuth(app);
 
-export { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword };
+export { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut };

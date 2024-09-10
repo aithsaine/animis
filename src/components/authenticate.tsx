@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "sonner";
 import { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "@/firebase/client";
+import { useDispatch } from "react-redux";
+import { addAuthenticateUser } from "@/redux/actions/actionCreator";
 const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
@@ -47,6 +49,7 @@ const containerVariant = {
 };
 
 const Modal = ({ handleClose, isOpen, action, setAction }: any) => {
+    const dispatch = useDispatch()
     const [registerForm, setRegisterForm] = useState({
         name: '',
         email: '',
@@ -86,12 +89,15 @@ const Modal = ({ handleClose, isOpen, action, setAction }: any) => {
 
     const signin = async (e: any) => {
         try {
-            const resp = await signInWithEmailAndPassword(auth, loginForm.email, loginForm.password)
-            console.log(resp)
+            const userCredentials = await signInWithEmailAndPassword(auth, loginForm.email, loginForm.password)
+            dispatch(addAuthenticateUser(userCredentials.user))
             handleClose()
             return toast.success("logged in successfully")
 
         } catch (error: any) {
+            console.log(error.code)
+            if (error.code == "auth/invalid-credential")
+                return toast.error("invalid email or password")
 
         }
     }

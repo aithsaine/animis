@@ -1,0 +1,28 @@
+/* NarutoShurikenSpinner.css */
+.shuriken-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full-screen height */
+  background: #f0f0f0; /* Background color */
+}
+
+.shuriken {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border-radius: 50%;
+  border: 8px solid #ff4500; /* Shuriken color */
+  border-top: 8px solid transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
