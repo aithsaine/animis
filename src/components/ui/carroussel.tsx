@@ -1,15 +1,21 @@
 "use client";
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { BookmarkIcon, PlayCircleIcon } from '@heroicons/react/24/outline';
+import { useAuth } from '@/hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import { toggleModalAuth } from '@/redux/actions/actionCreator';
 
-const backdropstyle = {
-}
+
 
 const Caroussel = () => {
+    const { user, loading } = useAuth()
+    const dispatch = useDispatch()
+
     const progressCircle: any = useRef(null);
     const progressContent: any = useRef(null);
     const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
@@ -42,74 +48,32 @@ const Caroussel = () => {
                     }}
                     className="flex items-center  justify-center  text-2xl font-bold" >
                     <div className="w-full flex h-full"
-                        style={backdropstyle}
                     >
                         <div className='md:w-1/2 backdrop-blur-sm flex flex-col space-y-4 h-full items-center justify-center'>
-                            <h1 className='text-4xl uppercase shadow-2xl shadow-black'>One Piece</h1>
-                            <p className='text-sm'>1999 | Action |</p>
+                            <h1 className='text-4xl navlinks uppercase '>One Piece</h1>
+                            <p className='text-lg font-serif text-slate-400 text-justify w-2/3'>Takuma isn’t the most exciting guy. He’s awkward, single, and does nothing but go to work and come home. Tired of doing chores, he decides to buy a housekeeping robot named Mina. She can cook...</p>
+                            <p className='text-sm'>1999 | Action | Ongoing</p>
                             <div className="flex w-full justify-center space-x-3">
 
-                                <button className='text-lg border-2 border-fuchsia-700 p-2 rounded-2xl'>Watch Now</button>
-                                <button className='text-lg border-2 border-fuchsia-700 p-2 rounded-2xl'>Add To favorit</button>
+                                <button
+                                    onClick={() => {
+                                        if (!loading && !user) {
+                                            dispatch(toggleModalAuth(true))
+
+                                        }
+                                    }}
+                                    className='text-lg hover:bg-fuchsia-700 hover:text-black flex items-center  border-2 border-fuchsia-700 p-2 space-x-2 rounded-2xl'><PlayCircleIcon className='w-6' /> Watch Now</button>
+                                <button onClick={() => {
+                                    if (!loading && !user) {
+                                        dispatch(toggleModalAuth(true))
+
+                                    }
+                                }} className='text-lg hover:bg-fuchsia-700 hover:text-black flex items-center  border-2  border-fuchsia-700 p-2 space-x-2 rounded-2xl'><BookmarkIcon className='w-6' /> Add Favorit</button>
                             </div>
 
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        background: "linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/33-g7HwYRVm0ZkN.jpg)",
-                        backgroundPosition: "center",
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                    }}
-                    className="flex items-center justify-center text-2xl font-bold">
-                    <div className="w-full h-full"
-                        style={backdropstyle}
-                    >
-                        <div className='md:w-1/2 backdrop-blur-sm flex flex-col space-y-4 h-full items-center justify-center'>
-                            <h1 className='text-4xl uppercase shadow-2xl shadow-black'>One Piece</h1>
-                            <p className='text-sm'>1999 | Action |</p>
-                            <div className="flex w-full justify-center space-x-3">
-
-                                <button className='text-lg border-2 border-fuchsia-700 p-2 rounded-2xl'>Watch Now</button>
-                                <button className='text-lg border-2 border-fuchsia-700 p-2 rounded-2xl'>Add To favorit</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide
-                    style={{
-                        background: "linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/21-wf37VakJmZqs.jpg)",
-                        backgroundPosition: "center",
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                    }}
-                    className="flex items-center justify-center text-2xl font-bold">
-                    <div className="w-full h-full"
-                        style={backdropstyle}
-                    >
-                        <div className='md:w-1/2 backdrop-blur-sm flex flex-col space-y-4 h-full items-center justify-center'>
-                            <h1 className='text-4xl uppercase shadow-2xl shadow-black'>One Piece</h1>
-                            <p className='text-sm'>1999 | Action |</p>
-                            <div className="flex w-full justify-center space-x-3">
-
-                                <button className='text-lg border-2 border-fuchsia-700 p-2 rounded-2xl'>Watch Now</button>
-                                <button className='text-lg border-2 border-fuchsia-700 p-2 rounded-2xl'>Add To favorit</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center text-2xl font-bold">Slide 3</SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center text-2xl font-bold">Slide 4</SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center text-2xl font-bold">Slide 5</SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center text-2xl font-bold">Slide 6</SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center text-2xl font-bold">Slide 7</SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center text-2xl font-bold">Slide 8</SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center text-2xl font-bold">Slide 9</SwiperSlide>
 
                 <div className="autoplay-progress absolute bottom-4 right-4 flex items-center space-x-2">
                     <svg viewBox="0 0 48 48" ref={progressCircle} className="w-8 h-8">
