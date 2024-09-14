@@ -22,12 +22,15 @@ export default function Template({ children }: { children: React.ReactNode }) {
     }
     return (<>
         <Nav />
+
         <Modal handleClose={() => {
             dispatch(toggleModalAuth(false))
             dispatch(updateActionStatus("signin"))
         }} isOpen={isOpenLoginModal} />
 
+        <main className="min-h-screen   ">
 
-        {children}
+            {children}
+        </main>
     </>)
 }
