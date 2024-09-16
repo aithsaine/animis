@@ -7,13 +7,13 @@ import { BookmarkIcon, MagnifyingGlassIcon, Cog8ToothIcon, EyeIcon, XCircleIcon,
 import fakeProfileImage from "../../public/assets/images/asta.jpg"
 import settingicon from "../../public/assets/images/settingico.gif"
 import { FaCaretDown } from 'react-icons/fa'
-import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { signOut, auth } from '../firebase/client'
 import { addAuthenticateUser, toggleModalAuth } from '@/redux/actions/actionCreator'
 import { GrUpdate } from 'react-icons/gr'
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/16/solid'
 import axios from 'axios'
+import Link from 'next/link'
 const Nav = () => {
 
 
@@ -34,7 +34,7 @@ const Nav = () => {
             <div className='flex h-full space-x-4  items-center text-white'>
                 <Image width={120} src={logo} alt='logo' />
                 <div className='navlinks hidden md:block  text-2xl  space-x-4'>
-                    <button className='hover:text-fuchsia-200'>Anime</button>
+                    <Link href={"/LDKe"} className='hover:text-fuchsia-200'>Anime</Link>
                     <button className='hover:text-fuchsia-200'>Manga</button>
                     <button className='hover:text-fuchsia-200'>News</button>
 
@@ -46,7 +46,7 @@ const Nav = () => {
                 <BookmarkIcon className='text-white w-6 cursor-pointer hover:text-fuchsia-600  hover:scale-110' />
                 {authenticate !== null ?
                     (<button onClick={() => setIsOpenDropDownSettings(!isOpenDropDownSettings)} className='flex  relative   items-center'><Image width={40} className='cursor-pointer border-2 border-fuchsia-500 rounded-full' src={fakeProfileImage} alt="" /><FaCaretDown className='text-white w-4' />
-                        <div className={`md:absolute fixed ${isOpenDropDownSettings ? "flex" : "hidden"} p-2  sm:top-12 rounded-xl navlinks sm:justify-start  flex-col  bg-fuchsia-950 w-screen h-screen items-center  top-5 -right-16 sm:w-72 md:min-h-screen  `}>
+                        <div className={`md:absolute fixed ${isOpenDropDownSettings ? "flex" : "hidden"} p-2  sm:top-12 rounded-xl navlinks sm:justify-start  flex-col  bg-black w-screen h-screen items-center  top-5 -right-16 sm:w-72 md:min-h-screen  `}>
                             <XCircleIcon className='bg-red fixed top-2 right-2 cursor-pointer block sm:hidden hover:text-red-700 w-11' />
                             <div className='w-full py-3 flex items-center  justify-between'>
                                 <div className='flex  items-center justify-start space-x-4 my-2'>

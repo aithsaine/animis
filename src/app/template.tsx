@@ -7,6 +7,8 @@ import { addAuthenticateUser, toggleModalAuth, updateActionStatus } from "@/redu
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
+
+
 export default function Template({ children }: { children: React.ReactNode }) {
     const { isOpenLoginModal }: any = useSelector((state) => state)
     const dispatch = useDispatch()

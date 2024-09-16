@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation, A11y } from 'swiper/modules';
 import { BookmarkIcon, PlayCircleIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '@/hooks/useAuth';
 import { useDispatch } from 'react-redux';
@@ -35,8 +35,9 @@ const Caroussel = () => {
                     clickable: true,
                 }}
                 navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
+                modules={[Navigation, Pagination, A11y]}
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
+
                 className="mySwiper w-full h-[500px]  rounded-lg shadow-lg relative"
             >
                 <SwiperSlide

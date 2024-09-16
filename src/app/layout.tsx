@@ -5,7 +5,7 @@ import "./globals.css";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 import { Toaster } from "sonner";
-
+import NextTopLoader from 'nextjs-toploader';
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -19,6 +19,7 @@ const geistMono = localFont({
 
 
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,13 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <title>Create Next App</title>
-      <meta name="title" content="animis" />
-      <meta name="description" content="watch anime for free" />
+      <link rel="icon" href={"./favicon.ico"} />
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
         <Provider store={store}>
           <Toaster />
+          <NextTopLoader color="rgb(134 25 143)" height={5} />
+
           {children}
         </Provider>
       </body>

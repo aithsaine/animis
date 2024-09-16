@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import AnimeCard from "./ui/animeCard";
 
 const animeData = [
     {
@@ -21,6 +22,11 @@ const animeData = [
     {
         title: "My Hero Academia",
         image: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-73IhOXpJZiMF.jpg",
+        description: "Takuma isn’t the most exciting guy...",
+    },
+    {
+        title: "Death note",
+        image: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-4r88a1tsBEIz.jpg",
         description: "Takuma isn’t the most exciting guy...",
     },
     {
@@ -73,46 +79,25 @@ const CustomCarousel = () => {
     );
 
     return (
-        <div className="relative w-full py-3 h-[450px] bg-black flex items-center justify-center">
-            <div className="flex space-x-6 overflow-hidden">
-                {visibleAnimes.map((anime, index) => (
-                    <div
-                        key={index}
-                        className="anime-card w-[150px] md:w-[300px] h-[250px] md:h-[400px] rounded-lg overflow-hidden shadow-lg relative group"
-                    >
-                        <img
-                            src={anime.image}
-                            alt={anime.title}
-                            className="w-full h-3/4  object-cover"
-                        />
-                        <div className="absolute inset-0 top-0 w-full h-full bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white text-center p-4">
-                            <h2 className="text-lg font-bold">{anime.title}</h2>
-                            <p className="text-sm">{anime.description}</p>
-                        </div>
-                        <div className="h-1/4 opacity-100 group-hover:hidden">
-                            <h1 className="navlinks">{anime.title}</h1>
-                            <p className="navlinks text-sm">{"2024 | TV | Completed "}</p>
-                        </div>
-                    </div>
-                ))}
+        <>
+            <h1 className=" ms-2 text-pretty navlinks text-white text-2xl">Most Popular :</h1>
+
+            <div className="w-full flex items-center space-x-4 justify-center" >
+                <button onClick={prevSlide} className="hover:bg-fuchsia-300 bg-white text-black rounded-full w-10 flex items-center justify-center h-10"><FaArrowLeft className="text-xl" /></button>
+                <button onClick={nextSlide} className="hover:bg-fuchsia-300 bg-white text-black rounded-full w-10 flex items-center justify-center h-10"><FaArrowRight className="text-xl" /></button>
             </div>
+            <div className="relative w-full py-2 h-[400px] bg-black flex items-center justify-center">
 
-            {/* Previous Button */}
-            <button
-                className="absolute left-0 h-[300px] top-6  text-white flex items-center justify-center  hover:bg-gray-800 transition-colors duration-300"
-                onClick={prevSlide}
-            >
-                <FaArrowLeft className="text-xl" />
-            </button>
+                <div className="flex items-center justify-around w-full  overflow-hidden">
+                    {visibleAnimes.map((anime, index) => (
 
-            {/* Next Button */}
-            <button
-                className="absolute right-0 h-[300px] top-6  text-white flex items-center justify-center  hover:bg-gray-800 transition-colors duration-300"
-                onClick={nextSlide}
-            >
-                <FaArrowRight className="text-xl" />
-            </button>
-        </div>
+                        <AnimeCard anime={anime} />
+                    ))}
+                </div>
+
+
+            </div>
+        </>
     );
 };
 
