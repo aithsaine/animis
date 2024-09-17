@@ -2,10 +2,10 @@ interface SimpleAnimeInfo {
     id: number,
     malId: number,
     title: {
-        romaji: string,
-        english: string,
-        native: string,
-        userPreferred: string
+        romaji: null | string,
+        english: null | string,
+        native: null | string,
+        userPreferred: null | string
     },
     status: string,
     episodes: number,

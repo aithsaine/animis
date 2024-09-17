@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@heroicons/react": "^2.1.5",
+    "@mui/icons-material": "^6.1.0",
+    "@mui/material": "^6.1.0",
     "@types/video.js": "^7.3.58",
     "@vidstack/react": "^1.12.10",
     "axios": "^1.7.7",
