@@ -1,6 +1,7 @@
 interface SimpleAnimeInfo {
     id: number,
     malId: number,
+    description?: string,
     title: {
         romaji: null | string,
         english: null | string,

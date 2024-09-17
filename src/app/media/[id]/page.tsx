@@ -8,6 +8,7 @@ import { motion } from "framer-motion"
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import AnimeCard from '@/components/ui/animeCard'
 
 
 
@@ -1268,7 +1269,7293 @@ const anime: AnimeInfo = {
             rating: null
         }
     ],
-
+    mappings: [
+        {
+            id: "5623",
+            providerId: "animepahe",
+            similarity: 1,
+            providerType: "ANIME"
+        },
+        {
+            id: "/category/mayonaka-punch",
+            providerId: "gogoanime",
+            similarity: 1,
+            providerType: "ANIME"
+        },
+        {
+            id: "/watch/mayonaka-punch-19217",
+            providerId: "zoro",
+            similarity: 1,
+            providerType: "ANIME"
+        },
+        {
+            id: "/series/445256",
+            providerId: "tvdb",
+            similarity: 1,
+            providerType: "META"
+        },
+        {
+            id: "174044",
+            providerId: "anilist",
+            similarity: 1,
+            providerType: "META"
+        },
+        {
+            id: "57947",
+            providerId: "mal",
+            similarity: 1,
+            providerType: "META"
+        },
+        {
+            id: "48467",
+            providerId: "kitsu",
+            similarity: 1,
+            providerType: "META"
+        },
+        {
+            id: "/tv/244617",
+            providerId: "tmdb",
+            similarity: 1,
+            providerType: "META"
+        }
+    ],
+    artwork: [
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.io/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174044-HBvsyKjDVPyO.jpg",
+            type: "poster",
+            providerId: "anilist"
+        },
+        {
+            img: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/174044-XZqt8MkBIwph.jpg",
+            type: "banner",
+            providerId: "anilist"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/cover_image/21911ebb8ff6c7654f18680a27a5c288.jpg",
+            type: "banner",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://media.kitsu.app/anime/48467/poster_image/dd07700be445858a0f432814b4ef06ac.jpg",
+            type: "poster",
+            providerId: "kitsu"
+        },
+        {
+            img: "https://cdn.myanimelist.net/images/anime/1700/143395.jpg",
+            type: "poster",
+            providerId: "mal"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b410dfba1a5.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7e96c77c0.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ead04d32.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668a7ed7a033d.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/65b416bdc41e3.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/65b3cc53b77f8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f59b61c8.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c7f8736b58.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/665c8036bc63d.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/banners/668c46fc0a352.jpg",
+            type: "top_banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/backgrounds/668bf3286e5e5.jpg",
+            type: "banner",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/posters/668bf3462bcd9.jpg",
+            type: "poster",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4b4e8443.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        },
+        {
+            img: "https://artworks.thetvdb.com/banners/v4/series/445256/clearlogo/6674c4c67baac.png",
+            type: "clear_logo",
+            providerId: "tvdb"
+        }
+    ],
     episodes: [
         {
             id: "mayonaka-punch-episode-1",
@@ -1376,7 +8663,9 @@ const Page = ({ params }: { params: { id: String } }) => {
     const { loading, user } = useAuth()
     const dispatch = useDispatch()
     const [animeId, setAnimeId] = useState<String | null>(params.id)
-    return (
+    return (<>
+
+
         <div className='flex flex-col  pt-20 min-h-screen'>
             <div
                 style={{
@@ -1430,7 +8719,7 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                         <h1 className="text-xl p-3 underline ">CASTS:</h1>
                         <div className="flex w-full p-2 overflow-x-scroll overflow-y-hidden">
-                            {anime.characters.map((character: Character) => <img title={character.name.full} src={character.image} className="rounded-full w-20 h-20 object-cover m-2" />)}
+                            {anime.characters.map((character: Character) => <img title={character.name.full} onMouseLeave={e => e.currentTarget.src = character.image} onMouseOver={e => e.currentTarget.src = character.voiceActors[0].image} src={character.image} className="rounded-full  h-28 object-cover m-2" />)}
                         </div>
                     </div>
 
@@ -1465,7 +8754,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                     <div className="flex flex-col py-3 ">
                         <h1 className="text-xl py-2  underline">STUDIOS :</h1>
                         <ol>
-                            {anime.studios.map((item: string) => <li className="py-1">{item}</li>)}
+                            {anime.studios.map((item: string) => <li key={item} className="py-1">{item}</li>)}
                         </ol>
                         <hr className="py-2" />
 
@@ -1475,7 +8764,18 @@ const Page = ({ params }: { params: { id: String } }) => {
 
 
             </div>
+            {/* Related animes or manga*/}
+            <div className="flex flex-col p-3 ">
+
+                <h1 className="text-xl p-2  underline">RECEOMMENDED ANIMES :</h1>
+                <div className='flex justify-around flex-wrap'>
+
+                    {anime.recommendations.map((recommend) => <AnimeCard anime={{ ...recommend, title: recommend.title.romaji }} />)}
+
+                </div>
+            </div>
         </div >
+    </>
 
     )
 }

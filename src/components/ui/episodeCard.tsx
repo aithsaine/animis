@@ -8,7 +8,7 @@ const EpisodeCard = ({ episode }: { episode: EpisodeInfo }) => {
             <motion.div
                 key={episode.episodeTitle}
                 title={episode.episodeTitle}
-                className="relative flex flex-col w-[200px] h-[350px] rounded-md overflow-hidden cursor-pointer shadow-md"
+                className="relative flex flex-col w-[170px] h-[250px] rounded-md overflow-hidden cursor-pointer shadow-md"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
             >
@@ -21,7 +21,7 @@ const EpisodeCard = ({ episode }: { episode: EpisodeInfo }) => {
                     {/* Play and Save Icons */}
 
                     {/* Anime Title */}
-                    <h1 className="text-white font-semibold text-lg">
+                    <h1 className="text-white navlinks font-semibold text-lg">
                         {episode.title.romaji}
                     </h1>
 
