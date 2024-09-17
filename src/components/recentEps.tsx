@@ -179,14 +179,14 @@ const episodes: EpisodeInfo[] =
 
 export const RecentEpisodes = () => {
   return (
-    <div className='flex flex-col'>
-      < h1 className=" ms-2  text-pretty navlinks text-white text-2xl" > Recent Episodes:</h1 >
+    <div className='flex flex-col py-5'>
+      < h1 className=" px-5 py-9 text-pretty navlinks text-white text-2xl" > Recent Episodes:</h1 >
       <div className='flex justify-around flex-wrap'>
 
         {
           episodes.map((episode: EpisodeInfo) => <EpisodeCard episode={episode} />)
         }
-        <button className='p-2 m-1 bg-fuchsia-950 navlinks text-white rounded w-full'>More..</button>
+        <button className='p-2 m-1 bg-gradient-to-r from-slate-900 via-slate-600  to-gray-900 hover:bg-gray-900 navlinks text-white rounded w-full'>More..</button>
       </div>
     </div >
   )

@@ -70,6 +70,7 @@ const CustomCarousel = () => {
         );
     };
 
+
     // Sliced data to display the right number of cards
     const visibleAnimes = animeData.slice(
         currentIndex,
@@ -79,12 +80,16 @@ const CustomCarousel = () => {
     );
 
     return (
-        <>
-            <h1 className=" ms-2 text-pretty navlinks text-white text-2xl">Most Popular :</h1>
+        <div className="pt-9">
 
-            <div className="w-full flex items-center space-x-4 justify-center" >
-                <button onClick={prevSlide} className="hover:bg-fuchsia-300 bg-white text-black rounded-full w-10 flex items-center justify-center h-10"><FaArrowLeft className="text-xl" /></button>
-                <button onClick={nextSlide} className="hover:bg-fuchsia-300 bg-white text-black rounded-full w-10 flex items-center justify-center h-10"><FaArrowRight className="text-xl" /></button>
+
+            <div className="w-full flex px-5 items-center  justify-between" >
+                <h1 className="  text-pretty navlinks text-white text-2xl">Most Popular :</h1>
+                <div className="flex space-x-4">
+
+                    <button onClick={prevSlide} className="hover:bg-fuchsia-300 bg-white text-black rounded-full w-10 flex items-center justify-center h-10"><FaArrowLeft className="text-xl" /></button>
+                    <button onClick={nextSlide} className="hover:bg-fuchsia-300 bg-white text-black rounded-full w-10 flex items-center justify-center h-10"><FaArrowRight className="text-xl" /></button>
+                </div>
             </div>
             <div className="relative w-full py-2 h-[400px] bg-black flex items-center justify-center">
 
@@ -97,7 +102,7 @@ const CustomCarousel = () => {
 
 
             </div>
-        </>
+        </div>
     );
 };
 

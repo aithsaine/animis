@@ -1,5 +1,6 @@
 "use client"
 import Modal from "@/components/authenticate"
+import Footer from "@/components/footer"
 import Loading from "@/components/loading"
 import Nav from "@/components/nav"
 import { useAuth } from "@/hooks/useAuth"
@@ -34,5 +35,6 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
             {children}
         </main>
+        <Footer />
     </>)
 }

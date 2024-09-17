@@ -1,7 +1,7 @@
 interface EpisodeInfo {
 
     id: string,
-    malId: "57947",
+    malId: string,
     title: {
         romaji: string,
         english: string,

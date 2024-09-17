@@ -11,8 +11,8 @@ export default function Home() {
     <>
 
       <Caroussel />
-      <RecentEpisodes />
       <Popular />
+      <RecentEpisodes />
       {/* <VideoPlayer
         videoSrc={"https://eb.netmagcdn.com:2228/hls-playback/6bad66e945c851b0ce0cda2d993bd6ab0f177e531d132d4b68d66ba95f6fbabf0193efeb286abd5cef6b6344c610b3df9375b705b6ed1a945e11b5209fe01a4aa1770819d87eed0bf9b60d77eb859364d4640e68f6209b3dd84449ec1d0b1c1c413d2e0cd596367085de3e61e121d2fc1b76f03df7202f728fd2d77211a2594d3607320e9eb4ffcca7fd8e9f97f25849/master.m3u8"}
         introDuration={1345}
