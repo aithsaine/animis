@@ -1,27 +1,30 @@
+import { TvIcon, BookOpenIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { FaPlay, FaSave } from "react-icons/fa"; // Importing play and save icons
 
 const AnimeCard = ({ anime }: {
     anime: {
-        title: string,
+        title: string | null,
         image: string,
-        description: string,
+        description?: string|null,
         status: string,
         type: string,
-        episodes: number
+        episodes: number,
+        releaseDate?: number
     }
 }) => {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col relative">
             <motion.div
-                className="relative w-[170px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
-                whileHover={{ scale: 1.05 }}
+                className="relative group w-[170px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
             >
+                <span className="top-1 transition duration-300 ease-in-out px-1 flex group-hover:opacity-100 space-x-1 navlinks     text-white  z-40 absolute left-2 bg-amber-700 rounded-full">{anime.type !== "MANGA" ? <TvIcon className="w-4 h-4 p-0.5 " /> : <BookOpenIcon className="w-4 h-4 p-0.5 " />}<span className="hidden group-hover:block text-xs">{anime.type}</span></span>
                 {/* Anime Image */}
                 <img
                     src={anime.image}
-                    alt={anime.title}
+                    alt={anime.title??""}
                     className="w-full h-full object-cover"
                 />
 
@@ -35,15 +38,14 @@ const AnimeCard = ({ anime }: {
                     <h1 className="text-white font-semibold text-lg">
                         {anime.title}
                     </h1>
-                    <p className="p-2 text-justify text-white navlinks  text-sm font-semibold ">
-                        {anime.description}
+                    <p className="p-2 text-justify text-white navlinks  text-sm font-semibold " dangerouslySetInnerHTML={{ __html: anime.description && (anime.description.length > 50 ? anime.description.substring(0, 50) + "..." : anime.description) }}>
                     </p>
                 </motion.div>
 
 
             </motion.div >
             <motion.div className="text-xs ms-2 navlinks">
-                <span >{anime.type} | {anime.episodes} Eps | {anime.status}</span>
+                <span >{anime.releaseDate && String(anime.releaseDate) + " | "}{anime.type !== "MANGA" ?? String(anime.episodes) + " Eps |"} {anime.status}</span>
             </motion.div>
         </div>
     );

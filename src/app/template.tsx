@@ -32,7 +32,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
             dispatch(updateActionStatus("signin"))
         }} isOpen={isOpenLoginModal} />
 
-        <main className="min-h-screen   ">
+        <main className="min-h-screen  scrollbar-hide ">
 
             {children}
         </main>

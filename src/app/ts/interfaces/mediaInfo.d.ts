@@ -1,4 +1,4 @@
-interface AnimeInfo {
+interface MediaInfo {
     id: string,
     synonyms: string[],
     coverHash?: string,

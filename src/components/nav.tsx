@@ -32,7 +32,7 @@ const Nav = () => {
     return (
         <nav className='flex fixed mb-36 bg-black  justify-between px-4 md:px-16 py-2 z-50 items-center w-full  '>
             <div className='flex h-full space-x-4  items-center text-white'>
-                <Image width={120} src={logo} alt='logo' />
+                <Link href="/"> <Image width={120} src={logo} alt='logo' /></Link>
                 <div className='navlinks hidden md:block  text-2xl  space-x-4'>
                     <Link href={"/LDKe"} className='hover:text-fuchsia-200'>Anime</Link>
                     <button className='hover:text-fuchsia-200'>Manga</button>

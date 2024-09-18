@@ -2,21 +2,23 @@
 import React from 'react'
 import { motion } from "framer-motion"
 import Link from 'next/link'
+import { TvIcon } from '@heroicons/react/24/outline'
 const EpisodeCard = ({ episode }: { episode: EpisodeInfo }) => {
     return (
         <Link href={`/media/${episode.id}`}>
             <motion.div
                 key={episode.episodeTitle}
                 title={episode.episodeTitle}
-                className="relative flex flex-col w-[170px] h-[250px] rounded-md overflow-hidden cursor-pointer shadow-md"
+                className="relative group flex flex-col w-[170px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
             >
+                <span className="top-1 px-1 transition duration-300 ease-in-out flex group-hover:opacity-100 space-x-1 navlinks     text-white  z-40 absolute left-2 bg-amber-700 rounded-full"><TvIcon className="w-4 h-4 p-0.5 " /><span className="hidden group-hover:block text-xs">{episode.type}</span></span>
+
                 <img className="group-hover:bg-opacity-45" alt={episode.episodeTitle} src={episode.image} width={200} height={300} />
-                <span className='navlinks text-xs'>{episode.type} | Ep {episode.episodeNumber}</span>
 
                 <motion.div
-                    className="absolute w-full h-full text-justify navlinks inset-0 bottom-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 transition-opacity duration-400 ease-in-out hover:opacity-100"
+                    className="absolute w-full h-full text-center navlinks inset-0 bottom-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 transition-opacity duration-400 ease-in-out hover:opacity-100"
                 >
                     {/* Play and Save Icons */}
 
