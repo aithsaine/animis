@@ -1,4 +1,4 @@
-interface MediaInfo {
+interface MetaMediaInfo {
     id: string,
     synonyms: string[],
     coverHash?: string,
