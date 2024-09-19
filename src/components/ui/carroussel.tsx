@@ -52,7 +52,7 @@ const Caroussel = () => {
                     className="flex items-center  justify-center  text-2xl font-bold" >
                     <div className="w-full flex h-full"
                     >
-                        <div className='md:w-1/2 backdrop-blur-sm flex flex-col space-y-4 h-full items-center justify-center'>
+                        <div className='md:w-1/2 backdrop-blur-0 flex flex-col space-y-4 h-full items-center justify-center'>
                             <h1 className='text-4xl navlinks uppercase '>One Piece</h1>
                             <p className='text-lg font-serif text-slate-400 text-justify w-2/3'>Takuma isn’t the most exciting guy. He’s awkward, single, and does nothing but go to work and come home. Tired of doing chores, he decides to buy a housekeeping robot named Mina. She can cook...</p>
                             <p className='text-sm'>1999 | Action | Ongoing</p>
