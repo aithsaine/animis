@@ -1,12 +1,14 @@
 import { TvIcon, BookOpenIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FaPlay, FaSave } from "react-icons/fa"; // Importing play and save icons
 
 const AnimeCard = ({ anime }: {
     anime: {
+        id: string
         title: string | null,
         image: string,
-        description?: string|null,
+        description?: string | null,
         status: string,
         type: string,
         episodes: number,
@@ -14,7 +16,7 @@ const AnimeCard = ({ anime }: {
     }
 }) => {
     return (
-        <div className="flex flex-col relative">
+        <Link href={`/media/${anime.id}`} className="flex  flex-col relative">
             <motion.div
                 className="relative group w-[170px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
                 whileHover={{ scale: 1.02 }}
@@ -24,7 +26,7 @@ const AnimeCard = ({ anime }: {
                 {/* Anime Image */}
                 <img
                     src={anime.image}
-                    alt={anime.title??""}
+                    alt={anime.title ?? ""}
                     className="w-full h-full object-cover"
                 />
 
@@ -38,7 +40,7 @@ const AnimeCard = ({ anime }: {
                     <h1 className="text-white font-semibold text-lg">
                         {anime.title}
                     </h1>
-                    <p className="p-2 text-justify text-white navlinks  text-sm font-semibold " dangerouslySetInnerHTML={{ __html: anime.description && (anime.description.length > 50 ? anime.description.substring(0, 50) + "..." : anime.description) }}>
+                    <p className="p-2 text-justify text-white navlinks  text-sm font-semibold " dangerouslySetInnerHTML={{ __html: anime.description ? (anime.description.length > 50 ? anime.description.substring(0, 50) + "..." : anime.description) : "" }}>
                     </p>
                 </motion.div>
 
@@ -47,7 +49,7 @@ const AnimeCard = ({ anime }: {
             <motion.div className="text-xs ms-2 navlinks">
                 <span >{anime.releaseDate && String(anime.releaseDate) + " | "}{anime.type !== "MANGA" ?? String(anime.episodes) + " Eps |"} {anime.status}</span>
             </motion.div>
-        </div>
+        </Link>
     );
 };
 

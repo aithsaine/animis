@@ -1,7 +1,8 @@
-interface MetaMediaInfo {
+interface AnilistMediaInfo {
     id: string,
     synonyms: string[],
     coverHash?: string,
+    artwork?: any,
     episodes: {
         id: string,
         title: string,
@@ -28,7 +29,7 @@ interface MetaMediaInfo {
     subOrDub?: string,
 
 
-    malId: integer,
+    malId: number,
     trailer: {
         id: string,
         site: string,
@@ -48,7 +49,7 @@ interface MetaMediaInfo {
     imageHash: string,
 
     status: String,
-    releaseDate: integer,
+    releaseDate: number,
     startDate: {
         year: number,
         month: number,
@@ -67,9 +68,9 @@ interface MetaMediaInfo {
     recommendations: SimpleAnimeInfo[],
     characters: Character[],
     relations: {
-        id: integer,
+        id: number,
         relationType: string,
-        malId: integer,
+        malId: number,
         title: {
             romaji: null | string,
             english: null | string,
@@ -80,11 +81,11 @@ interface MetaMediaInfo {
         coverHash?: string,
 
         status: string,
-        episodes: integer,
+        episodes: number,
         image: string,
         color: string,
         type: string,
         cover: string,
-        rating: integer,
+        rating: number,
     }[],
 }
