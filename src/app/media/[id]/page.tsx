@@ -72,7 +72,7 @@ const Page = ({ params }: { params: { id: String } }) => {
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
             info?.episodes?.map((item: any) => gogoEps.push({
-                id: "", title: item.id, description: "", thumbnail: ""
+                id: "", title: item.id, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge
             }))
             setGogoAnimeEpisodes(gogoEps)
         }

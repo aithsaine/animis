@@ -24,7 +24,7 @@ const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps }: P
     }, [])
     return (gogoAnimeEps &&
         <React.Fragment  >
-            {epsiodes.map((item: StreamingEpsiode, index: number) => <StreamingEpisode title={item.title} thumbnail={item.thumbnail} key={index} />)}
+            {epsiodes.map((item: StreamingEpsiode, index: number) => <StreamingEpisode episodeNumber={index + 1} title={item.title} thumbnail={item.thumbnail} key={index} />)}
         </React.Fragment>
     )
 }
