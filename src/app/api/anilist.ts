@@ -21,6 +21,7 @@ const mediaByIdQueryRequest = (id: number) =>
                                 english
                                 userPreferred
                             }
+                                episodes
                             description(asHtml: true)
                             isAdult
                             status

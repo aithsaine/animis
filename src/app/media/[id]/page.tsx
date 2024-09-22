@@ -17,7 +17,7 @@ import styles from "../../../../public/assets/styles/coverStyle.module.css"
 import { getMediaInfo } from '@/app/api/consumetImdb'
 import { StreamOptions } from 'stream'
 import Episodes from '@/components/Episodes'
-
+import gogoanime from '@/app/api/gogoanime'
 
 
 const Page = ({ params }: { params: { id: String } }) => {
@@ -25,6 +25,7 @@ const Page = ({ params }: { params: { id: String } }) => {
     const dispatch = useDispatch()
     const [anilistMedia, setAnilistMedia] = useState<any | null>()
     const [TmdbMediaInfo, setTmdbMediaInfo] = useState<ImdbMediaInfo | null>()
+    const [GogoAnimeMediaInfo, setGogoAnimeMediaInfo] = useState()
     const [Manga, setManga] = useState()
     const [animeId, setAnimeId] = useState<String | null>(params.id)
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,6 +33,8 @@ const Page = ({ params }: { params: { id: String } }) => {
     const [waitTmdb, setWaitTmdb] = useState(false)
     const [anilistEpisodes, setAnilistEpisodes] = useState<StreamingEpsiode[]>([])
     const [tmdbEpisodes, setTmdbEpisodes] = useState<StreamingEpsiode[]>([])
+    const [gogoanimeEisodes, setGogoAnimeEpisodes] = useState<StreamingEpsiode[]>([])
+    const [waitGogo, setWaitGogo] = useState(false)
 
     //  get Media Info from Tmdb api
     const getTmdbMediaInfo = async (media: any) => {
@@ -47,7 +50,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                 })
             setWaitTmdb(false)
             const episodes: StreamingEpsiode[] = []
-            imdbMediaInfo?.seasons.map((item: any) => item.episodes.map((eps: TmdbEps) => {
+            imdbMediaInfo?.seasons?.map((item: any) => item.episodes.map((eps: TmdbEps) => {
                 episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile })
             }))
             setTmdbEpisodes(episodes)
@@ -57,6 +60,30 @@ const Page = ({ params }: { params: { id: String } }) => {
             console.log(error)
         }
     }
+    // get Anime Info From GogoAnime
+    const getGogoAnimeMediaInfo = async (media: AnilistMediaInfo) => {
+        setWaitGogo(true)
+        try {
+
+            const info = await gogoanime.getGogoAnimeMediaInfo({
+                searchTitle: media?.title?.romaji,
+                releasedYear: media?.startDate?.year
+            })
+            setGogoAnimeMediaInfo(info)
+            const gogoEps: StreamingEpsiode[] = []
+            info?.episodes?.map((item: any) => gogoEps.push({
+                id: "", title: item.id, description: "", thumbnail: ""
+            }))
+            setGogoAnimeEpisodes(gogoEps)
+        }
+        catch (error) {
+            console.log(error)
+        } finally {
+            setWaitGogo(false)
+
+        }
+
+    }
 
     // change background image tmdb cover >>>>> anilist cover
     const getBgImage = () => {
@@ -65,9 +92,7 @@ const Page = ({ params }: { params: { id: String } }) => {
         }
         return anilistMedia?.bannerImage ? anilistMedia?.bannerImage : anilistMedia?.coverImage?.extraLarge
     }
-    useEffect(() => {
-        console.log(anilistEpisodes)
-    }, [anilistEpisodes])
+
 
     useEffect(() => {
 
@@ -77,6 +102,7 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                 if (media) {
                     if (media.type != "MANGA") {
+                        getGogoAnimeMediaInfo(media)
                         const episodes: StreamingEpsiode[] = []
                         media.streamingEpisodes.map((item: {
                             site: string,
@@ -133,7 +159,7 @@ const Page = ({ params }: { params: { id: String } }) => {
         );
     }
 
-    if (waitTmdb) {
+    if (waitTmdb || waitGogo) {
         return <Loading />
     }
 
@@ -143,14 +169,14 @@ const Page = ({ params }: { params: { id: String } }) => {
     }
     return (
         <>
-            <div className='flex flex-col  pt-20 min-h-screen'>
+            <div className='flex flex-col w-full pt-20 min-h-screen'>
                 <div
                     id={styles.banner_background_container}
 
                     style={{
                         background: `linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(${getBgImage()})`,
                     }}
-                    className="flex flex-col justify-center items-center  md:items-start w-full m-2 h-[400px]">
+                    className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col w-full h-full justify-end items-center  md:items-end md:flex-row  space-x-2 space-y-3 md:justify-start '>
                         <h1 style={{
                             color: anilistMedia.coverImage.color
@@ -162,47 +188,68 @@ const Page = ({ params }: { params: { id: String } }) => {
                     </div>
                 </div>
                 {/* watch or save buttons */}
-                <div className="flex w-full p-2 justify-start space-x-3">
+                <div className="flex flex-col w-full md:flex-row p-4 justify-center items-center md:justify-start space-y-3 md:space-y-0 md:space-x-4">
 
-                    {anilistMedia?.type !== "MANGA" ? <motion.button
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => {
-                            if (!loading && !user) {
-                                dispatch(toggleModalAuth(true))
-
-                            }
-                        }}
-                        className='text-lg hover:bg-orange-500 bg-orange-400  border-orange-400 text-slate-800 hover:text-black flex items-center  border-2 text-justify navlinks font-bold py-2 px-4 space-x-2 rounded-2xl'><PlayCircleIcon className='w-6' /> Watch Now</motion.button>
-                        :
+                    {/* Conditional button for watching or reading */}
+                    {anilistMedia?.type !== "MANGA" ? (
                         <motion.button
                             whileTap={{ scale: 0.95 }}
                             onClick={() => {
                                 if (!loading && !user) {
-                                    dispatch(toggleModalAuth(true))
-
+                                    dispatch(toggleModalAuth(true));
                                 }
                             }}
-                            className='text-lg hover:bg-orange-500 bg-orange-400  border-orange-400 text-slate-800 hover:text-black flex items-center  border-2 text-justify navlinks font-bold py-2 px-4 space-x-2 rounded-2xl'><BookOpenIcon className='w-6' /> Read Now</motion.button>
-                    }
+                            className="text-lg hover:bg-orange-500 border-orange-400 bg-orange-400 text-slate-800 hover:text-black flex items-center justify-center border-2 font-bold py-2 px-4 space-x-2 rounded-xl"
+                        >
+                            <PlayCircleIcon className="w-6" />
+                            <span>Watch Now</span>
+                        </motion.button>
+                    ) : (
+                        <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => {
+                                if (!loading && !user) {
+                                    dispatch(toggleModalAuth(true));
+                                }
+                            }}
+                            className="text-lg hover:bg-orange-500 border-orange-400 bg-orange-400 text-slate-800 hover:text-black flex items-center justify-center border-2 font-bold py-2 px-4 space-x-2 rounded-xl"
+                        >
+                            <BookOpenIcon className="w-6" />
+                            <span>Read Now</span>
+                        </motion.button>
+                    )}
+
+                    {/* Button to add favorite */}
                     <motion.button
                         whileTap={{ scale: 0.95 }}
-
                         onClick={() => {
                             if (!loading && !user) {
-                                dispatch(toggleModalAuth(true))
-
+                                dispatch(toggleModalAuth(true));
                             }
-                        }} className='text-lg hover:bg-orange-500 border-orange-400 bg-orange-400 text-slate-800 hover:text-black flex items-center  border-2  text-justify navlinks font-bold py-2 px-4 space-x-2 rounded-2xl'><BookmarkIcon className='w-6' /> Add Favorit</motion.button>
+                        }}
+                        className="text-lg hover:bg-orange-500 border-orange-400 bg-orange-400 text-slate-800 hover:text-black flex items-center justify-center border-2 font-bold py-2 px-4 space-x-2 rounded-xl"
+                    >
+                        <BookmarkIcon className="w-6" />
+                        <span>Add to Favorites</span>
+                    </motion.button>
 
+                    {/* Type button */}
+                    <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
+                        {anilistMedia?.type || 'Unknown Type'}
+                    </motion.button>
 
+                    {/* Status button */}
+                    <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
+                        {anilistMedia?.status || 'Unknown Status'}
+                    </motion.button>
 
-
-
-                    <motion.button className='text-lg cursor-auto  border-slate-800 text-slate-100   bg-slate-800 hover:text-slate-400 flex items-center  border-2  text-justify navlinks font-bold py-2 px-4 space-x-2 rounded-2xl'> {anilistMedia?.type}</motion.button>
-                    <motion.button className='text-lg cursor-auto  border-slate-800  text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center  border-2  text-justify navlinks font-bold py-2 px-4 space-x-2 rounded-2xl'> {anilistMedia?.status}</motion.button>
-                    <motion.button className='text-lg cursor-auto  border-slate-800  text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center  border-2  text-justify navlinks font-bold py-2 px-4 space-x-2 rounded-2xl'> {anilistMedia?.totalEpisodes} Episode</motion.button>
+                    {/* Episodes button with null check */}
+                    <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
+                        {anilistMedia?.nextAiringEpisode?.episode ? `${anilistMedia?.nextAiringEpisode?.episode - 1} Episodes` : 'Episodes Unavailable'}
+                    </motion.button>
 
                 </div>
+
 
                 <div className="flex w-full   md:flex-row flex-col  p-1">
 
@@ -224,8 +271,8 @@ const Page = ({ params }: { params: { id: String } }) => {
                                         title={character.node.name.full}
                                         onMouseLeave={(e) => (e.currentTarget.src = character.node?.image.medium)}
                                         onMouseOver={(e) => {
-                                            if (character.voiceActorRoles[0]) {
-                                                e.currentTarget.src = character.voiceActorRoles[0].voiceActor.image.medium;
+                                            if (character?.voiceActorRoles[0]) {
+                                                e.currentTarget.src = character?.voiceActorRoles[0].voiceActor.image.medium;
                                             }
                                         }}
                                         src={character.node?.image?.medium}
@@ -248,7 +295,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                             <h1 className="text-xl p-3 underline ">Episodes:</h1>
                             <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
 
-                                {(anilistEpisodes.length > 0 || tmdbEpisodes.length > 0) && <Episodes anilistEpisodes={anilistEpisodes} tmdbEps={tmdbEpisodes} />
+                                {<Episodes gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
                                 }
                             </div>
                         </div>}

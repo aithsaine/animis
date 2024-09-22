@@ -11,7 +11,6 @@ axiosRetry(Axios, {
 
 const consumet = Axios.create({
     baseURL: process.env.NEXT_PUBLIC_CONSUMET_API_URI,
-    withCredentials: true,
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

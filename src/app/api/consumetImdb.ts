@@ -50,10 +50,10 @@ export const getMediaInfo = cache(async ({ search, mediaId, type, seachTitle, re
         if (search && seachTitle) {
 
 
-            const searchResults = await searchMedia({ mediaTitle: stringToOnlyAlphabetic(seachTitle) })
+            const searchResults = await searchMedia({ mediaTitle: decodeURIComponent(stringToOnlyAlphabetic(seachTitle) || "") })
             const filteredRes = searchResults.results.find((item) => Number(item.releaseDate) == releaseYear)
-            mediaSearchedId = filteredRes?.id || searchResults[0]?.id
-            mediaSearchedType = filteredRes?.type || searchResults[0]?.type
+            mediaSearchedId = filteredRes?.id || searchResults?.results[0]?.id
+            mediaSearchedType = filteredRes?.type || searchResults?.results[0]?.type
         }
         const { data } = await Axios({
             url: `${process.env.NEXT_PUBLIC_CONSUMET_API_URI}/meta/tmdb/info/${mediaSearchedId || mediaId}?type=${mediaSearchedType || type}`,
