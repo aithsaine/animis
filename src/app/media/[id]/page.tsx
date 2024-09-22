@@ -13,8 +13,10 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import anilist from '@/app/api/anilist'
 import Loading from '@/components/loading'
 import { ApiMediaResults, ImdbMediaInfo } from '@/app/ts/interfaces/imdbInterfaces'
-import getMediaInfo from '@/app/api/consumetImdb'
 import styles from "../../../../public/assets/styles/coverStyle.module.css"
+import { getMediaInfo } from '@/app/api/consumetImdb'
+import { StreamOptions } from 'stream'
+import Episodes from '@/components/Episodes'
 
 
 
@@ -22,21 +24,69 @@ const Page = ({ params }: { params: { id: String } }) => {
     const { loading, user } = useAuth()
     const dispatch = useDispatch()
     const [anilistMedia, setAnilistMedia] = useState<any | null>()
-    const [imdbMediaInfo, setImdbMediaInfo] = useState<ImdbMediaInfo | null>()
+    const [TmdbMediaInfo, setTmdbMediaInfo] = useState<ImdbMediaInfo | null>()
     const [Manga, setManga] = useState()
     const [animeId, setAnimeId] = useState<String | null>(params.id)
     const [currentIndex, setCurrentIndex] = useState(0);
     const [slidesPerView, setSlidesPerView] = useState(4); // Default for large screens
+    const [waitTmdb, setWaitTmdb] = useState(false)
+    const [anilistEpisodes, setAnilistEpisodes] = useState<StreamingEpsiode[]>([])
+    const [tmdbEpisodes, setTmdbEpisodes] = useState<StreamingEpsiode[]>([])
 
+    //  get Media Info from Tmdb api
+    const getTmdbMediaInfo = async (media: any) => {
+        setWaitTmdb(true)
+
+        try {
+            const imdbMediaInfo = await getMediaInfo(
+                {
+                    search: true,
+                    seachTitle: media?.title?.romaji,
+                    releaseYear: media?.startDate?.year,
+                    type: media?.format
+                })
+            setWaitTmdb(false)
+            const episodes: StreamingEpsiode[] = []
+            imdbMediaInfo?.seasons.map((item: any) => item.episodes.map((eps: TmdbEps) => {
+                episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile })
+            }))
+            setTmdbEpisodes(episodes)
+            setTmdbMediaInfo(imdbMediaInfo)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    // change background image tmdb cover >>>>> anilist cover
+    const getBgImage = () => {
+        if (anilistMedia && anilistMedia?.type !== "MANGA" && TmdbMediaInfo) {
+            return TmdbMediaInfo?.cover
+        }
+        return anilistMedia?.bannerImage ? anilistMedia?.bannerImage : anilistMedia?.coverImage?.extraLarge
+    }
+    useEffect(() => {
+        console.log(anilistEpisodes)
+    }, [anilistEpisodes])
 
     useEffect(() => {
 
         const fetchMediaInfo = async () => {
             try {
-                const media: AnilistMediaInfo | null = await anilist.getMediaInfo(animeId); // Await the promise
-                const streamingEps = await anilist.getStreamingEpisodesPaginated(animeId, 1, 6)
-                if (media) {
+                const media: AnilistMediaInfo | null = await anilist.getMediaInfo(animeId);
 
+                if (media) {
+                    if (media.type != "MANGA") {
+                        const episodes: StreamingEpsiode[] = []
+                        media.streamingEpisodes.map((item: {
+                            site: string,
+                            thumbnail: string,
+                            title: string,
+                            url: string
+                        }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "" }))
+                        setAnilistEpisodes(episodes)
+                        getTmdbMediaInfo(media)
+                    }
                     setAnilistMedia(media);
                 }
             } catch (error) {
@@ -48,7 +98,6 @@ const Page = ({ params }: { params: { id: String } }) => {
 
 
     }, [animeId])
-
 
 
 
@@ -82,7 +131,13 @@ const Page = ({ params }: { params: { id: String } }) => {
         anilistMedia && setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? anilistMedia?.relations?.edges.length - 1 : prevIndex - 1
         );
-    };
+    }
+
+    if (waitTmdb) {
+        return <Loading />
+    }
+
+
     if (!anilistMedia) {
         return <Loading />
     }
@@ -93,7 +148,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                     id={styles.banner_background_container}
 
                     style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(${anilistMedia?.bannerImage ? anilistMedia?.bannerImage : anilistMedia?.coverImage?.extraLarge})`,
+                        background: `linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(${getBgImage()})`,
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full m-2 h-[400px]">
                     <div className='flex flex-col w-full h-full justify-end items-center  md:items-end md:flex-row  space-x-2 space-y-3 md:justify-start '>
@@ -179,14 +234,36 @@ const Page = ({ params }: { params: { id: String } }) => {
                                 ))}
                             </div>
 
+
+
+
                         </div>
+
+                        {/* Episodes */}
+
+
+
+                        {anilistMedia.type != "MANGA" && < div className="w-full ">
+
+                            <h1 className="text-xl p-3 underline ">Episodes:</h1>
+                            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
+
+                                {(anilistEpisodes.length > 0 || tmdbEpisodes.length > 0) && <Episodes anilistEpisodes={anilistEpisodes} tmdbEps={tmdbEpisodes} />
+                                }
+                            </div>
+                        </div>}
+
+
+
+
+
 
                     </div>
                     {/*  trailer and more*/}
 
 
                     <div className="md:w-2/6 flex flex-col justify-start  w-full py-3 ">
-                        <div className="flex flex-col justify-start">
+                        <div className="flex flex-col w-full justify-start">
                             <h1 className="text-xl py-3 underline">TRAILER:</h1>
 
                             <iframe width="356" height="200" src={`https://www.youtube.com/embed/${anilistMedia.trailer?.id}`} title="TVアニメ『薫る花は凛と咲く』ファーストPV" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
@@ -223,8 +300,8 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                 </div>
                 {/* Related animes or manga*/}
-                <div className="pt-9">
-                    <div className="w-full flex px-5 items-center  justify-between" >
+                <div className="pt-9 px-6">
+                    <div className="w-full flex px-2 items-start  justify-between " >
                         <h1 className="  text-pretty navlinks text-white text-2xl">Related :</h1>
                         <div className="flex space-x-4">
 
@@ -234,10 +311,10 @@ const Page = ({ params }: { params: { id: String } }) => {
                     </div>
                     <div className="relative w-full bg-slate-950 py-2 h-[400px]  flex items-center justify-center">
 
-                        <div className="flex items-center justify-around w-full  overflow-hidden">
+                        <div className="flex items-start justify-center md:justify-start w-full  overflow-hidden">
                             {anilistMedia?.relations?.nodes.slice(currentIndex, currentIndex + slidesPerView).concat(anilistMedia?.relations?.nodes.slice(0, Math.max(0, currentIndex + slidesPerView - anilistMedia?.relations?.nodes.length))
                             ).map((anime: any, index: number) => (
-                                <AnimeCard anime={{ ...anime, image: anime.coverImage?.extraLarge, title: anime.title?.romaji }} />
+                                <AnimeCard key={index} anime={{ ...anime, image: anime.coverImage?.extraLarge, title: anime.title?.romaji }} />
                             ))}
                         </div>
                     </div>
@@ -250,7 +327,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                         :</h1>
                     <div className='flex justify-around flex-wrap'>
 
-                        {anilistMedia?.recommendations?.edges.map((recommend: any) => <AnimeCard anime={{ ...recommend.node.mediaRecommendation, image: recommend.node?.mediaRecommendation.coverImage.extraLarge, title: recommend.node?.mediaRecommendation.title.romaji }} />)}
+                        {anilistMedia?.recommendations?.edges.map((recommend: any, index: number) => <AnimeCard key={index} anime={{ ...recommend.node.mediaRecommendation, image: recommend.node?.mediaRecommendation.coverImage.extraLarge, title: recommend.node?.mediaRecommendation.title.romaji }} />)}
 
                     </div>
                 </div>

@@ -12,6 +12,14 @@ interface AnilistMediaInfo {
         imageHash: string,
         airDate: null | number
     }[],
+    streamingEpisodes: {
+
+        site: string,
+        thumbnail: string,
+        title: string,
+        url: string
+
+    }[],
     title:
     {
         romaji: string,

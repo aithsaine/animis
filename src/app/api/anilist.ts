@@ -292,7 +292,7 @@ export default {
             });
 
             // Return the media data
-            return data.data.Media;
+            return data.data.Media as AnilistMediaInfo;
 
         } catch (error: any) {
             console.error("Error fetching media info:", error.response?.data || error.message);

@@ -16,6 +16,11 @@ export interface ImdbMediaInfo {
     type: string,
     image: string,
     cover: string,
+    trailer: {
+        id: string,
+        site: string,
+        url: string
+    },
     logos: {
         url: string,
         aspectRatio: number,

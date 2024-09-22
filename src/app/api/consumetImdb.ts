@@ -3,7 +3,6 @@ import { cache } from "react"
 import axiosRetry from "axios-retry"
 import { ImdbMediaInfo, ImdbSearchItem } from "../ts/interfaces/imdbInterfaces"
 import stringToOnlyAlphabetic from "@/lib/converString"
-import consumet from "@/tools/consumet"
 axiosRetry(Axios, {
     retries: 1,
     retryDelay: (retryAttempt) => retryAttempt * 1000,
@@ -11,10 +10,14 @@ axiosRetry(Axios, {
     onRetry: (retryNumber) => console.log(`retry: ${retryNumber} ${retryNumber == 3 ? " - Last Attempt" : ""}`)
 })
 
-export const searchMedia = async ({ mediaTitle }: { mediaTitle: string }) => {
+export const searchMedia = cache(async ({ mediaTitle }: { mediaTitle: string }) => {
 
     try {
-        const { data } = await consumet.get(`meta/tmdb/${mediaTitle}`)
+
+        const { data } = await Axios({
+            url: `${process.env.NEXT_PUBLIC_CONSUMET_API_URI}/meta/tmdb/${mediaTitle}`,
+            method: "GET"
+        })
 
         return data
 
@@ -26,35 +29,46 @@ export const searchMedia = async ({ mediaTitle }: { mediaTitle: string }) => {
         return null
     }
 
-}
-
-const getMediaInfo =
-    async ({ tmdbId, type }: {
-        tmdbId?: string,
-        type?: "TV Series",
-    }) => {
-
-        try {
-            const { data } = await consumet.get(`${process.env.NEXT_PUBLIC_CONSUMET_API_URI}/meta/tmdb/info/${tmdbId}?type=${type}`)
-            return data
+})
 
 
-            // const { data } = await Axios({
-            //     url: `${process.env.NEXT_PUBLIC_CONSUMET_API_URI}/meta/tmdb/info/${mediaSearchedId || mediaId}?type=${mediaSearchedType || type}`,
-            //     method: "GET"
-            // })
+export const getMediaInfo = cache(async ({ search, mediaId, type, seachTitle, releaseYear }: {
+    search: boolean,
+    mediaId?: String,
+    type: "TV Series",
+    seachTitle?: String,
+    releaseYear?: Number
+}) => {
 
-            // return data as ImdbMediaInfo
+    try {
 
+        let mediaSearchedId: number | null = null
+        let mediaSearchedType: string | null = null
+
+
+
+        if (search && seachTitle) {
+
+
+            const searchResults = await searchMedia({ mediaTitle: stringToOnlyAlphabetic(seachTitle) })
+            const filteredRes = searchResults.results.find((item) => Number(item.releaseDate) == releaseYear)
+            mediaSearchedId = filteredRes?.id || searchResults[0]?.id
+            mediaSearchedType = filteredRes?.type || searchResults[0]?.type
         }
-        catch (err) {
+        const { data } = await Axios({
+            url: `${process.env.NEXT_PUBLIC_CONSUMET_API_URI}/meta/tmdb/info/${mediaSearchedId || mediaId}?type=${mediaSearchedType || type}`,
+            method: "GET"
+        })
 
-            console.log(err)
+        return data as ImdbMediaInfo
 
-            return null
+    }
+    catch (err) {
 
-        }
+        console.log(err)
+
+        return null
 
     }
 
-export default getMediaInfo
+})
