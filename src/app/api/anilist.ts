@@ -10,7 +10,7 @@ axiosRetry(Axios, {
     onRetry: (retryNumber) => console.log(`retry: ${retryNumber} ${retryNumber == 3 ? " - Last Attempt" : ""}`)
 })
 // Define the GraphQL query for fetching media by ID
-const mediaByIdQueryRequest = (id: String) =>
+const mediaByIdQueryRequest = (id: string) =>
     `
     query {
         Media(id: ${id})
@@ -273,7 +273,7 @@ const mediaByIdQueryRequest = (id: String) =>
 
 // getMediaInfo method to fetch media data
 export default {
-    getMediaInfo: async (id: String) => {
+    getMediaInfo: async (id: string) => {
         try {
             // Construct the GraphQL query
             const graphqlQuery = {
@@ -295,8 +295,7 @@ export default {
             // Return the media data
             return data.data.Media as AnilistMediaInfo;
 
-        } catch (error: any) {
-            console.error("Error fetching media info:", error.response?.data || error.message);
+        } catch (error) {
             return null;
         }
     },

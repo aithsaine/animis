@@ -1,7 +1,7 @@
 import Axios from "axios"
 import { cache } from "react"
 import axiosRetry from "axios-retry"
-import { ImdbMediaInfo } from "../ts/interfaces/imdbInterfaces"
+import { ImdbMediaInfo, TmdbSearchItem, TmdbSearchResult } from "../ts/interfaces/imdbInterfaces"
 import stringToOnlyAlphabetic from "@/lib/converString"
 axiosRetry(Axios, {
     retries: 1,
@@ -19,7 +19,7 @@ export const searchMedia = cache(async ({ mediaTitle }: { mediaTitle: string }) 
             method: "GET"
         })
 
-        return data
+        return data as TmdbSearchResult
 
     }
     catch (err) {
@@ -34,10 +34,10 @@ export const searchMedia = cache(async ({ mediaTitle }: { mediaTitle: string }) 
 
 export const getMediaInfo = cache(async ({ search, mediaId, type, seachTitle, releaseYear }: {
     search: boolean,
-    mediaId?: String,
+    mediaId?: string,
     type: "TV Series",
-    seachTitle?: String,
-    releaseYear?: Number
+    seachTitle?: string,
+    releaseYear?: number
 }) => {
 
     try {
@@ -51,11 +51,9 @@ export const getMediaInfo = cache(async ({ search, mediaId, type, seachTitle, re
 
 
             const searchResults = await searchMedia({ mediaTitle: encodeURIComponent(stringToOnlyAlphabetic(String(seachTitle))) })
-            const filteredRes = searchResults.results.find((item: any) => Number(item.releaseDate) == releaseYear)
-            console.log(filteredRes)
-            console.log(searchResults)
-            mediaSearchedId = filteredRes?.id || searchResults?.results[0]?.id
-            mediaSearchedType = filteredRes?.type || searchResults?.results[0]?.type
+            const filteredRes = searchResults?.results.find((item: TmdbSearchItem) => Number(item.releaseDate) == releaseYear)
+            mediaSearchedId = filteredRes?.id || searchResults?.results[0]?.id || null
+            mediaSearchedType = filteredRes?.type || searchResults?.results[0]?.type || null
         }
         const { data } = await Axios({
             url: `${process.env.NEXT_PUBLIC_CONSUMET_API_URI}/meta/tmdb/info/${mediaSearchedId || mediaId}?type=${mediaSearchedType || type}`,

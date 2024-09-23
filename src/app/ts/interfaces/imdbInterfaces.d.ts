@@ -8,6 +8,20 @@ export interface ImdbSearchItem {
     releaseDate: string
 
 }
+
+export interface TmdbSearchItem {
+    id: number,
+    title: string,
+    image: string,
+    type: string,
+    rating: number,
+    releaseDate: string
+}
+export interface TmdbSearchResult {
+    currentPage: number,
+    hasNextPage: boolean,
+    results: TmdbSearchItem[]
+}
 export interface ImdbMediaInfo {
 
     rating: number,
