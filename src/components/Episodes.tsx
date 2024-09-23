@@ -5,18 +5,18 @@ type Props = {
     tmdbEps: StreamingEpsiode[]
     anilistEpisodes: StreamingEpsiode[]
     anilistEpsCount: number;
-    gogoAnimeEps: StreamingEpsiode[]
+    gogoAnimeEps: StreamingEpsiode[];
+    episodesCount: number | null
 }
 
-const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps }: Props) => {
+const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps, episodesCount }: Props) => {
     const [epsiodes, setEpisodes] = useState<StreamingEpsiode[]>([])
-
     useEffect(() => {
-        if (tmdbEps.length !== gogoAnimeEps.length && anilistEpisodes?.length === gogoAnimeEps?.length) {
+        if (episodesCount && anilistEpisodes?.length === episodesCount) {
 
             setEpisodes(anilistEpisodes)
         }
-        else if (tmdbEps?.length > 0 && tmdbEps?.length >= anilistEpisodes?.length && tmdbEps.length === gogoAnimeEps?.length) {
+        else if (episodesCount && tmdbEps?.length > 0 && tmdbEps?.length >= episodesCount) {
 
             setEpisodes(tmdbEps)
         }
@@ -25,7 +25,7 @@ const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps }: P
             setEpisodes(gogoAnimeEps)
 
     }, [])
-    return (gogoAnimeEps &&
+    return (epsiodes &&
         <React.Fragment  >
             {epsiodes.map((item: StreamingEpsiode, index: number) => <StreamingEpisode episodeNumber={index + 1} title={item.title} thumbnail={item.thumbnail} key={index} />)}
         </React.Fragment>

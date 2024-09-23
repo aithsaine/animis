@@ -66,10 +66,17 @@ const Page = ({ params }: { params: { id: String } }) => {
                 })
             setWaitTmdb(false)
             const episodes: StreamingEpsiode[] = []
-            imdbMediaInfo?.seasons?.map((item: any) => item.episodes.map((eps: TmdbEps) => {
+            const seasonCurr = imdbMediaInfo?.seasons?.filter((elem: any) => elem?.episodes[0]?.releaseDate == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}`)?.find((item: any) => item.episodes.length == GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ? TmdbMediaInfo?.totalEpisodes : (media?.episodes ?? null)))
+            seasonCurr ? seasonCurr.episodes.map((eps: TmdbEps) => {
                 episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile })
             }
+
+            ) : imdbMediaInfo?.seasons?.map((item: any) => item.episodes.map((eps: TmdbEps) => {
+                episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile })
+            }
+
             ))
+
             setTmdbEpisodes(episodes?.filter((item: StreamingEpsiode) => item.thumbnail != null && item.description !== null))
             setTmdbMediaInfo(imdbMediaInfo)
 
@@ -88,8 +95,8 @@ const Page = ({ params }: { params: { id: String } }) => {
             })
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
-            info?.episodes?.map((item: any) => gogoEps.push({
-                id: "", title: item.id, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge
+            info?.episodes?.map((item: any, index: number) => gogoEps.push({
+                id: "", title: `Episode ${String(index + 1)}`, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge
             }))
             setGogoAnimeEpisodes(gogoEps)
         }
@@ -265,7 +272,7 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                     {/* Episodes button with null check */}
                     <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {GogoAnimeMediaInfo?.totalEpisodes ? `${anilistMedia?.episodes} Episodes` : (TmdbMediaInfo?.totalEpisodes ?? 'Episodes Unavailable')}
+                        {GogoAnimeMediaInfo?.totalEpisodes ? `${GogoAnimeMediaInfo?.totalEpisodes} Episodes` : (TmdbMediaInfo?.totalEpisodes ? TmdbMediaInfo?.totalEpisodes + ' Episodes' : (anilistMedia?.episodes + " Episodes" ?? 'Episodes Unavailable'))}
                     </motion.button>
 
                 </div>
@@ -312,7 +319,6 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                         {anilistMedia.type != "MANGA" && < div className="w-full ">
 
-                            <h1 className="text-xl p-3 underline ">Episodes:</h1>
 
                             <div className="w-full">
                                 {anilistMedia.type != "MANGA" && < div className="'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4' ">
@@ -320,7 +326,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                                     <h1 className="text-xl p-3 underline ">Episodes:</h1>
                                     {anilistMedia?.status !== "NOT_YET_RELEASED" ? <div className='grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-4 gap-4'>
 
-                                        < Episodes gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
+                                        < Episodes gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ? TmdbMediaInfo?.totalEpisodes : (anilistMedia?.episodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
 
 
                                     </div> :
