@@ -6,7 +6,7 @@ import { MediaPlayer, MediaProvider, Track } from '@vidstack/react'
 import { defaultLayoutIcons, DefaultVideoLayout } from '@vidstack/react/player/layouts/default'
 import { CaptionsFileFormat, CaptionsParserFactory } from 'media-captions'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 type SubtitlesType = {
     src: string | undefined,

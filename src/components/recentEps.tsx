@@ -35,6 +35,21 @@ const episodes: EpisodeInfo[] =
       "type": "TV"
     },
     {
+      "id": "173295",
+      "malId": "57810",
+      "title": {
+        "romaji": "Shoushimin Series",
+        "english": "SHOSHIMIN: How to Become Ordinary",
+        "native": "小市民シリーズ"
+      },
+      "image": "https://artworks.thetvdb.com/banners/v4/series/444609/posters/66632fb9ce1eb.jpg",
+      "imageHash": "hash",
+      "episodeId": "/shoushimin-series-episode-10",
+      "episodeTitle": "Episode 10",
+      "episodeNumber": 10,
+      "type": "TV"
+    },
+    {
       "id": "174044",
       "malId": "57947",
       "title": {
@@ -49,34 +64,7 @@ const episodes: EpisodeInfo[] =
       "episodeNumber": 11,
       "type": "TV"
     },
-    {
-      "id": "171031",
-      "title": {
-        "romaji": "Isekai Yururi Kikou: Kosodate Shinagara Boukensha Shimasu",
-        "english": "A Journey Through Another World ~Raising Kids While Adventuring~",
-        "native": "異世界ゆるり紀行 ～子育てしながら冒険者します～"
-      },
-      "image": "https://artworks.thetvdb.com/banners/v4/series/442839/posters/6568300878985.jpg",
-      "imageHash": "hash",
-      "episodeId": "/isekai-yururi-kikou-kosodateshinagara-boukensha-shimasu-episode-12",
-      "episodeTitle": "Episode 12",
-      "episodeNumber": 12,
-      "type": "TV"
-    },
-    {
-      "id": "170891",
-      "title": {
-        "romaji": "Na-Nare Hana-Nare",
-        "english": "Narenare -Cheer for You!-",
-        "native": "菜なれ花なれ"
-      },
-      "image": "https://artworks.thetvdb.com/banners/v4/series/442054/posters/66684428ea8ce.jpg",
-      "imageHash": "hash",
-      "episodeId": "/na-nare-hana-nare-episode-11",
-      "episodeTitle": "Episode 11",
-      "episodeNumber": 11,
-      "type": "TV"
-    },
+
     {
       "id": "174576",
       "malId": "58059",
@@ -92,20 +80,7 @@ const episodes: EpisodeInfo[] =
       "episodeNumber": 10,
       "type": "TV"
     },
-    {
-      "id": "139095",
-      "title": {
-        "romaji": "FAIRY TAIL: 100 YEARS QUEST",
-        "english": "FAIRY TAIL 100 YEARS QUEST",
-        "native": "FAIRY TAIL 100 YEARS QUEST"
-      },
-      "image": "https://media.kitsu.app/anime/45159/poster_image/d5b457ff66829e27cb9da82bc7ce6877.jpg",
-      "imageHash": "hash",
-      "episodeId": "/fairy-tail-100-years-quest-episode-11",
-      "episodeTitle": "Episode 11",
-      "episodeNumber": 11,
-      "type": "TV"
-    },
+
     {
       "id": "158898",
       "malId": "53865",
@@ -121,20 +96,7 @@ const episodes: EpisodeInfo[] =
       "episodeNumber": 24,
       "type": "TV"
     },
-    {
-      "id": "21",
-      "title": {
-        "romaji": "ONE PIECE",
-        "english": "ONE PIECE",
-        "native": "ONE PIECE"
-      },
-      "image": "https://media.kitsu.app/anime/poster_images/12/original.png",
-      "imageHash": "hash",
-      "episodeId": "/one-piece-episode-1119",
-      "episodeTitle": "Episode 1119",
-      "episodeNumber": 1119,
-      "type": "TV"
-    },
+
     {
       "id": "173295",
       "malId": "57810",

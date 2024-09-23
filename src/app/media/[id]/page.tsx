@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { toggleModalAuth } from '@/redux/actions/actionCreator'
 import { useAuth } from '@/hooks/useAuth'
 import { BookmarkIcon, PlayCircleIcon, BookOpenIcon } from '@heroicons/react/24/outline'
-import { animate, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -17,8 +17,6 @@ import styles from "../../../../public/assets/styles/coverStyle.module.css"
 import { getMediaInfo } from '@/app/api/consumetImdb'
 import Episodes from '@/components/Episodes'
 import gogoanime from '@/app/api/gogoanime'
-import Image from 'next/image'
-import notReleasedIcon from "../../../../public/assets/images/ninja.png"
 import dynamic from 'next/dynamic'
 import animationData from "../../../../public/assets/lottiefiles/notavailable.json"; // Ensure this path is correct
 

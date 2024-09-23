@@ -1,7 +1,7 @@
 import Axios from "axios"
 import { cache } from "react"
 import axiosRetry from "axios-retry"
-import { ImdbMediaInfo, ImdbSearchItem } from "../ts/interfaces/imdbInterfaces"
+import { ImdbMediaInfo } from "../ts/interfaces/imdbInterfaces"
 import stringToOnlyAlphabetic from "@/lib/converString"
 axiosRetry(Axios, {
     retries: 1,

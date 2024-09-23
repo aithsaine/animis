@@ -8,7 +8,7 @@ export const useAuth = () => {
 
     useEffect(() => {
         // Listen for authentication state changes
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user: any) => {
             if (user) {
                 setUser(user); // User is signed in
             } else {

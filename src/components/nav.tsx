@@ -5,14 +5,11 @@ import logo from "../../public/assets/images/logo.png"
 import '../../public/assets/styles/nav.css'
 import { BookmarkIcon, MagnifyingGlassIcon, Cog8ToothIcon, EyeIcon, XCircleIcon, ArrowLeftEndOnRectangleIcon, UserIcon } from '@heroicons/react/24/outline'
 import fakeProfileImage from "../../public/assets/images/asta.jpg"
-import settingicon from "../../public/assets/images/settingico.gif"
 import { FaCaretDown } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { signOut, auth } from '../firebase/client'
 import { addAuthenticateUser, toggleModalAuth } from '@/redux/actions/actionCreator'
-import { GrUpdate } from 'react-icons/gr'
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/16/solid'
-import axios from 'axios'
 import Link from 'next/link'
 const Nav = () => {
 
