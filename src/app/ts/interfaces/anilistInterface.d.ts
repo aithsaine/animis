@@ -52,7 +52,9 @@ interface AnilistMediaInfo {
 
     popularity: number,
     color: string,
-    cover: string,
+    coverImage: {
+        extraLarge: string
+    },
     description: string,
     imageHash: string,
 

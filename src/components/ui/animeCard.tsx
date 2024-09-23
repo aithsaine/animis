@@ -12,7 +12,9 @@ const AnimeCard = ({ anime }: {
         status: string,
         type: string,
         episodes: number,
-        releaseDate?: number
+        releaseDate?: number,
+        format?: string,
+        seasonYear?: number
     }
 }) => {
     return (
@@ -47,7 +49,7 @@ const AnimeCard = ({ anime }: {
 
             </motion.div >
             <motion.div className="text-xs ms-2 navlinks">
-                <span >{anime.releaseDate && String(anime.releaseDate) + " | "}{anime.type !== "MANGA" ?? String(anime.episodes) + " Eps |"} {anime.status}</span>
+                <span >{anime.format && String(anime.format)}{anime.seasonYear && " | " + String(anime.seasonYear)}{anime.releaseDate && " | " + String(anime.releaseDate)}{anime.type !== "MANGA" ?? ' | ' + String(anime.episodes) + `  Eps `} {anime.status && ' | ' + anime.status}</span>
             </motion.div>
         </Link>
     );

@@ -12,15 +12,18 @@ const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps }: P
     const [epsiodes, setEpisodes] = useState<StreamingEpsiode[]>([])
 
     useEffect(() => {
-        setEpisodes(gogoAnimeEps)
-        if (tmdbEps?.length > 0 && tmdbEps?.length >= anilistEpisodes?.length) {
-
-            setEpisodes(tmdbEps)
-        }
-        else if (tmdbEps?.length < anilistEpisodes?.length && anilistEpisodes?.length === anilistEpsCount) {
+        if (tmdbEps.length !== gogoAnimeEps.length && anilistEpisodes?.length === gogoAnimeEps?.length) {
 
             setEpisodes(anilistEpisodes)
         }
+        else if (tmdbEps?.length > 0 && tmdbEps?.length >= anilistEpisodes?.length && tmdbEps.length === gogoAnimeEps?.length) {
+
+            setEpisodes(tmdbEps)
+        }
+
+        else
+            setEpisodes(gogoAnimeEps)
+
     }, [])
     return (gogoAnimeEps &&
         <React.Fragment  >

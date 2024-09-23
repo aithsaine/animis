@@ -16,6 +16,7 @@ export interface ImdbMediaInfo {
     type: string,
     image: string,
     cover: string,
+    totalEpisodes: number | null
     trailer: {
         id: string,
         site: string,
