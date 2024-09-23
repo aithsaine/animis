@@ -50,8 +50,8 @@ export const getMediaInfo = cache(async ({ search, mediaId, type, seachTitle, re
         if (search && seachTitle) {
 
 
-            const searchResults = await searchMedia({ mediaTitle: encodeURIComponent(stringToOnlyAlphabetic(seachTitle)) })
-            const filteredRes = searchResults.results.find((item) => Number(item.releaseDate) == releaseYear)
+            const searchResults = await searchMedia({ mediaTitle: encodeURIComponent(stringToOnlyAlphabetic(String(seachTitle))) })
+            const filteredRes = searchResults.results.find((item: any) => Number(item.releaseDate) == releaseYear)
             console.log(filteredRes)
             console.log(searchResults)
             mediaSearchedId = filteredRes?.id || searchResults?.results[0]?.id

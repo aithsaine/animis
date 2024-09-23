@@ -41,7 +41,7 @@ const Page = ({ params }: { params: { id: String } }) => {
     const dispatch = useDispatch()
     const [anilistMedia, setAnilistMedia] = useState<any | null>()
     const [TmdbMediaInfo, setTmdbMediaInfo] = useState<ImdbMediaInfo | null>()
-    const [GogoAnimeMediaInfo, setGogoAnimeMediaInfo] = useState()
+    const [GogoAnimeMediaInfo, setGogoAnimeMediaInfo] = useState<any>()
     const [Manga, setManga] = useState()
     const [animeId, setAnimeId] = useState<String | null>(params.id)
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -195,7 +195,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col  w-full h-full justify-end items-center  md:items-start   space-x-2 space-y-3 md:justify-end '>
-                        {TmdbMediaInfo ? <img className='px-4' width={400} src={TmdbMediaInfo?.logos[0]?.url} alt="" />
+                        {TmdbMediaInfo?.logos[0] ? <img className='px-4' width={400} src={TmdbMediaInfo?.logos[0]?.url} alt="" />
                             :
                             <h1 style={{
                                 color: anilistMedia?.coverImage?.color
