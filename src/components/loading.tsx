@@ -1,12 +1,17 @@
 import React from 'react';
-import loader from "../../public/assets/images/loading.png"
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import animationData from "../../public/assets/lottiefiles/noruto.json"; // Ensure this path is correct
+import loaderIcon from "../../public/assets/lottiefiles/loader.json"; // Ensure this path is correct
+
+const Lottie = dynamic(() => import('lottie-react'), {
+    ssr: false
+});
 
 const Loading = () => {
     return (
-        <div className="bg-slate-950 flex-col flex items-center justify-center h-screen">
-            <Image src={loader} alt='loaidin..' width={150} height={150} />
-            <h1 className="text-white navlinks text-4xl animate-pulse transition-opacity">Loading...</h1>
+        <div className="bg-transparent flex-col flex items-center justify-center h-screen">
+            <Lottie className='w-[200px]' animationData={animationData} width={50} loop={true} autoplay={true} />
+            <Lottie className='w-[150px] h-1' animationData={loaderIcon} width={50} loop={true} autoplay={true} />
         </div>
     );
 };

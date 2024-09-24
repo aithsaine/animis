@@ -22,7 +22,7 @@ export default {
         }
     ) => {
         try {
-            const searchRes = await searchMedia(stringToOnlyAlphabetic(searchTitle))
+            const searchRes = await searchMedia(decodeURIComponent(stringToOnlyAlphabetic(searchTitle)))
             const filteredRes = searchRes?.results.find((item: any) => Number(item.releaseDate) == releasedYear)
             const searchedId = filteredRes?.id || searchRes?.results[0]?.id
 

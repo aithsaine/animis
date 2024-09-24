@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import StreamingEpisode from './ui/streamingEpisode';
+import dynamic from 'next/dynamic';
+import animationData from "../../public/assets/lottiefiles/dragon.json"; // Ensure this path is correct
 
 type StreamingEpisode = {
     title: string;
     thumbnail: string;
 };
+
+const Lottie = dynamic(() => import('lottie-react'), {
+    ssr: false
+});
+
 
 type Props = {
     tmdbEps: StreamingEpisode[];
@@ -58,8 +65,8 @@ const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps, epi
         }
     };
 
-    return (
-        <React.Fragment>
+    return (itemsPerPage.length > 0 ?
+        <div className='flex flex-wrap gap-4'>
             {itemsPerPage.map((item: StreamingEpisode, index: number) => (
                 <StreamingEpisode
                     episodeNumber={(currentPage - 1) * perPage + index + 1}
@@ -71,7 +78,7 @@ const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps, epi
             {/* previous Button */}
             {/* Pagination buttons */}
 
-            <div className="flex justify-center space-x-2 m-4 p-5 w-full">
+            {pages >= 2 && <div className="flex absolute  top-0 justify-center space-x-2 m-4 p-5 w-full">
                 <button
                     onClick={handlePrevious}
                     className={`px-3 py-1  hover:bg-blue-500 hover:text-white bg-gray-300 text-black `}
@@ -108,8 +115,13 @@ const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps, epi
                 >
                     {">"}
                 </button>
-            </div>
-        </React.Fragment>
+            </div>}
+        </div> :
+        <div className="flex bg-white shadow-inner shadow-black items-center h-[200px] justify-center w-full flex-col rounded">
+            <Lottie className='w-[100px]' animationData={animationData} width={50} loop={true} autoplay={true} />
+            <span className='font-bold text-black'>Sorry! Episodes Not Available</span>
+
+        </div>
     );
 };
 

@@ -25,14 +25,7 @@ import animationData from "../../../../public/assets/lottiefiles/notavailable.js
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
 });
-const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-    },
-};
+
 
 
 const Page = ({ params }: { params: { id: String } }) => {
@@ -321,22 +314,23 @@ const Page = ({ params }: { params: { id: String } }) => {
 
 
                             <div className="w-full">
-                                {anilistMedia.type != "MANGA" && < div className="'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4' ">
+                                {anilistMedia.type != "MANGA" &&
+                                    < div className="py-7 relative ">
 
-                                    <h1 className="text-xl p-3 underline ">Episodes:</h1>
-                                    {anilistMedia?.status !== "NOT_YET_RELEASED" ? <div className='grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-4 gap-4'>
+                                        <h1 className="text-xl p-3 underline ">Episodes:</h1>
+                                        {anilistMedia?.status !== "NOT_YET_RELEASED" ?
 
-                                        < Episodes gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
+                                            < Episodes gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
 
 
-                                    </div> :
-                                        <div className="flex bg-white shadow-inner shadow-black items-center h-[200px] justify-center w-full flex-col rounded">
-                                            <Lottie className='w-[100px]' animationData={animationData} width={50} loop={true} autoplay={true} />
-                                            <span className='font-bold text-black'>Sorry! Not Yet Released</span>
+                                            :
+                                            <div className="flex bg-white shadow-inner shadow-black items-center h-[200px] justify-center w-full flex-col rounded">
+                                                <Lottie className='w-[100px]' animationData={animationData} width={50} loop={true} autoplay={true} />
+                                                <span className='font-bold text-black'>Sorry! Not Yet Released</span>
 
-                                        </div>
-                                    }
-                                </div>}
+                                            </div>
+                                        }
+                                    </div>}
                             </div>
                         </div>}
 
