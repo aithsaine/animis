@@ -17,10 +17,9 @@ import styles from "../../../../public/assets/styles/coverStyle.module.css"
 import { getMediaInfo } from '@/app/api/consumetImdb'
 import Episodes from '@/components/Episodes'
 import gogoanime from '@/app/api/gogoanime'
-import Image from 'next/image'
-import notReleasedIcon from "../../../../public/assets/images/ninja.png"
 import dynamic from 'next/dynamic'
 import animationData from "../../../../public/assets/lottiefiles/notavailable.json"; // Ensure this path is correct
+import aniwatch from '@/app/api/aniwatch'
 
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
@@ -38,8 +37,10 @@ const Page = ({ params }: { params: { id: String } }) => {
     const [Manga, setManga] = useState()
     const [animeId, setAnimeId] = useState<String | null>(params.id)
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [aniwatchEpisodes, setAniwatchEpisodes] = useState<StreamingEpsiode[]>([])
     const [slidesPerView, setSlidesPerView] = useState(4); // Default for large screens
     const [waitTmdb, setWaitTmdb] = useState(false)
+    const [waitAnimix, setWaitAnimix] = useState(false)
     const [anilistEpisodes, setAnilistEpisodes] = useState<StreamingEpsiode[]>([])
     const [tmdbEpisodes, setTmdbEpisodes] = useState<StreamingEpsiode[]>([])
     const [gogoanimeEisodes, setGogoAnimeEpisodes] = useState<StreamingEpsiode[]>([])
@@ -119,6 +120,17 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                 if (media) {
                     if (media.type != "MANGA") {
+                        try {
+                            setWaitAnimix(true)
+                            const aniwatchEps: AniwatchEpisode[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji, media?.type)
+                            if (aniwatchEps) {
+                                setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisode) => { return { id: item?.episodeId, title: item?.title, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge } }))
+                            }
+                        } catch (error) {
+
+                        } finally {
+                            setWaitAnimix(false)
+                        }
                         getGogoAnimeMediaInfo(media)
                         const episodes: StreamingEpsiode[] = []
                         media.streamingEpisodes.map((item: {
@@ -176,7 +188,7 @@ const Page = ({ params }: { params: { id: String } }) => {
         );
     }
 
-    if (waitTmdb || waitGogo) {
+    if (waitTmdb || waitGogo || waitAnimix) {
         return <Loading />
     }
 
@@ -320,7 +332,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                                         <h1 className="text-xl p-3 underline ">Episodes:</h1>
                                         {anilistMedia?.status !== "NOT_YET_RELEASED" ?
 
-                                            < Episodes gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
+                                            < Episodes aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
 
 
                                             :

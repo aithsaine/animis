@@ -19,9 +19,10 @@ type Props = {
     anilistEpsCount: number;
     gogoAnimeEps: StreamingEpisode[];
     episodesCount: number | null;
+    aniwatchEps: StreamingEpisode[];
 };
 
-const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps, episodesCount }: Props) => {
+const Episodes = ({ tmdbEps, anilistEpisodes, aniwatchEps, gogoAnimeEps, episodesCount }: Props) => {
     const [episodes, setEpisodes] = useState<StreamingEpisode[]>([]);
     const perPage: number = 8;
     const [pages, setPages] = useState<number>(Math.ceil((episodesCount ?? 0) / perPage));
@@ -36,7 +37,11 @@ const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps, epi
         }
         else if (episodesCount && anilistEpisodes?.length === episodesCount) {
             setEpisodes(anilistEpisodes);
-        } else {
+        }
+        else if (episodesCount && aniwatchEps?.length === episodesCount) {
+            setEpisodes(aniwatchEps)
+        }
+        else {
             setEpisodes(gogoAnimeEps);
         }
     }, [episodesCount, anilistEpisodes, tmdbEps, gogoAnimeEps]);
