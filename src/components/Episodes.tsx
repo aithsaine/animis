@@ -22,11 +22,13 @@ const Episodes = ({ tmdbEps, anilistEpisodes, anilistEpsCount, gogoAnimeEps, epi
     const [itemsPerPage, setItemsPerPage] = useState<StreamingEpisode[]>([]);
 
     useEffect(() => {
+        console.log(tmdbEps)
         // Set the episodes source based on the provided logic
-        if (episodesCount && anilistEpisodes?.length === episodesCount) {
-            setEpisodes(anilistEpisodes);
-        } else if (episodesCount && tmdbEps?.length >= episodesCount) {
+        if (episodesCount && tmdbEps?.length === episodesCount) {
             setEpisodes(tmdbEps);
+        }
+        else if (episodesCount && anilistEpisodes?.length === episodesCount) {
+            setEpisodes(anilistEpisodes);
         } else {
             setEpisodes(gogoAnimeEps);
         }

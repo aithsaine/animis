@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { toggleModalAuth } from '@/redux/actions/actionCreator'
 import { useAuth } from '@/hooks/useAuth'
 import { BookmarkIcon, PlayCircleIcon, BookOpenIcon } from '@heroicons/react/24/outline'
-import { motion } from "framer-motion"
+import { animate, motion } from "framer-motion"
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -17,6 +17,8 @@ import styles from "../../../../public/assets/styles/coverStyle.module.css"
 import { getMediaInfo } from '@/app/api/consumetImdb'
 import Episodes from '@/components/Episodes'
 import gogoanime from '@/app/api/gogoanime'
+import Image from 'next/image'
+import notReleasedIcon from "../../../../public/assets/images/ninja.png"
 import dynamic from 'next/dynamic'
 import animationData from "../../../../public/assets/lottiefiles/notavailable.json"; // Ensure this path is correct
 
@@ -64,7 +66,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                 })
             setWaitTmdb(false)
             const episodes: StreamingEpsiode[] = []
-            const seasonCurr = imdbMediaInfo?.seasons?.filter((elem: any) => elem?.episodes[0]?.releaseDate == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}`)?.find((item: any) => item.episodes.length == GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ? TmdbMediaInfo?.totalEpisodes : (media?.episodes ?? null)))
+            const seasonCurr = imdbMediaInfo?.seasons?.find((elem: any) => (elem?.episodes[0]?.releaseDate) == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}` && elem.episodes.length == media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null)))
             seasonCurr ? seasonCurr.episodes.map((eps: TmdbEps) => {
                 episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile })
             }
@@ -74,7 +76,7 @@ const Page = ({ params }: { params: { id: String } }) => {
             }
 
             ))
-
+            // console.log(imdbMediaInfo?.seasons?.map((elem: any) => ` ${(elem?.episodes[0]?.releaseDate)}== ${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}`))
             setTmdbEpisodes(episodes?.filter((item: StreamingEpsiode) => item.thumbnail != null && item.description !== null))
             setTmdbMediaInfo(imdbMediaInfo)
 
@@ -93,8 +95,8 @@ const Page = ({ params }: { params: { id: String } }) => {
             })
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
-            info?.episodes?.map((item: any, index: number) => gogoEps.push({
-                id: "", title: `Episode ${String(index + 1)}`, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge
+            info?.episodes?.map((item: any) => gogoEps.push({
+                id: "", title: item.id, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge
             }))
             setGogoAnimeEpisodes(gogoEps)
         }
@@ -270,7 +272,7 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                     {/* Episodes button with null check */}
                     <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {GogoAnimeMediaInfo?.totalEpisodes ? `${GogoAnimeMediaInfo?.totalEpisodes} Episodes` : (TmdbMediaInfo?.totalEpisodes ? TmdbMediaInfo?.totalEpisodes + ' Episodes' : (anilistMedia?.episodes + " Episodes" ?? 'Episodes Unavailable'))}
+                        {(anilistMedia?.episodes) + " Episodes" ?? 'Episodes Unavailable'}
                     </motion.button>
 
                 </div>
@@ -324,7 +326,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                                     <h1 className="text-xl p-3 underline ">Episodes:</h1>
                                     {anilistMedia?.status !== "NOT_YET_RELEASED" ? <div className='grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-4 gap-4'>
 
-                                        < Episodes gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ? TmdbMediaInfo?.totalEpisodes : (anilistMedia?.episodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
+                                        < Episodes gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
 
 
                                     </div> :
