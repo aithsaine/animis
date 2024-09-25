@@ -2,7 +2,8 @@ interface StreamingEpsiode {
     id: string,
     title: string,
     thumbnail: string,
-    description: string
+    description: string,
+    provider: string,
 }
 
 

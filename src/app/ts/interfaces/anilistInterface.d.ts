@@ -3,6 +3,7 @@ interface AnilistMediaInfo {
     synonyms: string[],
     coverHash?: string,
     artwork?: any,
+    format: string,
     episodes: {
         id: string,
         title: string,

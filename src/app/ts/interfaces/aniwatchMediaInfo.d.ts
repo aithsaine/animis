@@ -21,7 +21,7 @@ interface AniwatchSearchResult {
     searchQuery: string,
 }
 
-interface AniwatchEpisode {
+interface AniwatchEpisodes {
 
     title: string,
     episodeId: string,

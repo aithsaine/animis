@@ -39,7 +39,6 @@ export const getMediaInfo = cache(async ({ search, mediaId, type, seachTitle, re
     seachTitle?: string,
     releaseYear?: number
 }) => {
-
     try {
 
         let mediaSearchedId: number | null = null
@@ -50,7 +49,9 @@ export const getMediaInfo = cache(async ({ search, mediaId, type, seachTitle, re
         if (search && seachTitle) {
 
 
-            const searchResults = await searchMedia({ mediaTitle: encodeURIComponent(stringToOnlyAlphabetic(String(seachTitle))) })
+            const searchResults = await searchMedia({ mediaTitle: (stringToOnlyAlphabetic(String(seachTitle))) })
+            console.log(searchResults)
+            console.log(releaseYear)
             const filteredRes = searchResults?.results.find((item: TmdbSearchItem) => Number(item.releaseDate) == releaseYear)
             mediaSearchedId = filteredRes?.id || searchResults?.results[0]?.id || null
             mediaSearchedType = filteredRes?.type || searchResults?.results[0]?.type || null

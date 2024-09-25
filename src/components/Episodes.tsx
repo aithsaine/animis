@@ -3,10 +3,7 @@ import StreamingEpisode from './ui/streamingEpisode';
 import dynamic from 'next/dynamic';
 import animationData from "../../public/assets/lottiefiles/dragon.json"; // Ensure this path is correct
 
-type StreamingEpisode = {
-    title: string;
-    thumbnail: string;
-};
+
 
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
@@ -14,20 +11,23 @@ const Lottie = dynamic(() => import('lottie-react'), {
 
 
 type Props = {
-    tmdbEps: StreamingEpisode[];
-    anilistEpisodes: StreamingEpisode[];
+    tmdbEps: StreamingEpsiode[];
+    anilistEpisodes: StreamingEpsiode[];
     anilistEpsCount: number;
-    gogoAnimeEps: StreamingEpisode[];
+    gogoAnimeEps: StreamingEpsiode[];
     episodesCount: number | null;
-    aniwatchEps: StreamingEpisode[];
+    aniwatchEps: StreamingEpsiode[];
+    animeName: string;
+    userPreferredTitle: string;
+    type: string
 };
 
-const Episodes = ({ tmdbEps, anilistEpisodes, aniwatchEps, gogoAnimeEps, episodesCount }: Props) => {
-    const [episodes, setEpisodes] = useState<StreamingEpisode[]>([]);
+const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, episodesCount, animeName, userPreferredTitle }: Props) => {
+    const [episodes, setEpisodes] = useState<StreamingEpsiode[]>([]);
     const perPage: number = 8;
     const [pages, setPages] = useState<number>(Math.ceil((episodesCount ?? 0) / perPage));
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [itemsPerPage, setItemsPerPage] = useState<StreamingEpisode[]>([]);
+    const [itemsPerPage, setItemsPerPage] = useState<StreamingEpsiode[]>([]);
 
     useEffect(() => {
         console.log(tmdbEps)
@@ -72,12 +72,17 @@ const Episodes = ({ tmdbEps, anilistEpisodes, aniwatchEps, gogoAnimeEps, episode
 
     return (itemsPerPage.length > 0 ?
         <div className='flex flex-wrap gap-4'>
-            {itemsPerPage.map((item: StreamingEpisode, index: number) => (
+            {itemsPerPage.map((item: StreamingEpsiode, index: number) => (
                 <StreamingEpisode
+                    type={type}
+                    id={item?.id}
+                    userPreferredTitle={userPreferredTitle}
+                    provider={item?.provider}
                     episodeNumber={(currentPage - 1) * perPage + index + 1}
                     title={item.title}
                     thumbnail={item.thumbnail}
                     key={index}
+                    animeName={animeName}
                 />
             ))}
             {/* previous Button */}

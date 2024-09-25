@@ -1,14 +1,20 @@
 import { PlayCircleIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import React from 'react'
 
 type Props = {
     title: string,
     thumbnail: string,
-    episodeNumber: number
+    episodeNumber: number,
+    animeName: string,
+    id: string,
+    provider: string,
+    userPreferredTitle: string,
+    type: string
 }
-export default function StreamingEpisode({ title, thumbnail, episodeNumber }: Props) {
+export default function StreamingEpisode({ provider, type, userPreferredTitle, id, title, thumbnail, episodeNumber, animeName }: Props) {
     return (
-        <div className="flex group w-[180px] flex-col">
+        <Link href={`/watch?id=${id}&ep=${episodeNumber}&q=${animeName}&provider=${provider}&userPreferredTitle=${userPreferredTitle}&type=${type}`} className="flex group hover:ponter w-[180px] flex-col">
 
             <div
                 style={{
@@ -20,6 +26,6 @@ export default function StreamingEpisode({ title, thumbnail, episodeNumber }: Pr
                 <PlayCircleIcon className='w-14 hidden group-hover:block text-white' />
             </div>
             <p className='navlinks text-sm text-start'>{title}</p>
-        </div>
+        </Link>
     )
 }

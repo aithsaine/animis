@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { toggleModalAuth } from '@/redux/actions/actionCreator'
 import { useAuth } from '@/hooks/useAuth'
 import { BookmarkIcon, PlayCircleIcon, BookOpenIcon } from '@heroicons/react/24/outline'
-import { animate, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -20,7 +20,6 @@ import gogoanime from '@/app/api/gogoanime'
 import dynamic from 'next/dynamic'
 import animationData from "../../../../public/assets/lottiefiles/notavailable.json"; // Ensure this path is correct
 import aniwatch from '@/app/api/aniwatch'
-
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
 });
@@ -62,11 +61,11 @@ const Page = ({ params }: { params: { id: String } }) => {
             const episodes: StreamingEpsiode[] = []
             const seasonCurr = imdbMediaInfo?.seasons?.find((elem: any) => (elem?.episodes[0]?.releaseDate) == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}` && elem.episodes.length == media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null)))
             seasonCurr ? seasonCurr.episodes.map((eps: TmdbEps) => {
-                episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile })
+                episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
             }
 
             ) : imdbMediaInfo?.seasons?.map((item: any) => item.episodes.map((eps: TmdbEps) => {
-                episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile })
+                episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
             }
 
             ))
@@ -90,7 +89,7 @@ const Page = ({ params }: { params: { id: String } }) => {
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
             info?.episodes?.map((item: any) => gogoEps.push({
-                id: "", title: item.id, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge
+                id: item?.id, title: item.id, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge, provider: "gogo"
             }))
             setGogoAnimeEpisodes(gogoEps)
         }
@@ -106,7 +105,7 @@ const Page = ({ params }: { params: { id: String } }) => {
     // change background image tmdb cover >>>>> anilist cover
     const getBgImage = () => {
         if (anilistMedia && anilistMedia?.type !== "MANGA" && TmdbMediaInfo) {
-            return TmdbMediaInfo?.cover
+            return TmdbMediaInfo?.cover ?? anilistMedia?.coverImage?.extraLarge
         }
         return anilistMedia?.bannerImage ? anilistMedia?.bannerImage : anilistMedia?.coverImage?.extraLarge
     }
@@ -122,9 +121,10 @@ const Page = ({ params }: { params: { id: String } }) => {
                     if (media.type != "MANGA") {
                         try {
                             setWaitAnimix(true)
-                            const aniwatchEps: AniwatchEpisode[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji, media?.type)
+                            const aniwatchEps: AniwatchEpisodes[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji ?? media?.title?.english, media?.format, `${media?.startDate?.year}-${media?.startDate?.month}-${media?.startDate?.day}`, media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes)) ?? null)
                             if (aniwatchEps) {
-                                setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisode) => { return { id: item?.episodeId, title: item?.title, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge } }))
+                                console.log(aniwatchEps)
+                                setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisodes, index: number) => { return { id: item?.episodeId, title: item?.title ?? `Episode ${index + 1}`, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge, provider: "aniwatch" } }))
                             }
                         } catch (error) {
 
@@ -138,7 +138,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                             thumbnail: string,
                             title: string,
                             url: string
-                        }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "" }))
+                        }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "", provider: "anilist" }))
                         setAnilistEpisodes(episodes)
                         getTmdbMediaInfo(media)
                     }
@@ -203,7 +203,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                     id={styles.banner_background_container}
 
                     style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(${getBgImage()})`,
+                        background: `linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(${TmdbMediaInfo?.cover || anilistMedia?.coverImage?.extraLarge})`,
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col  w-full h-full justify-end items-center  md:items-start   space-x-2 space-y-3 md:justify-end '>
@@ -332,7 +332,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                                         <h1 className="text-xl p-3 underline ">Episodes:</h1>
                                         {anilistMedia?.status !== "NOT_YET_RELEASED" ?
 
-                                            < Episodes aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
+                                            < Episodes type={anilistMedia?.format} userPreferredTitle={anilistMedia?.title?.userPreferred} animeName={GogoAnimeMediaInfo?.title || anilistMedia?.title?.english} aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
 
 
                                             :
