@@ -1,63 +1,40 @@
-"use client"
-// import styles from "./component.module.css"
-import '@vidstack/react/player/styles/default/theme.css'
-import '@vidstack/react/player/styles/default/layouts/video.css'
-import { MediaPlayer, MediaProvider, Track } from '@vidstack/react'
-import { defaultLayoutIcons, DefaultVideoLayout } from '@vidstack/react/player/layouts/default'
-import { CaptionsFileFormat, CaptionsParserFactory } from 'media-captions'
+"use client"; // Ensure this is at the top for Next.js
 
-import React from 'react'
+import '@vidstack/react/player/styles/default/theme.css';
+import '@vidstack/react/player/styles/default/layouts/video.css';
+import '../../../public/assets/styles/subtitle.css'; // Import your custom styles
+import { MediaPlayer, MediaProvider, Track } from '@vidstack/react';
+import { defaultLayoutIcons, DefaultVideoLayout } from '@vidstack/react/player/layouts/default';
+import React from 'react';
 
 type SubtitlesType = {
-    src: string | undefined,
-    kind: string | TextTrackKind,
-    label: string | undefined,
-    srcLang: string | undefined,
-    type: string | CaptionsParserFactory | undefined,
-    default: boolean | undefined,
+    file: string;
+    label?: string;
+    kind: string;
+    default?: boolean;
+};
+
+interface VideoPlayerProps {
+    subtitles: SubtitlesType[];
+    videoSrc: string;
 }
 
-
-
-
-
-
-const VideoPlayer = ({ subtitles, videoSrc }: any) => {
-
-
-
-
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ subtitles, videoSrc }) => {
     return (
-
-
         <MediaPlayer
             playsInline
             autoPlay
             src={videoSrc}
-        // className={styles.container}
-        // title={`Ep. ${episodeInfo.episodeNumber} - ${mediaInfo.title.userPreferred}`}
         >
-
-            {/* <SkipIntroOrOutroButton
-                callFunction={() => skipEpisodeIntroOrOutro()}
-                isActive={timeskipLimit != null}
-                isAnimationActive={enableAutoSkipIntroAndOutro}
-            /> */}
-
-            {/* <NextEpisodeButton
-                callFunction={() => handlePlayNextEpisode()}
-                isActive={(nextEpisodeInfo && showActionButtons) ? true : false}
-            /> */}
-
             <MediaProvider>
-                {subtitles?.map((subtitle: SubtitlesType) => (
+                {subtitles?.map((subtitle) => (
                     <Track
-                        key={subtitle.src}
-                        src={subtitle.src}
-                        kind={subtitle.kind as TextTrackKind}
+                        key={subtitle.file}
+                        src={subtitle.file}
+                        kind={subtitle.kind as any}
                         label={subtitle.label}
-                        lang={subtitle.srcLang}
-                        type={subtitle.kind as CaptionsFileFormat}
+                        lang={subtitle.label ? subtitle.label.toLowerCase() : undefined}
+                        type="text/vtt"
                         default={subtitle.default}
                     />
                 ))}
@@ -65,11 +42,8 @@ const VideoPlayer = ({ subtitles, videoSrc }: any) => {
 
             <DefaultVideoLayout
                 icons={defaultLayoutIcons}
-            // thumbnails={mediaInfo.bannerImage || undefined}
             />
-
-        </MediaPlayer >
-
+        </MediaPlayer>
     );
 };
 

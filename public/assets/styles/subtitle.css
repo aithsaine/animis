@@ -1,0 +1,18 @@
+/* customStyles.css */
+
+/* Change the subtitle background to transparent */
+.vds-text-track {
+    background-color: transparent !important; /* Make background transparent */
+}
+
+/* Change font properties */
+.vds-text-track {
+    font-family: 'Arial', sans-serif; /* Change font family */
+    font-size: 16px; /* Adjust font size */
+    color: white; /* Change text color */
+}
+
+/* If needed, you can add other styles, like padding */
+.vds-text-track span {
+    padding: 4px; /* Adjust padding if needed */
+}

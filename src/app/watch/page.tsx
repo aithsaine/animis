@@ -24,7 +24,7 @@ function Watch() {
             if (info) {
                 setzoroInfo(info?.info)
                 setEpisodes(info?.episodes)
-                const episode = await aniwatch.getStreamingEpisodeLinks({ episodeId: info?.episodes[Number(ep)]?.episodeId })
+                const episode = await aniwatch.getStreamingEpisodeLinks({ episodeId: info?.episodes[Number(ep) - 1]?.episodeId })
 
                 setCurrEpisode(episode)
             }
@@ -54,7 +54,7 @@ function Watch() {
                     <div className='w-full md:w-2/3 my-2  rounded md:h-[460px] h-[400px] '>
                         <VideoPlayer
                             videoSrc={currEpisode?.sources[0].url}
-                            tracks={currEpisode?.tracks}
+                            subtitles={currEpisode?.tracks}
                             intro={currEpisode?.intro}
                             outro={currEpisode?.outro}
                         />                    </div>
