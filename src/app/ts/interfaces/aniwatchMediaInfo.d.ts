@@ -29,3 +29,32 @@ interface AniwatchEpisodes {
     isFiller: boolean
 
 }
+
+
+interface AniwatchEpisodeLinks {
+    tracks:
+    {
+        file: string,
+        label?: string,
+        kind: string,
+        default?: true
+    }[]
+
+    ,
+    intro: {
+        start: number,
+        end: number
+    },
+    outro: {
+        start: number,
+        end: number
+    },
+    sources:
+    {
+        url: string,
+        type: string
+    }[]
+    ,
+    anilistID: number,
+    malID: number
+}

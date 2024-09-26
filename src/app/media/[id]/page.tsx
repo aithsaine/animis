@@ -121,7 +121,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                     if (media.type != "MANGA") {
                         try {
                             setWaitAnimix(true)
-                            const aniwatchEps: AniwatchEpisodes[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji ?? media?.title?.english, media?.format, `${media?.startDate?.year}-${media?.startDate?.month}-${media?.startDate?.day}`, media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes)) ?? null)
+                            const aniwatchEps: AniwatchEpisodes[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji ?? media?.title?.english, media?.title?.userPreferred, media?.format)
                             if (aniwatchEps) {
                                 console.log(aniwatchEps)
                                 setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisodes, index: number) => { return { id: item?.episodeId, title: item?.title ?? `Episode ${index + 1}`, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge, provider: "aniwatch" } }))
@@ -203,7 +203,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                     id={styles.banner_background_container}
 
                     style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(${TmdbMediaInfo?.cover || anilistMedia?.coverImage?.extraLarge})`,
+                        background: `linear - gradient(rgba(0, 0, 0, 0.05), var(--background) 100 %), url(${TmdbMediaInfo?.cover || anilistMedia?.coverImage?.extraLarge})`,
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col  w-full h-full justify-end items-center  md:items-start   space-x-2 space-y-3 md:justify-end '>
@@ -362,7 +362,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                             <iframe className='md:h-[200px] h-full' src={`https://www.youtube.com/embed/${anilistMedia.trailer?.id ?? TmdbMediaInfo?.trailer?.id}`} title="TVアニメ『薫る花は凛と咲く』ファーストPV" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                             <hr className="py-2" />
 
-                        </div>
+                        </div >
                         <div className="py-3">
                             <h1 className="text-xl py-3 underline">RAITING :</h1>
                             <Box sx={{ width: 200, display: 'flex', alignItems: 'center' }}>
@@ -378,12 +378,14 @@ const Page = ({ params }: { params: { id: String } }) => {
                             <hr className="py-2" />
 
                         </div>
-                        {anilistMedia?.startDate && <div className="flex flex-col w-full justify-start">
-                            <h1 className="text-xl py-3 underline">STARTED AT:</h1>
-                            <p>{anilistMedia?.startDate?.day}-{anilistMedia?.startDate?.month}-{anilistMedia?.startDate?.year}</p>
-                            <hr className="py-2" />
+                        {
+                            anilistMedia?.startDate && <div className="flex flex-col w-full justify-start">
+                                <h1 className="text-xl py-3 underline">STARTED AT:</h1>
+                                <p>{anilistMedia?.startDate?.day}-{anilistMedia?.startDate?.month}-{anilistMedia?.startDate?.year}</p>
+                                <hr className="py-2" />
 
-                        </div>}
+                            </div>
+                        }
 
                         <div className="flex flex-col py-3 ">
                             <h1 className="text-xl py-2  underline">STUDIOS :</h1>
@@ -393,13 +395,13 @@ const Page = ({ params }: { params: { id: String } }) => {
                             <hr className="py-2" />
 
                         </div>
-                    </div>
+                    </div >
 
 
 
-                </div>
+                </div >
                 {/* Related animes or manga*/}
-                <div className="pt-9 px-6">
+                < div className="pt-9 px-6" >
                     <div className="w-full flex px-2 items-start  justify-between " >
                         <h1 className="  text-pretty navlinks text-white text-2xl">Related :</h1>
                         <div className="flex space-x-4">
@@ -417,10 +419,10 @@ const Page = ({ params }: { params: { id: String } }) => {
                             ))}
                         </div>
                     </div>
-                </div>
+                </div >
 
                 {/* Recommended animes or manga*/}
-                <div className="flex flex-col p-3 ">
+                < div className="flex flex-col p-3 " >
 
                     <h1 className="text-xl p-2  underline">SIMILAR ANIMES YOU MAY LIKE
                         :</h1>
@@ -429,7 +431,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                         {anilistMedia?.recommendations?.edges.map((recommend: any, index: number) => <AnimeCard key={index} anime={{ ...recommend?.node?.mediaRecommendation, image: recommend?.node?.mediaRecommendation?.coverImage?.extraLarge, title: recommend?.node?.mediaRecommendation?.title?.romaji }} />)}
 
                     </div>
-                </div>
+                </div >
             </div >
         </>
 

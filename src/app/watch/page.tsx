@@ -1,9 +1,10 @@
 'use client'
-import zoro from '@/app/api/zoro'
 import Loading from '@/components/loading'
+import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-
+import aniwatch from '../api/aniwatch'
+import VideoPlayer from '@/components/ui/videoPlayer'
 function Watch() {
     const searchParams = useSearchParams()
     const id = searchParams.get("id")
@@ -13,12 +14,20 @@ function Watch() {
     const userPreferredTitle = searchParams.get("userPreferredTitle") || ""
     const type = searchParams.get("type") || ""
     const [zoroInfo, setzoroInfo] = useState<ZeroAnimeInfo | null>(null)
+    const [episodes, setEpisodes] = useState([])
     const [waitZoro, setWaitZero] = useState(false)
+    const [currEpisode, setCurrEpisode] = useState<AniwatchEpisodeLinks | null>(null)
     const getZoroEpisodes = async () => {
         setWaitZero(true)
         try {
-            const info = await zoro?.getZoroEpisodesWithInfo({ searchTitle: title, type, userPreferredTitle, episodes: 0 })
-            info && setzoroInfo(info)
+            const info = await aniwatch.getZoroEpisodesWithInfo({ searchTitle: title, type, userPreferredTitle, episodes: 0 })
+            if (info) {
+                setzoroInfo(info?.info)
+                setEpisodes(info?.episodes)
+                const episode = await aniwatch.getStreamingEpisodeLinks({ episodeId: info?.episodes[Number(ep)]?.episodeId })
+
+                setCurrEpisode(episode)
+            }
         } catch (e) {
             return null
 
@@ -34,21 +43,29 @@ function Watch() {
     }
 
     return (
-        zoroInfo && (
-            <div className='flex flex-col px-2 md:flex-row space-x-2 space-y-2 w-full pt-20 min-h-screen'>
-
-                {/* <div>wecome To Anime {ep}</div>
+        episodes && currEpisode && (
+            <div className='flex flex-col w-full pt-20 min-h-screen'>
+                <h1 className='text-4xl font-bold  m-2'>{title}</h1>
+                <div className='flex flex-col px-2 md:flex-row space-x-2 space-y-2 w-full '>
+                    {/* <div>wecome To Anime {ep}</div>
             <div>title {title}</div>
             <div>preferTitle {userPreferredTitle}</div>
             <div>id {id}</div> */}
-                <div className='w-full md:w-2/3  rounded md:h-[360px] h-[200px] bg-gray-700'></div>
-                <div className='w-full md:w-1/3 flex flex-col scrollbar-hide overflow-y-scroll md:h-[360px] h-[200px]' >
-                    {
-                        zoroInfo?.episodes?.map((item: ZeroEpisode, index: number) => <div className='text-white relative border-2 p-2 my-1  text-start navlinks font-thin rounded border-fuchsia-500 hover:bg-fuchsia-500' key={index + 21}>{item?.title}
+                    <div className='w-full md:w-2/3 my-2  rounded md:h-[460px] h-[400px] '>
+                        <VideoPlayer
+                            videoSrc={currEpisode?.sources[0].url}
+                            tracks={currEpisode?.tracks}
+                            intro={currEpisode?.intro}
+                            outro={currEpisode?.outro}
+                        />                    </div>
+                    <div className='w-full md:w-1/3 flex flex-col scrollbar-hide overflow-y-scroll md:h-[460px] h-[400px]' >
+                        {
+                            episodes && episodes?.map((item: ZeroEpisode, index: number) => <Link href={'#'} className={`group text-white relative border-2 p-2 my-1  text-start navlinks font-thin rounded ${(Number(ep) == item?.number) ? "bg-fuchsia-950" : "border-slate-700"}  hover:bg-fuchsia-500`} key={index + 21}>{"Episode " + item?.number + ": " + item?.title}
+                                {item?.isFiller ? <span className='rounded p-1 inline-block group-hover:hidden bg-slate-600 ms-2 text-xs font-bold'>filler</span> : ""}
+                            </Link>)
 
-                        </div>)
-
-                    }
+                        }
+                    </div>
                 </div>
             </div>)
     )

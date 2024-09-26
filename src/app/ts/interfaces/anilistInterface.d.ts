@@ -25,7 +25,8 @@ interface AnilistMediaInfo {
     {
         romaji: string,
         english: string,
-        native: string
+        native: string,
+        userPreferred: string
     },
     nextAiringEpisode?: {
         airingTime: number,
