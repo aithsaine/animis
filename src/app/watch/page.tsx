@@ -44,7 +44,8 @@ function Watch() {
 
     return (
         episodes && currEpisode && (
-            <div className='flex flex-col w-full pt-20 min-h-screen'>
+            <div className='flex flex-col w-full pt-16  min-h-screen'>
+                <hr />
                 <h1 className='text-4xl font-bold  m-2'>{title}</h1>
                 <div className='flex flex-col px-2 md:flex-row space-x-2 space-y-2 w-full '>
                     {/* <div>wecome To Anime {ep}</div>

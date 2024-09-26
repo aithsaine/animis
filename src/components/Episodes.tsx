@@ -31,13 +31,19 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
 
     useEffect(() => {
         console.log(tmdbEps)
-        // Set the episodes source based on the provided logic
-        if (episodesCount && tmdbEps?.length === episodesCount) {
-            setEpisodes(tmdbEps);
-        }
-        else if (episodesCount && anilistEpisodes?.length === episodesCount) {
+        if (episodesCount && anilistEpisodes?.length === episodesCount) {
             setEpisodes(anilistEpisodes);
         }
+        else if (episodesCount && tmdbEps?.length === episodesCount) {
+            if (episodesCount && aniwatchEps?.length === episodesCount) {
+
+                setEpisodes(tmdbEps?.map((item: StreamingEpsiode, index: number) => { return { ...item, title: anilistEpisodes[index]?.title } }));
+            } else {
+                setEpisodes(tmdbEps)
+
+            }
+        }
+
         else if (episodesCount && aniwatchEps?.length === episodesCount) {
             setEpisodes(aniwatchEps)
         }

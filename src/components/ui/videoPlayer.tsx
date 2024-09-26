@@ -17,9 +17,17 @@ type SubtitlesType = {
 interface VideoPlayerProps {
     subtitles: SubtitlesType[];
     videoSrc: string;
+    intro: {
+        start: number,
+        end: number
+    },
+    outro: {
+        start: number,
+        end: number
+    },
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ subtitles, videoSrc }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ subtitles, videoSrc, intro, outro }) => {
     return (
         <MediaPlayer
             playsInline
@@ -29,13 +37,15 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ subtitles, videoSrc }) => {
             <MediaProvider>
                 {subtitles?.map((subtitle) => (
                     <Track
+
                         key={subtitle.file}
                         src={subtitle.file}
                         kind={subtitle.kind as any}
                         label={subtitle.label}
                         lang={subtitle.label ? subtitle.label.toLowerCase() : undefined}
-                        type="text/vtt"
+                        type="vtt"
                         default={subtitle.default}
+
                     />
                 ))}
             </MediaProvider>

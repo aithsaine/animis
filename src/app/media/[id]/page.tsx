@@ -104,10 +104,10 @@ const Page = ({ params }: { params: { id: String } }) => {
 
     // change background image tmdb cover >>>>> anilist cover
     const getBgImage = () => {
-        if (anilistMedia && anilistMedia?.type !== "MANGA" && TmdbMediaInfo) {
-            return TmdbMediaInfo?.cover ?? anilistMedia?.coverImage?.extraLarge
+        if (TmdbMediaInfo?.cover) {
+            return TmdbMediaInfo?.cover
         }
-        return anilistMedia?.bannerImage ? anilistMedia?.bannerImage : anilistMedia?.coverImage?.extraLarge
+        return anilistMedia?.coverImage?.extraLarge
     }
 
 
@@ -203,7 +203,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                     id={styles.banner_background_container}
 
                     style={{
-                        background: `linear - gradient(rgba(0, 0, 0, 0.05), var(--background) 100 %), url(${TmdbMediaInfo?.cover || anilistMedia?.coverImage?.extraLarge})`,
+                        background: `linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(${getBgImage()})`,
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col  w-full h-full justify-end items-center  md:items-start   space-x-2 space-y-3 md:justify-end '>

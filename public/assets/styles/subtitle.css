@@ -1,18 +1,25 @@
-/* customStyles.css */
+/* public/assets/styles/subtitle.css */
 
-/* Change the subtitle background to transparent */
+/* Style the subtitles to have a Crunchyroll-like appearance */
 .vds-text-track {
-    background-color: transparent !important; /* Make background transparent */
+    background-color: rgba(187, 181, 181, 0.5) !important; /* Slightly opaque black background */
+    padding: 2px 4px; /* Add some padding for readability */
+    border-radius: 4px; /* Rounded corners */
+    font-family: 'Arial', sans-serif; /* Change font to Arial or another clean font */
+    font-size: 18px; /* Adjust the font size to be readable */
+    line-height: 1.4; /* Adjust line height for better readability */
+    color: red; /* White text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a subtle text shadow for readability */
+    max-width: 90%; /* Prevent text from stretching too far */
+    margin: 0 auto; /* Center the text */
+    text-align: center; /* Center align the text */
 }
 
-/* Change font properties */
-.vds-text-track {
-    font-family: 'Arial', sans-serif; /* Change font family */
-    font-size: 16px; /* Adjust font size */
-    color: white; /* Change text color */
-}
-
-/* If needed, you can add other styles, like padding */
-.vds-text-track span {
-    padding: 4px; /* Adjust padding if needed */
+/* Optional: Style the container of the subtitle for spacing */
+.vds-text-track-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px; /* Position the subtitle near the bottom of the video */
+    width: 100%;
 }
