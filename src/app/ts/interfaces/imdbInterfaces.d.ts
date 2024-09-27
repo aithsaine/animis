@@ -23,25 +23,33 @@ export interface TmdbSearchResult {
     results: TmdbSearchItem[]
 }
 export interface ImdbMediaInfo {
+    media: {
 
-    rating: number,
-    id: string,
-    title: string,
-    type: string,
-    image: string,
-    cover: string,
-    totalEpisodes: number | null,
-    releaseDate: string
-    trailer: {
+        rating: number,
         id: string,
-        site: string,
-        url: string
+        title: { romaji: string },
+        type: string,
+        startDate: {
+            year: number
+        },
+        seasons: { episodes: { title: string }[] }[]
+        image: string,
+        cover: string,
+        totalEpisodes: number | null,
+        releaseDate: string
+        trailer: {
+            id: string,
+            site: string,
+            url: string
+        },
+        logos: {
+            url: string,
+            aspectRatio: number,
+            width: number
+        }[],
+
+
     },
-    logos: {
-        url: string,
-        aspectRatio: number,
-        width: number
-    }[],
     seasons: {
         season: number,
         image: {
@@ -50,7 +58,12 @@ export interface ImdbMediaInfo {
         },
         episodes: ImdbEpisode[]
     }[],
-
+    totalEpisodes: number,
+    cover: string,
+    logos: { url: string }[],
+    trailer: {
+        id: string
+    }
 }
 
 export interface ImdbEpisode {

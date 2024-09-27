@@ -1,5 +1,3 @@
-import Fuse from 'fuse.js';
-import consumet from "@/tools/consumet"
 import aniwatch from '@/tools/aniwatch';
 
 

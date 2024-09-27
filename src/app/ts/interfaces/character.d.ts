@@ -25,7 +25,7 @@ interface Character {
                 first: string,
                 last: string | null,
                 full: string,
-                native: 長谷川育美,
+                native: string,
                 userPreferred: string
             },
             image: {

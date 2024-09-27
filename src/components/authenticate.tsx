@@ -7,6 +7,8 @@ import { toast } from "sonner";
 import { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "@/firebase/client";
 import { useDispatch, useSelector } from "react-redux";
 import { addAuthenticateUser, updateActionStatus } from "@/redux/actions/actionCreator";
+import { StatesType } from "@/redux/reducers/mainReducer";
+import { FirebaseError } from "firebase/app";
 const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
@@ -51,8 +53,8 @@ const containerVariant = {
     exit: { y: "-50%" },
 };
 
-const Modal = ({ handleClose, isOpen }: any) => {
-    const { action }: any = useSelector((state) => state)
+const Modal = ({ handleClose, isOpen }: { isOpen: boolean, handleClose: CallableFunction }) => {
+    const { action } = useSelector((state: StatesType) => state)
     const dispatch = useDispatch()
     const [registerForm, setRegisterForm] = useState({
         name: '',
@@ -61,8 +63,7 @@ const Modal = ({ handleClose, isOpen }: any) => {
         password_confirmation: ""
     })
 
-    const signup = async (e: any) => {
-        e.preventDefault();
+    const signup = async () => {
         try {
             if (!registerForm.name || !registerForm.email || !registerForm.password || !registerForm.password_confirmation) {
                 return toast.error("fill all demanded informations")
@@ -79,11 +80,14 @@ const Modal = ({ handleClose, isOpen }: any) => {
 
 
 
-        } catch (error: any) {
-            if (error.code == "auth/email-already-in-use") {
-                return toast.error("email already in use")
+        } catch (error) {
+            if (error instanceof FirebaseError) {
+
+                if (error?.code == "auth/email-already-in-use") {
+                    return toast.error("email already in use")
+                }
+                return toast.error("internal server error ")
             }
-            return toast.error("internal server error ")
         }
     }
     const [loginForm, setLoginForm] = useState({
@@ -91,18 +95,18 @@ const Modal = ({ handleClose, isOpen }: any) => {
         password: "",
     })
 
-    const signin = async (e: any) => {
+    const signin = async () => {
         try {
             const userCredentials = await signInWithEmailAndPassword(auth, loginForm.email, loginForm.password)
             dispatch(addAuthenticateUser(userCredentials.user))
             handleClose()
             return toast.success("logged in successfully")
 
-        } catch (error: any) {
-            console.log(error.code)
-            if (error.code == "auth/invalid-credential")
-                return toast.error("invalid email or password")
-
+        } catch (error) {
+            if (error instanceof FirebaseError) {
+                if (error?.code == "auth/invalid-credential")
+                    return toast.error("invalid email or password")
+            }
         }
     }
 
@@ -117,7 +121,7 @@ const Modal = ({ handleClose, isOpen }: any) => {
                 >
                     <ModalContainer variants={containerVariant}>
                         <CloseButton
-                            onClick={handleClose}
+                            onClick={() => handleClose()}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20.39 20.39"
                         >
@@ -199,7 +203,7 @@ const Modal = ({ handleClose, isOpen }: any) => {
 
                                 <button onClick={() => dispatch(updateActionStatus("signup"))} className="block mt-4 text-sm font-semibold text-center text-blue-400 hover:underline">
 
-                                    Don’t have an account? Sign Up
+                                    Don&lsquo;t have an account? Sign Up
                                 </button>
                             </>
                         ) :

@@ -587,9 +587,9 @@ const CustomCarousel = () => {
             <div className="relative w-full bg-slate-950 py-2 h-[400px]  flex items-center justify-center">
 
                 <div className="flex items-center justify-around w-full  overflow-hidden">
-                    {visibleAnimes.map((anime, index) => (
+                    {visibleAnimes.map((anime, index: number) => (
 
-                        <AnimeCard anime={{ ...anime, status: "", title: anime.title }} />
+                        <AnimeCard key={index} anime={{ ...anime, status: "", title: anime.title }} />
                     ))}
                 </div>
 

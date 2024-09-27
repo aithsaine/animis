@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation, A11y } from 'swiper/modules';
+import { Pagination, Navigation, A11y } from 'swiper/modules';
 import { BookmarkIcon, PlayCircleIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '@/hooks/useAuth';
 import { useDispatch } from 'react-redux';
@@ -16,15 +16,11 @@ const Caroussel = () => {
     const { user, loading } = useAuth()
     const dispatch = useDispatch()
 
-    const progressCircle: any = useRef(null);
-    const progressContent: any = useRef(null);
-    const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
-        progressCircle.current.style.setProperty('--progress', 1 - progress);
-        progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-    };
+
+
     return (
         <div className="flex justify-center items-center h-screen ">
-            <Swiper
+            {(<Swiper
                 spaceBetween={10}
                 centeredSlides={false}
                 autoplay={{
@@ -36,7 +32,6 @@ const Caroussel = () => {
                 }}
                 navigation={true}
                 modules={[Navigation, Pagination, A11y]}
-                onAutoplayTimeLeft={onAutoplayTimeLeft}
 
                 className="mySwiper w-full h-[500px]  rounded-lg shadow-lg relative"
             >
@@ -152,12 +147,8 @@ const Caroussel = () => {
                     </div>
                 </SwiperSlide>
 
-                <div className="autoplay-progress absolute bottom-4 right-4 flex items-center space-x-2">
-                    <svg viewBox="0 0 48 48" ref={progressCircle} className="w-8 h-8">
-                    </svg>
-                    <span ref={progressContent} className="text-fuchsia-900 text navlinks"></span>
-                </div>
-            </Swiper>
+
+            </Swiper>)}
         </div >
     );
 };

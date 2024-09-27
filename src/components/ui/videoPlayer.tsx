@@ -27,7 +27,7 @@ interface VideoPlayerProps {
     },
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ subtitles, videoSrc, intro, outro }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ subtitles, videoSrc }) => {
     return (
         <MediaPlayer
             playsInline
@@ -40,7 +40,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ subtitles, videoSrc, intro, o
 
                         key={subtitle.file}
                         src={subtitle.file}
-                        kind={subtitle.kind as any}
+                        kind={subtitle.kind as TextTrackKind}
                         label={subtitle.label}
                         lang={subtitle.label ? subtitle.label.toLowerCase() : undefined}
                         type="vtt"

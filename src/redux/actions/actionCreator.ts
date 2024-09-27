@@ -1,6 +1,7 @@
 import { ADDAUTHENTICATEUSER, TOGGLEMODALAUTH, UPDATEACTIONSTATUS } from "./types"
+import { User } from "firebase/auth"
 
-export const addAuthenticateUser = (user: any) => {
+export const addAuthenticateUser = (user: User | null) => {
     return {
         type: ADDAUTHENTICATEUSER,
         payload: user

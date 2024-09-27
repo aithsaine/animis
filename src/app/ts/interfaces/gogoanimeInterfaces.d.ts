@@ -11,3 +11,9 @@ interface GogoAnimeSearch {
         subOrDub: string
     }[],
 }
+
+interface GogoAnimeInfo {
+    totalEpisodes: number,
+    title: string,
+    episodes: { id: string }[]
+}

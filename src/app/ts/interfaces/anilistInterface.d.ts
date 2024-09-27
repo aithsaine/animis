@@ -2,17 +2,9 @@ interface AnilistMediaInfo {
     id: string,
     synonyms: string[],
     coverHash?: string,
-    artwork?: any,
     format: string,
-    episodes: {
-        id: string,
-        title: string,
-        description: null | string,
-        number: number,
-        image: string,
-        imageHash: string,
-        airDate: null | number
-    }[],
+    episodes: number,
+    averageScore: number,
     streamingEpisodes: {
 
         site: string,
@@ -55,12 +47,13 @@ interface AnilistMediaInfo {
     popularity: number,
     color: string,
     coverImage: {
-        extraLarge: string
+        extraLarge: string,
+        color: string
     },
     description: string,
     imageHash: string,
 
-    status: String,
+    status: string,
     releaseDate: number,
     startDate: {
         year: number,
@@ -75,29 +68,68 @@ interface AnilistMediaInfo {
     rating: number
     genres: string[],
     season: string,
-    studios: string[],
-    type: string,
-    recommendations: SimpleAnimeInfo[],
-    characters: Character[],
-    relations: {
-        id: number,
-        relationType: string,
-        malId: number,
-        title: {
-            romaji: null | string,
-            english: null | string,
-            native: null | string,
-            userPreferred: null | string
-        },
-        imageHash?: string,
-        coverHash?: string,
+    studios: {
+        edges: {
+            node: {
+                name: string
 
-        status: string,
-        episodes: number,
-        image: string,
-        color: string,
-        type: string,
-        cover: string,
-        rating: number,
-    }[],
+            },
+        }[]
+    },
+    type: string,
+    recommendations: { edges: RecommendItem[] },
+    characters: { edges: Character[] },
+    relations: {
+        nodes: {
+            id: string, description: string, coverImage: { extraLarge: string }, title: { romaji: string },
+        }[],
+        edges: {
+            id: number,
+            relationType: string,
+            malId: number,
+            title: {
+                romaji: null | string,
+                english: null | string,
+                native: null | string,
+                userPreferred: null | string
+            },
+            imageHash?: string,
+            coverHash?: string,
+
+            status: string,
+            episodes: number,
+            image: string,
+            color: string,
+            type: string,
+            cover: string,
+            rating: number,
+        }[],
+    }
+}
+
+interface RecommendItem {
+    node: {
+        mediaRecommendation: {
+            coverImage: { extraLarge: string },
+            title: {
+                romaji: string
+            }
+        }
+
+    }
+}
+interface RelatedItem {
+    id: string
+    coverImage: { extraLarge: string },
+    title: {
+        romaji: string
+    }, image?: string,
+    description: string | null,
+    status?: string,
+    type?: string,
+    episodes?: number,
+    releaseDate?: number,
+    format?: string,
+    seasonYear?: number
+
 }

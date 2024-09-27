@@ -1,4 +1,5 @@
 interface SimpleAnimeInfo {
+
     id: number,
     malId: number,
     description?: string,

@@ -7,22 +7,22 @@ import aniwatch from '../api/aniwatch'
 import VideoPlayer from '@/components/ui/videoPlayer'
 function Watch() {
     const searchParams = useSearchParams()
-    const id = searchParams.get("id")
+    // const id = searchParams.get("id")
     // const [id, setId] = useState<string | null | undefined>(searchParams.get("ep")?.match(/[0-9]+\?ep+/) ? `${params?.id}?ep=${searchParams.get("ep")?.split("?")[0]}` : params?.id)
     const ep = searchParams.get("ep")?.match(/[0-9]+\?ep+/) ? searchParams.get("ep")?.split("?")[1].slice(3) : searchParams.get("ep")
     const title = searchParams.get("q") || ""
     const userPreferredTitle = searchParams.get("userPreferredTitle") || ""
     const type = searchParams.get("type") || ""
-    const [zoroInfo, setzoroInfo] = useState<ZeroAnimeInfo | null>(null)
+    // const [zoroInfo, setzoroInfo] = useState<ZeroAnimeInfo | null>(null)
     const [episodes, setEpisodes] = useState([])
     const [waitZoro, setWaitZero] = useState(false)
     const [currEpisode, setCurrEpisode] = useState<AniwatchEpisodeLinks | null>(null)
     const getZoroEpisodes = async () => {
         setWaitZero(true)
         try {
-            const info = await aniwatch.getZoroEpisodesWithInfo({ searchTitle: title, type, userPreferredTitle, episodes: 0 })
+            const info = await aniwatch.getZoroEpisodesWithInfo({ searchTitle: title, type, userPreferredTitle })
             if (info) {
-                setzoroInfo(info?.info)
+                // setzoroInfo(info?.info)
                 setEpisodes(info?.episodes)
                 const episode = await aniwatch.getStreamingEpisodeLinks({ episodeId: info?.episodes[Number(ep) - 1]?.episodeId })
 

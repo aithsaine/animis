@@ -5,6 +5,7 @@ import Loading from "@/components/loading"
 import Nav from "@/components/nav"
 import { useAuth } from "@/hooks/useAuth"
 import { addAuthenticateUser, toggleModalAuth, updateActionStatus } from "@/redux/actions/actionCreator"
+import { StatesType } from "@/redux/reducers/mainReducer"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -12,15 +13,16 @@ import { useDispatch, useSelector } from "react-redux"
 
 
 export default function Template({ children }: { children: React.ReactNode }) {
-    const { isOpenLoginModal }: any = useSelector((state) => state)
+    const isOpenLoginModal = useSelector((state: StatesType) => state.isOpenLoginModal)
     const dispatch = useDispatch()
     // const action: any = useSelector((state: any) => state.action)
     const { user, loading } = useAuth()
     useEffect(() => {
         if (user) {
-            dispatch(addAuthenticateUser(user))
+            dispatch(addAuthenticateUser(user));
         }
-    }, [loading])
+    }, [user, dispatch]);
+
     if (loading) {
         return <Loading />
     }

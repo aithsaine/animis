@@ -35,7 +35,7 @@ export const searchMedia = cache(async ({ mediaTitle }: { mediaTitle: string }) 
 export const getMediaInfo = cache(async ({ search, mediaId, type, seachTitle, releaseYear }: {
     search: boolean,
     mediaId?: string,
-    type: "TV Series",
+    type: string | "TV Series",
     seachTitle?: string,
     releaseYear?: number
 }) => {

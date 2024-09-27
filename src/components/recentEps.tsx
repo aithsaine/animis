@@ -151,7 +151,7 @@ export const RecentEpisodes = () => {
       <div className='flex justify-around flex-wrap'>
 
         {
-          episodes.map((episode: EpisodeInfo) => <EpisodeCard episode={episode} />)
+          episodes.map((episode: EpisodeInfo, number: number) => <EpisodeCard key={number} episode={episode} />)
         }
         <button className='p-2 m-1 bg-gradient-to-r from-slate-900 via-slate-600  to-gray-900 hover:bg-gray-900 navlinks text-white rounded w-full'>More..</button>
       </div>

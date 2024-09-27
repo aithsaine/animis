@@ -1,5 +1,4 @@
-import stringToOnlyAlphabetic from "@/lib/converString";
-import aniwatch from "@/tools/aniwatch";
+import aniwatchApi from "@/tools/aniwatch";
 import Fuse from "fuse.js";
 import { cache } from "react";
 
@@ -8,7 +7,7 @@ import { cache } from "react";
 export const searchAnime = async (searchTitle: string) => {
 
     try {
-        const { data } = await aniwatch.get(`anime/search?q=${searchTitle}`)
+        const { data } = await aniwatchApi.get(`anime/search?q=${searchTitle}`)
         return data as AniwatchSearchResult
 
 
@@ -18,7 +17,7 @@ export const searchAnime = async (searchTitle: string) => {
     }
 }
 
-export default {
+const aniwatch = {
     AniwatchStreamingEpisodes: cache(
 
         async (searchTitle: string, userPreferredTitle: string, type: string) => {
@@ -47,11 +46,11 @@ export default {
 
                 // Filter based on type
                 const filteredResults = results.filter(
-                    (result: any) =>
+                    (result) =>
                         result.item?.type?.toUpperCase() === type.toUpperCase()
                 );
                 const filteredUserPreferredResults = userPreferredResults.filter(
-                    (result: any) =>
+                    (result) =>
                         result.item?.type?.toUpperCase() === type.toUpperCase()
                 );
 
@@ -63,7 +62,7 @@ export default {
                 if (animeId) {
                     // Fetch anime episodes by animeId
 
-                    const { data } = await aniwatch.get(`anime/episodes/${animeId}`)
+                    const { data } = await aniwatchApi.get(`anime/episodes/${animeId}`)
                     return data?.episodes as AniwatchEpisodes[]
 
                 } else {
@@ -78,12 +77,10 @@ export default {
         searchTitle,
         userPreferredTitle,
         type,
-        episodes = 0,
     }: {
         searchTitle: string;
         type: string;
         userPreferredTitle: string;
-        episodes: number;
     }) => {
         try {
             // Fetch the search results
@@ -109,11 +106,11 @@ export default {
 
             // Filter based on type
             const filteredResults = results.filter(
-                (result: any) =>
+                (result) =>
                     result.item?.type?.toUpperCase() === type.toUpperCase()
             );
             const filteredUserPreferredResults = userPreferredResults.filter(
-                (result: any) =>
+                (result) =>
                     result.item?.type?.toUpperCase() === type.toUpperCase()
             );
 
@@ -124,9 +121,9 @@ export default {
 
             if (animeId) {
                 // Fetch anime episodes by animeId
-                const info = await aniwatch.get(`anime/info?id=${animeId}`);
+                const info = await aniwatchApi.get(`anime/info?id=${animeId}`);
 
-                const episodes = await aniwatch.get(`anime/episodes/${animeId}`)
+                const episodes = await aniwatchApi.get(`anime/episodes/${animeId}`)
                 return { info: info?.data?.anime?.info, episodes: episodes?.data?.episodes };
 
             } else {
@@ -138,7 +135,7 @@ export default {
     },
     getStreamingEpisodeLinks: async ({ episodeId }: { episodeId: string }) => {
         try {
-            const { data } = await aniwatch?.get(`/anime/episode-srcs?id=${episodeId}&category=sub`)
+            const { data } = await aniwatchApi?.get(`/anime/episode-srcs?id=${episodeId}&category=sub`)
             return data as AniwatchEpisodeLinks
         } catch (error) {
             return null
@@ -146,3 +143,5 @@ export default {
         }
     }
 }
+
+export default aniwatch

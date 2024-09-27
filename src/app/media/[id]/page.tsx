@@ -3,11 +3,10 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux"
 import { toggleModalAuth } from '@/redux/actions/actionCreator'
 import { useAuth } from '@/hooks/useAuth'
-import { BookmarkIcon, PlayCircleIcon, BookOpenIcon } from '@heroicons/react/24/outline'
+import { BookmarkIcon, PlayCircleIcon, BookOpenIcon, StarIcon } from '@heroicons/react/24/outline'
 import { motion } from "framer-motion"
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import StarIcon from '@mui/icons-material/Star';
 import AnimeCard from '@/components/ui/animeCard'
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import anilist from '@/app/api/anilist'
@@ -20,21 +19,22 @@ import gogoanime from '@/app/api/gogoanime'
 import dynamic from 'next/dynamic'
 import animationData from "../../../../public/assets/lottiefiles/notavailable.json"; // Ensure this path is correct
 import aniwatch from '@/app/api/aniwatch'
+import Image from 'next/image'
+import CharacterImage from '@/components/ui/CharacterImage'
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
 });
 
 
-
-const Page = ({ params }: { params: { id: String } }) => {
+const Page = ({ params }: { params: { id: string } }) => {
 
     const { loading, user } = useAuth()
     const dispatch = useDispatch()
-    const [anilistMedia, setAnilistMedia] = useState<any | null>()
+    const [anilistMedia, setAnilistMedia] = useState<AnilistMediaInfo | null>()
     const [TmdbMediaInfo, setTmdbMediaInfo] = useState<ImdbMediaInfo | null>()
-    const [GogoAnimeMediaInfo, setGogoAnimeMediaInfo] = useState<any>()
-    const [Manga, setManga] = useState()
-    const [animeId, setAnimeId] = useState<String | null>(params.id)
+    const [GogoAnimeMediaInfo, setGogoAnimeMediaInfo] = useState<GogoAnimeInfo | null>()
+    // const [Manga, setManga] = useState()
+    const [animeId] = useState<string | null>(params.id)
     const [currentIndex, setCurrentIndex] = useState(0);
     const [aniwatchEpisodes, setAniwatchEpisodes] = useState<StreamingEpsiode[]>([])
     const [slidesPerView, setSlidesPerView] = useState(4); // Default for large screens
@@ -46,7 +46,7 @@ const Page = ({ params }: { params: { id: String } }) => {
     const [waitGogo, setWaitGogo] = useState(false)
 
     //  get Media Info from Tmdb api
-    const getTmdbMediaInfo = async (media: any) => {
+    const getTmdbMediaInfo = async (media: AnilistMediaInfo) => {
         setWaitTmdb(true)
 
         try {
@@ -59,17 +59,16 @@ const Page = ({ params }: { params: { id: String } }) => {
                 })
             setWaitTmdb(false)
             const episodes: StreamingEpsiode[] = []
-            const seasonCurr = imdbMediaInfo?.seasons?.find((elem: any) => (elem?.episodes[0]?.releaseDate) == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}` && elem.episodes.length == media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null)))
-            seasonCurr ? seasonCurr.episodes.map((eps: TmdbEps) => {
+            const seasonCurr = imdbMediaInfo?.seasons?.find((elem) => (elem?.episodes[0]?.releaseDate) == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}` && elem.episodes.length == media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null)))
+            seasonCurr ? seasonCurr?.episodes.map((eps: TmdbEps) => {
                 episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
             }
 
-            ) : imdbMediaInfo?.seasons?.map((item: any) => item.episodes.map((eps: TmdbEps) => {
+            ) : imdbMediaInfo?.seasons?.map((item) => item.episodes.map((eps: TmdbEps) => {
                 episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
             }
 
             ))
-            // console.log(imdbMediaInfo?.seasons?.map((elem: any) => ` ${(elem?.episodes[0]?.releaseDate)}== ${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}`))
             setTmdbEpisodes(episodes?.filter((item: StreamingEpsiode) => item.thumbnail != null && item.description !== null))
             setTmdbMediaInfo(imdbMediaInfo)
 
@@ -88,7 +87,7 @@ const Page = ({ params }: { params: { id: String } }) => {
             })
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
-            info?.episodes?.map((item: any) => gogoEps.push({
+            info?.episodes?.map((item) => gogoEps.push({
                 id: item?.id, title: item.id, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge, provider: "gogo"
             }))
             setGogoAnimeEpisodes(gogoEps)
@@ -123,7 +122,6 @@ const Page = ({ params }: { params: { id: String } }) => {
                             setWaitAnimix(true)
                             const aniwatchEps: AniwatchEpisodes[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji ?? media?.title?.english, media?.title?.userPreferred, media?.format)
                             if (aniwatchEps) {
-                                console.log(aniwatchEps)
                                 setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisodes, index: number) => { return { id: item?.episodeId, title: item?.title ?? `Episode ${index + 1}`, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge, provider: "aniwatch" } }))
                             }
                         } catch (error) {
@@ -207,7 +205,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col  w-full h-full justify-end items-center  md:items-start   space-x-2 space-y-3 md:justify-end '>
-                        {TmdbMediaInfo?.logos[0] ? <img className='px-4' width={400} src={TmdbMediaInfo?.logos[0]?.url} alt="" />
+                        {TmdbMediaInfo?.logos[0] ? <Image className='px-4' width={400} height={200} src={TmdbMediaInfo?.logos[0]?.url} alt="" />
                             :
                             <h1 style={{
                                 color: anilistMedia?.coverImage?.color
@@ -297,19 +295,8 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                             <h1 className="text-xl p-3 underline ">CASTS:</h1>
                             <div className="flex w-full p-2 overflow-x-scroll overflow-y-hidden scrollbar-hide">
-                                {anilistMedia?.characters?.edges.map((character: Character) => (
-                                    <img
-                                        key={character.id}
-                                        title={character.node.name.full}
-                                        onMouseLeave={(e) => (e.currentTarget.src = character.node?.image.medium)}
-                                        onMouseOver={(e) => {
-                                            if (character?.voiceActorRoles[0]) {
-                                                e.currentTarget.src = character?.voiceActorRoles[0]?.voiceActor.image.medium;
-                                            }
-                                        }}
-                                        src={character.node?.image?.medium}
-                                        className="rounded-full h-28 object-cover m-2"
-                                    />
+                                {anilistMedia?.characters?.edges.map((character: Character, index: number) => (
+                                    <CharacterImage key={index} character={character} />
                                 ))}
                             </div>
 
@@ -390,7 +377,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                         <div className="flex flex-col py-3 ">
                             <h1 className="text-xl py-2  underline">STUDIOS :</h1>
                             <ol>
-                                {anilistMedia?.studios?.edges?.map((item: any, index: number) => <li key={index} className="py-1">{item?.node?.name}</li>)}
+                                {anilistMedia?.studios?.edges?.map((item, index: number) => <li key={index} className="py-1">{item?.node?.name}</li>)}
                             </ol>
                             <hr className="py-2" />
 
@@ -414,7 +401,7 @@ const Page = ({ params }: { params: { id: String } }) => {
 
                         <div className="flex items-start justify-center md:justify-start w-full  overflow-hidden">
                             {anilistMedia?.relations?.nodes.slice(currentIndex, currentIndex + slidesPerView).concat(anilistMedia?.relations?.nodes.slice(0, Math.max(0, currentIndex + slidesPerView - anilistMedia?.relations?.nodes.length))
-                            ).map((anime: any, index: number) => (
+                            ).map((anime, index: number) => (
                                 <AnimeCard key={index} anime={{ ...anime, image: anime?.coverImage?.extraLarge, title: anime.title?.romaji }} />
                             ))}
                         </div>
@@ -428,8 +415,7 @@ const Page = ({ params }: { params: { id: String } }) => {
                         :</h1>
                     <div className='flex justify-around flex-wrap'>
 
-                        {anilistMedia?.recommendations?.edges.map((recommend: any, index: number) => <AnimeCard key={index} anime={{ ...recommend?.node?.mediaRecommendation, image: recommend?.node?.mediaRecommendation?.coverImage?.extraLarge, title: recommend?.node?.mediaRecommendation?.title?.romaji }} />)}
-
+                        {anilistMedia?.recommendations?.edges.map((recommend: RecommendItem, index: number) => <AnimeCard key={index} anime={{ ...recommend?.node?.mediaRecommendation, image: recommend?.node?.mediaRecommendation?.coverImage?.extraLarge, title: recommend?.node?.mediaRecommendation?.title?.romaji }} />)}
                     </div>
                 </div >
             </div >

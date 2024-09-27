@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const aniwatch = axios.create({
+const aniwatchApi = axios.create({
     baseURL: process.env.NEXT_PUBLIC_ANIWATCH_API_URI,
     headers: {
         Accept: "application/json",
@@ -11,4 +11,4 @@ const aniwatch = axios.create({
     }
 });
 
-export default aniwatch 
+export default aniwatchApi

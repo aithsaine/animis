@@ -30,7 +30,6 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
     const [itemsPerPage, setItemsPerPage] = useState<StreamingEpsiode[]>([]);
 
     useEffect(() => {
-        console.log(tmdbEps)
         if (episodesCount && anilistEpisodes?.length === episodesCount) {
             setEpisodes(anilistEpisodes);
         }

@@ -1,21 +1,22 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Image from "next/image"
 import logo from "../../public/assets/images/logo.png"
 import '../../public/assets/styles/nav.css'
 import { BookmarkIcon, MagnifyingGlassIcon, Cog8ToothIcon, EyeIcon, XCircleIcon, ArrowLeftEndOnRectangleIcon, UserIcon } from '@heroicons/react/24/outline'
-import fakeProfileImage from "../../public/assets/images/asta.jpg"
+import fakeProfileImage from "../../public/assets/images/ninja.png"
 import { FaCaretDown } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { signOut, auth } from '../firebase/client'
 import { addAuthenticateUser, toggleModalAuth } from '@/redux/actions/actionCreator'
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/16/solid'
 import Link from 'next/link'
+import { StatesType } from '@/redux/reducers/mainReducer'
 const Nav = () => {
 
 
     const [isOpenDropDownSettings, setIsOpenDropDownSettings] = useState(false)
-    const { authenticate } = useSelector((state: any) => state)
+    const { authenticate } = useSelector((state: StatesType) => state)
     const dispatch = useDispatch()
     const signout = async () => {
         try {

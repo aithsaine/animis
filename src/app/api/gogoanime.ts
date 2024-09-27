@@ -12,8 +12,8 @@ export const searchMedia = async (searchTitle: string) => {
         console.log(error)
     }
 }
-
-export default {
+const gogoanime =
+{
     getGogoAnimeMediaInfo: async ({ searchTitle, releasedYear }:
         {
             searchTitle: string,
@@ -23,11 +23,11 @@ export default {
     ) => {
         try {
             const searchRes = await searchMedia(decodeURIComponent(stringToOnlyAlphabetic(searchTitle)))
-            const filteredRes = searchRes?.results.find((item: any) => Number(item.releaseDate) == releasedYear)
+            const filteredRes = searchRes?.results.find((item) => Number(item.releaseDate) == releasedYear)
             const searchedId = filteredRes?.id || searchRes?.results[0]?.id
 
             const { data } = await consumet.get(`/anime/gogoanime/info/${searchedId || ""}`)
-            return data
+            return data as GogoAnimeInfo
         } catch (error) {
             console.log(error)
 
@@ -35,3 +35,4 @@ export default {
 
     }
 }
+export default gogoanime

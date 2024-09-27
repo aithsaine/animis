@@ -1,17 +1,17 @@
 import { TvIcon, BookOpenIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { FaPlay, FaSave } from "react-icons/fa"; // Importing play and save icons
 
 const AnimeCard = ({ anime }: {
     anime: {
-        id: string
-        title: string | null,
+        id?: string
+        title?: string | null,
         image: string,
         description?: string | null,
-        status: string,
-        type: string,
-        episodes: number,
+        status?: string,
+        type?: string,
+        episodes?: number,
         releaseDate?: number,
         format?: string,
         seasonYear?: number
@@ -26,7 +26,9 @@ const AnimeCard = ({ anime }: {
             >
                 <span className="top-1 transition duration-300 ease-in-out px-1 flex group-hover:opacity-100 space-x-1 navlinks     text-white  z-40 absolute left-2 bg-amber-700 rounded-full">{anime.type !== "MANGA" ? <TvIcon className="w-4 h-4 p-0.5 " /> : <BookOpenIcon className="w-4 h-4 p-0.5 " />}<span className="hidden group-hover:block text-xs">{anime.type}</span></span>
                 {/* Anime Image */}
-                <img
+                <Image
+                    width={250}
+                    height={400}
                     src={anime.image}
                     alt={anime.title ?? ""}
                     className="w-full h-full object-cover"

@@ -272,7 +272,8 @@ const mediaByIdQueryRequest = (id: string) =>
 `;
 
 // getMediaInfo method to fetch media data
-export default {
+const anilist =
+{
     getMediaInfo: async (id: string) => {
         try {
             // Construct the GraphQL query
@@ -342,3 +343,4 @@ export default {
 
 }
     ;
+export default anilist
