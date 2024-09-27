@@ -46,22 +46,22 @@ function Watch() {
         episodes && currEpisode && (
             <div className='flex flex-col w-full pt-16  min-h-screen'>
                 <hr />
-                <h1 className='text-4xl font-bold  m-2'>{title}</h1>
-                <div className='flex flex-col px-2 md:flex-row space-x-2 space-y-2 w-full '>
+                <h1 className='md:text-4xl text-xl font-bold  m-2'>{title}</h1>
+                <div className='flex flex-col items-center justify-center md:flex-row space-x-2 space-y-2 w-full '>
                     {/* <div>wecome To Anime {ep}</div>
             <div>title {title}</div>
             <div>preferTitle {userPreferredTitle}</div>
             <div>id {id}</div> */}
-                    <div className='w-full md:w-2/3 my-2  rounded md:h-[460px] h-[400px] '>
+                    <div className='w-full md:w-2/3  rounded md:h-[460px]  '>
                         <VideoPlayer
                             videoSrc={currEpisode?.sources[0].url}
                             subtitles={currEpisode?.tracks}
                             intro={currEpisode?.intro}
                             outro={currEpisode?.outro}
                         />                    </div>
-                    <div className='w-full md:w-1/3 flex flex-col scrollbar-hide overflow-y-scroll md:h-[460px] h-[400px]' >
+                    <div className='w-full md:w-1/3 flex px-2 flex-col items-center scrollbar-hide overflow-y-scroll md:h-[460px] h-[400px]' >
                         {
-                            episodes && episodes?.map((item: ZeroEpisode, index: number) => <Link href={'#'} className={`group text-white relative border-2 p-2 my-1  text-start navlinks font-thin rounded ${(Number(ep) == item?.number) ? "bg-fuchsia-950" : "border-slate-700"}  hover:bg-fuchsia-500`} key={index + 21}>{"Episode " + item?.number + ": " + item?.title}
+                            episodes && episodes?.map((item: ZeroEpisode, index: number) => <Link href={'#'} className={`group w-full text-white relative border-2 p-2 my-1  text-start navlinks font-thin rounded ${(Number(ep) == item?.number) ? "bg-fuchsia-950" : "border-slate-700"}  hover:bg-fuchsia-500`} key={index + 21}><span className='text-lg font-bold'>{"Episode " + item?.number + ": "}</span>{item?.title}
                                 {item?.isFiller ? <span className='rounded p-1 inline-block group-hover:hidden bg-slate-600 ms-2 text-xs font-bold'>filler</span> : ""}
                             </Link>)
 

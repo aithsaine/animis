@@ -20,7 +20,7 @@ const AnimeCard = ({ anime }: {
     return (
         <Link href={`/media/${anime.id}`} className="flex  flex-col relative">
             <motion.div
-                className="relative group w-[170px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
+                className="relative group sm:w-[170px] w-[150px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
             >

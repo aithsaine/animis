@@ -14,7 +14,7 @@ type Props = {
 }
 export default function StreamingEpisode({ provider, type, userPreferredTitle, id, title, thumbnail, episodeNumber, animeName }: Props) {
     return (
-        <Link href={`/watch?id=${id}&ep=${episodeNumber}&q=${animeName}&provider=${provider}&userPreferredTitle=${userPreferredTitle}&type=${type}`} className="flex group hover:ponter w-[180px] flex-col">
+        <Link href={`/watch?id=${id}&ep=${episodeNumber}&q=${animeName}&provider=${provider}&userPreferredTitle=${userPreferredTitle}&type=${type}`} className="flex group hover:ponter sm:w-[180px] w-[150px] flex-col">
 
             <div
                 style={{

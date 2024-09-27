@@ -60,7 +60,7 @@ const Page = ({ params }: { params: { id: string } }) => {
             setWaitTmdb(false)
             const episodes: StreamingEpsiode[] = []
             const seasonCurr = imdbMediaInfo?.seasons?.find((elem) => (elem?.episodes[0]?.releaseDate) == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}` && elem.episodes.length == media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null)))
-            seasonCurr ? seasonCurr?.episodes.map((eps: TmdbEps) => {
+            seasonCurr ? seasonCurr?.episodes?.map((eps: TmdbEps) => {
                 episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
             }
 
@@ -201,7 +201,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                     id={styles.banner_background_container}
 
                     style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(${getBgImage()})`,
+                        background: `linear-gradient(rgba(0, 0, 0, 0.05), black 100%), url(${getBgImage()})`,
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col  w-full h-full justify-end items-center  md:items-start   space-x-2 space-y-3 md:justify-end '>

@@ -19,7 +19,7 @@ const Caroussel = () => {
 
 
     return (
-        <div className="flex justify-center items-center h-screen ">
+        <div className="flex text-white justify-center items-center h-screen ">
             {(<Swiper
                 spaceBetween={10}
                 centeredSlides={false}
@@ -37,7 +37,7 @@ const Caroussel = () => {
             >
                 <SwiperSlide
                     style={{
-                        background: "linear-gradient(rgba(0, 0, 0, 0.05), var(--background) 100%), url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/20605-RCJ7M71zLmrh.jpg)",
+                        background: "linear-gradient(rgba(0, 0, 0, 0.05), black 100%), url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/20605-RCJ7M71zLmrh.jpg)",
                         backgroundOrigin: "inherit",
                         backgroundSize: "cover",
                         backgroundPosition: "center",

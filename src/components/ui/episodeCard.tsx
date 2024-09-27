@@ -9,7 +9,7 @@ const EpisodeCard = ({ episode }: { episode: EpisodeInfo }) => {
             <motion.div
                 key={episode.episodeTitle}
                 title={episode.episodeTitle}
-                className="relative group flex flex-col w-[170px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
+                className="relative group flex flex-col sm:w-[170px] w-[150px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
             >

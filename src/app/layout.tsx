@@ -19,6 +19,7 @@ export default function RootLayout({
       <title>Animis | watch animes & manga for free </title>
 
       <body
+        className="text-white"
       >
         <Provider store={store}>
           <Toaster />
