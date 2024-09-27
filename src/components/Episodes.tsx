@@ -76,7 +76,7 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
     };
 
     return (itemsPerPage.length > 0 ?
-        <div className='flex flex-wrap gap-4'>
+        <div className='flex sm:justify-start justify-around  mt-10 flex-wrap gap-4'>
             {itemsPerPage.map((item: StreamingEpsiode, index: number) => (
                 <StreamingEpisode
                     type={type}
@@ -93,7 +93,7 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
             {/* previous Button */}
             {/* Pagination buttons */}
 
-            {pages >= 2 && <div className="flex absolute  top-0 justify-center space-x-2 m-4 p-5 w-full">
+            {pages >= 2 && <div className="flex absolute  top-5 right-0 justify-center space-x-2 my-4 p-5 w-full">
                 <button
                     onClick={handlePrevious}
                     className={`px-3 py-1  hover:bg-blue-500 hover:text-white bg-gray-300 text-black `}

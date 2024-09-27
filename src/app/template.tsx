@@ -34,7 +34,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
             dispatch(updateActionStatus("signin"))
         }} isOpen={isOpenLoginModal} />
 
-        <main className="min-h-screen   scrollbar-hide ">
+        <main className={`min-h-screen ${isOpenLoginModal ? 'backdrop-blur-3xl' : ''}  scrollbar-hide`}>
 
             {children}
         </main>

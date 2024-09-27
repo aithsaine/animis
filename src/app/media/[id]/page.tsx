@@ -316,7 +316,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                                 {anilistMedia.type != "MANGA" &&
                                     < div className="py-7 relative ">
 
-                                        <h1 className="text-xl p-3 underline ">Episodes:</h1>
+                                        <h1 className="text-xl  underline ">Episodes:</h1>
                                         {anilistMedia?.status !== "NOT_YET_RELEASED" ?
 
                                             < Episodes type={anilistMedia?.format} userPreferredTitle={anilistMedia?.title?.userPreferred} animeName={GogoAnimeMediaInfo?.title || anilistMedia?.title?.english} aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
