@@ -1,5 +1,6 @@
 import Axios from "axios";
 import axiosRetry from "axios-retry";
+import { cache } from "react"
 
 // Anilist GraphQL API URL
 const ANILIST_GRAPHQL_URL = 'https://graphql.anilist.co';
@@ -274,7 +275,7 @@ const mediaByIdQueryRequest = (id: string) =>
 // getMediaInfo method to fetch media data
 const anilist =
 {
-    getMediaInfo: async (id: string) => {
+    getMediaInfo: cache(async (id: string) => {
         try {
             // Construct the GraphQL query
             const graphqlQuery = {
@@ -299,8 +300,8 @@ const anilist =
         } catch (error) {
             return null;
         }
-    },
-    getStreamingEpisodesPaginated: async (mediaId: number, page: number = 1, perPage: number = 10) => {
+    }),
+    getStreamingEpisodesPaginated: cache(async (mediaId: number, page: number = 1, perPage: number = 10) => {
         const query = `
     query ($mediaId: Int!, $page: Int!, $perPage: Int!) {
       Media(id: $mediaId) {
@@ -339,7 +340,7 @@ const anilist =
             console.error("Error fetching episodes:", error);
             return null;
         }
-    }
+    })
 
 }
     ;

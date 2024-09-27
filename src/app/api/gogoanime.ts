@@ -1,7 +1,8 @@
 import stringToOnlyAlphabetic from "@/lib/converString"
 import consumet from "@/tools/consumet"
+import { cache } from "react"
 
-export const searchMedia = async (searchTitle: string) => {
+export const searchMedia = cache(async (searchTitle: string) => {
     try {
         const res = await consumet.get(`anime/gogoanime/${searchTitle}`)
 
@@ -11,14 +12,13 @@ export const searchMedia = async (searchTitle: string) => {
 
         console.log(error)
     }
-}
+})
 const gogoanime =
 {
-    getGogoAnimeMediaInfo: async ({ searchTitle, releasedYear }:
+    getGogoAnimeMediaInfo: cache(async ({ searchTitle, releasedYear }:
         {
             searchTitle: string,
             releasedYear: number
-
         }
     ) => {
         try {
@@ -33,6 +33,6 @@ const gogoanime =
 
         }
 
-    }
+    })
 }
 export default gogoanime

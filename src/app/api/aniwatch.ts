@@ -4,7 +4,7 @@ import { cache } from "react";
 
 
 
-export const searchAnime = async (searchTitle: string) => {
+export const searchAnime = cache(async (searchTitle: string) => {
 
     try {
         const { data } = await aniwatchApi.get(`anime/search?q=${searchTitle}`)
@@ -15,7 +15,7 @@ export const searchAnime = async (searchTitle: string) => {
         return null
 
     }
-}
+})
 
 const aniwatch = {
     AniwatchStreamingEpisodes: cache(
@@ -73,7 +73,7 @@ const aniwatch = {
             }
         }
     ),
-    getZoroEpisodesWithInfo: async ({
+    getZoroEpisodesWithInfo: cache(async ({
         searchTitle,
         userPreferredTitle,
         type,
@@ -132,8 +132,8 @@ const aniwatch = {
         } catch (error) {
             console.error('Error fetching anime episodes:', error);
         }
-    },
-    getStreamingEpisodeLinks: async ({ episodeId }: { episodeId: string }) => {
+    }),
+    getStreamingEpisodeLinks: cache(async ({ episodeId }: { episodeId: string }) => {
         try {
             const { data } = await aniwatchApi?.get(`/anime/episode-srcs?id=${episodeId}&category=sub`)
             return data as AniwatchEpisodeLinks
@@ -141,7 +141,7 @@ const aniwatch = {
             return null
 
         }
-    }
+    })
 }
 
 export default aniwatch
