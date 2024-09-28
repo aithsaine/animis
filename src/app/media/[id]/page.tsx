@@ -80,7 +80,6 @@ const Page = ({ params }: { params: { id: string } }) => {
     const getGogoAnimeMediaInfo = async (media: AnilistMediaInfo) => {
         setWaitGogo(true)
         try {
-
             const info = await gogoanime.getGogoAnimeMediaInfo({
                 searchTitle: media?.title?.romaji,
                 releasedYear: media?.startDate?.year
@@ -88,7 +87,7 @@ const Page = ({ params }: { params: { id: string } }) => {
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
             info?.episodes?.map((item) => gogoEps.push({
-                id: item?.id, title: item.id, description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge, provider: "gogo"
+                id: item?.id, title: "", description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge, provider: "gogo"
             }))
             setGogoAnimeEpisodes(gogoEps)
         }
