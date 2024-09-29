@@ -133,3 +133,16 @@ interface RelatedItem {
     seasonYear?: number
 
 }
+type TrendingAnime = {
+    id?: string,
+    title: {
+        romaji: string,
+        english: string,
+        native: string,
+        userPreferred: string
+    },
+    image: string,
+    type: string,
+    rating: number,
+    releaseDate: string
+}

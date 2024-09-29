@@ -1,4 +1,4 @@
-import { ADDAUTHENTICATEUSER, TOGGLEMODALAUTH, UPDATEACTIONSTATUS } from "./types"
+import { ADDAUTHENTICATEUSER, PASS_TO_NEXT_POPULAR_PAGE, TOGGLEMODALAUTH, UPDATEACTIONSTATUS } from "./types"
 import { User } from "firebase/auth"
 
 export const addAuthenticateUser = (user: User | null) => {
@@ -21,5 +21,11 @@ export const toggleModalAuth = (isOpen: boolean) => {
         type: TOGGLEMODALAUTH,
         payload: isOpen
     }
+}
 
+export const GoToNextPopularPage = (data: TrendingAnime[]) => {
+    return {
+        type: PASS_TO_NEXT_POPULAR_PAGE,
+        payload: data
+    }
 }

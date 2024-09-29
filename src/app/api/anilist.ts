@@ -1,3 +1,4 @@
+import consumet from "@/tools/consumet";
 import Axios from "axios";
 import axiosRetry from "axios-retry";
 import { cache } from "react"
@@ -339,7 +340,19 @@ const anilist =
             console.error("Error fetching episodes:", error);
             return null;
         }
-    })
+    }),
+    getTrendingAnimes: cache(
+        async (page: number = 1) => {
+            try {
+                const { data } = await consumet.get(`/meta/anilist/trending?page=${page}&perPage=12`)
+                return data?.results
+
+            } catch (error) {
+                console.log(error)
+            }
+
+        }
+    )
 
 }
     ;
