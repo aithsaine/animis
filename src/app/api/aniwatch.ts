@@ -124,7 +124,7 @@ const aniwatch = {
                 const info = await aniwatchApi.get(`anime/info?id=${animeId}`);
 
                 const episodes = await aniwatchApi.get(`anime/episodes/${animeId}`)
-                return { info: info?.data?.anime?.info, episodes: episodes?.data?.episodes };
+                return { info: info?.data?.anime, episodes: episodes?.data?.episodes };
 
             } else {
                 throw new Error('No matching anime found');

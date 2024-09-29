@@ -43,7 +43,7 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
             }
         }
 
-        else if (episodesCount && aniwatchEps?.length === episodesCount) {
+        else if (aniwatchEps.length > 0) {
             setEpisodes(aniwatchEps)
         }
         else {

@@ -1,4 +1,4 @@
-"use client"; // Ensure this is at the top for Next.js
+"use client";
 
 import '@vidstack/react/player/styles/default/theme.css';
 import '@vidstack/react/player/styles/default/layouts/video.css';
