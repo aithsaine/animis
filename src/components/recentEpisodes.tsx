@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import EpisodeCard from "./ui/episodeCard";
 import anilist from "@/app/api/anilist";
 import { useDispatch, useSelector } from "react-redux"
@@ -70,15 +69,15 @@ const RecentEpisodes = () => {
                     className="flex transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${(currentIndex / cardsToShow) * 100}%)` }}
                 >
-                    {recentEpisodes.length > 0 ? recentEpisodes && recentEpisodes?.map((episode: any, index: number) =>
+                    {recentEpisodes.length > 0 ? recentEpisodes && recentEpisodes?.map((episode, index: number) =>
 
-                        <EpisodeCard key={index} episode={{ ...episode, title: episode?.title?.romaji }} />
+                        <EpisodeCard key={index} episode={{ ...episode }} />
                     ) : Array.from({ length: 8 }).map((item, index: number) => <div key={index} className="sm:w-[170px] animate-pulse w-[150px] h-[250px] rounded-md overflow-hidden  m-2 shadow-md bg-slate-900">
                     </div>)}
 
                 </div>
             </div>
-    
+
             {/* Buttons */}
             <button
                 onClick={prevSlide}

@@ -11,7 +11,7 @@ type AnimeInfo = {
         name: string,
         description: string
     },
-    moreInfo: {}
+
 }
 function Watch() {
     const searchParams = useSearchParams()
