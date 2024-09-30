@@ -1,5 +1,5 @@
 
-import Popular from "@/components/Popular";
+import RecentEpisodes from "@/components/recentEpisodes";
 import { TrendingAnimes } from "@/components/trendingAnimes";
 import Caroussel from "@/components/ui/carroussel";
 export const metadata = {
@@ -10,7 +10,7 @@ export default function Home() {
     <>
 
       <Caroussel />
-      <Popular />
+      <RecentEpisodes />
       <TrendingAnimes />
 
     </>

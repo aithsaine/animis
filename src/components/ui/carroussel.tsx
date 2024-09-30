@@ -9,6 +9,7 @@ import { BookmarkIcon, PlayCircleIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '@/hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { toggleModalAuth } from '@/redux/actions/actionCreator';
+import Image from "next/image"
 
 
 
@@ -37,7 +38,7 @@ const Caroussel = () => {
             >
                 <SwiperSlide
                     style={{
-                        background: "linear-gradient(rgba(0, 0, 0, 0.05), black 100%), url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/20605-RCJ7M71zLmrh.jpg)",
+                        background: "linear-gradient(rgba(0, 0, 0, 0.05), black 100%), url(https://image.tmdb.org/t/p/original/a6ptrTUH1c5OdWanjyYtAkOuYD0.jpg)",
                         backgroundOrigin: "inherit",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
@@ -48,8 +49,8 @@ const Caroussel = () => {
                     <div className="w-full flex h-full"
                     >
                         <div className='md:w-1/2 backdrop-blur-0 flex flex-col space-y-4 h-full items-center justify-center'>
-                            <h1 className='text-4xl navlinks uppercase '>One Piece</h1>
-                            <p className='text-lg font-serif text-slate-400 text-justify w-2/3'>Takuma isn’t the most exciting guy. He’s awkward, single, and does nothing but go to work and come home. Tired of doing chores, he decides to buy a housekeeping robot named Mina. She can cook...</p>
+                            <Image alt='one piece' height={100} src={"https://image.tmdb.org/t/p/original/9F7daAmibx8ZHTE17CdM5FAwiHE.png"} width={100} className='w-full md:w-1/3' />
+                            <p className='text-lg font-serif text-white text-justify w-2/3'>Takuma isn’t the most exciting guy. He’s awkward, single, and does nothing but go to work and come home. Tired of doing chores, he decides to buy a housekeeping robot named Mina. She can cook...</p>
                             <p className='text-sm'>1999 | Action | Ongoing</p>
                             <div className="flex w-full justify-center space-x-3">
 

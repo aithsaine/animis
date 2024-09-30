@@ -1,15 +1,21 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import AnimeCard from "./ui/animeCard";
+import EpisodeCard from "./ui/episodeCard";
+import anilist from "@/app/api/anilist";
+import { useDispatch, useSelector } from "react-redux"
+import { StatesType } from "@/redux/reducers/mainReducer";
+import { StoreRecentEpisodes } from "@/redux/actions/actionCreator";
 
 
-
-const CustomCarousel = () => {
+const RecentEpisodes = () => {
+    const { recentEpisodes } = useSelector((state: StatesType) => state)
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardsToShow, setCardsToShow] = useState(1);
-    const [animes, setAnimes] = useState<TrendingAnime[]>([])
 
+    useEffect(() => {
+        GetRecentEpisodes()
+    }, [])
     useEffect(() => {
         const updateCardsToShow = () => {
             if (window.innerWidth >= 1024) {
@@ -27,24 +33,35 @@ const CustomCarousel = () => {
         return () => {
             window.removeEventListener('resize', updateCardsToShow);
         };
-    }, []);
+    }, [recentEpisodes]);
+
+
 
     const prevSlide = () => {
         const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? animes?.length - cardsToShow : currentIndex - 1;
+        const newIndex = isFirstSlide ? recentEpisodes?.length - cardsToShow : currentIndex - 1;
         setCurrentIndex(newIndex);
     };
 
     const nextSlide = () => {
-        const isLastSlide = currentIndex === animes?.length - cardsToShow;
+        const isLastSlide = currentIndex === recentEpisodes?.length - cardsToShow;
         const newIndex = isLastSlide ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
     };
+    const dispatch = useDispatch()
+    const GetRecentEpisodes = async () => {
+        try {
+            const episodes = await anilist.getRecentEpisodes()
+            dispatch(StoreRecentEpisodes(episodes))
+
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     return (
-
-
         <div className="relative w-full max-w-7xl mx-auto">
             < h1 className=" px-5 py-9 text-pretty navlinks text-white text-2xl" >Recent Episodes:</h1 >
 
@@ -53,15 +70,15 @@ const CustomCarousel = () => {
                     className="flex transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${(currentIndex / cardsToShow) * 100}%)` }}
                 >
-                    {animes.length > 0 ? animes && animes?.map((anime: any, index: number) =>
+                    {recentEpisodes.length > 0 ? recentEpisodes && recentEpisodes?.map((episode: any, index: number) =>
 
-                        <AnimeCard key={index} anime={{ ...anime, status: "", title: anime.title }} />
+                        <EpisodeCard key={index} episode={{ ...episode, title: episode?.title?.romaji }} />
                     ) : Array.from({ length: 8 }).map((item, index: number) => <div key={index} className="sm:w-[170px] animate-pulse w-[150px] h-[250px] rounded-md overflow-hidden  m-2 shadow-md bg-slate-900">
                     </div>)}
 
                 </div>
             </div>
-
+    
             {/* Buttons */}
             <button
                 onClick={prevSlide}
@@ -79,4 +96,4 @@ const CustomCarousel = () => {
     );
 };
 
-export default CustomCarousel;
+export default RecentEpisodes;

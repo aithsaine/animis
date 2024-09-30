@@ -348,7 +348,20 @@ const anilist =
                 return data?.results
 
             } catch (error) {
-                console.log(error)
+                return null
+            }
+
+        }
+    ),
+
+    getRecentEpisodes: cache(
+        async () => {
+            try {
+                const { data } = await consumet.get(`/meta/anilist/recent-episodes?perPage=8`)
+                return data?.results
+
+            } catch (error) {
+                return null
             }
 
         }

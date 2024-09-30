@@ -274,7 +274,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
                     {/* Episodes button with null check */}
                     <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {(anilistMedia?.episodes) + " Episodes" ?? 'Episodes Unavailable'}
+                        {(aniwatchEpisodes.length || anilistMedia?.episodes) + " Episodes" ?? 'Episodes Unavailable'}
                     </motion.button>
 
                 </div>
@@ -318,7 +318,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                                         <h1 className="text-xl  underline ">Episodes:</h1>
                                         {anilistMedia?.status !== "NOT_YET_RELEASED" ?
 
-                                            < Episodes type={anilistMedia?.format} userPreferredTitle={anilistMedia?.title?.userPreferred} animeName={GogoAnimeMediaInfo?.title || anilistMedia?.title?.english || anilistMedia?.title?.romaji} aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
+                                            < Episodes type={anilistMedia?.format} userPreferredTitle={anilistMedia?.title?.userPreferred} animeName={GogoAnimeMediaInfo?.title || anilistMedia?.title?.english || anilistMedia?.title?.romaji} aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={aniwatchEpisodes.length || anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
 
 
                                             :

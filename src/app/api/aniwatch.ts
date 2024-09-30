@@ -135,6 +135,8 @@ const aniwatch = {
     }),
     getStreamingEpisodeLinks: cache(async ({ episodeId }: { episodeId: string }) => {
         try {
+            // const reqServer = await aniwatchApi?.get(`anime/servers?episodeId=${episodeId}`)
+            // const server = reqServer?.data?.sub[0]?.serverName || reqServer?.data?.sub[1]?.serverName || reqServer?.data?.raw[1]?.serverName || reqServer?.data?.raw[0]?.serverName
             const { data } = await aniwatchApi?.get(`/anime/episode-srcs?id=${episodeId}&category=sub`)
             return data as AniwatchEpisodeLinks
         } catch (error) {

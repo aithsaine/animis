@@ -1,4 +1,4 @@
-import { ADDAUTHENTICATEUSER, PASS_TO_NEXT_POPULAR_PAGE, TOGGLEMODALAUTH, UPDATEACTIONSTATUS } from "../actions/types";
+import { ADDAUTHENTICATEUSER, PASS_TO_NEXT_POPULAR_PAGE, RECENTEPISODES, TOGGLEMODALAUTH, UPDATEACTIONSTATUS } from "../actions/types";
 import { User as FirebaseUser } from "firebase/auth";
 
 export type StatesType = {
@@ -6,7 +6,8 @@ export type StatesType = {
     action: string,
     isOpenLoginModal: boolean,
     trendingPage: number,
-    trendingAnimes: TrendingAnime[]
+    trendingAnimes: TrendingAnime[],
+    recentEpisodes: RecentEpisode[]
 };
 
 const defaultState: StatesType = {
@@ -14,14 +15,16 @@ const defaultState: StatesType = {
     action: "signin",
     isOpenLoginModal: false,
     trendingPage: 1,
-    trendingAnimes: []
+    trendingAnimes: [],
+    recentEpisodes: []
 };
 
 type Action =
     | { type: typeof ADDAUTHENTICATEUSER; payload: FirebaseUser | null }
     | { type: typeof UPDATEACTIONSTATUS; payload: string }
     | { type: typeof TOGGLEMODALAUTH; payload: boolean }
-    | { type: typeof PASS_TO_NEXT_POPULAR_PAGE, payload: TrendingAnime[] };
+    | { type: typeof PASS_TO_NEXT_POPULAR_PAGE, payload: TrendingAnime[] }
+    | { type: typeof RECENTEPISODES, payload: RecentEpisode[] };
 
 export const mainReducer = (state: StatesType = defaultState, action: Action): StatesType => {
     switch (action.type) {
@@ -37,6 +40,12 @@ export const mainReducer = (state: StatesType = defaultState, action: Action): S
                 return { ...state, trendingPage: state.trendingPage + 1, trendingAnimes: state.trendingAnimes.concat(action.payload) }
             }
             return state
+        case RECENTEPISODES:
+            if (state?.recentEpisodes?.length == 0) {
+
+                return { ...state, recentEpisodes: action.payload }
+            }
+            return state;
         default:
             return state;
     }
