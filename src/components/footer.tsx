@@ -28,7 +28,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 const Footer = () => {
 
     return (
-        <footer className='w-full  navlinks bg-gradient-to-r from-gray-800 via-gray-900 to-black border-t '>
+        <footer className='w-full  navlinks bg-slate-950 border-t '>
             {/* <main>
 
                 <div className="w-1/4 h-full flex  flex-col p-2">

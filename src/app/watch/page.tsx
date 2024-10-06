@@ -46,12 +46,11 @@ function Watch() {
     const title = searchParams.get("q") || ""
     const userPreferredTitle = searchParams.get("userPreferredTitle") || ""
     const type = searchParams.get("type") || ""
-    const [episodes, setEpisodes] = useState([])
-    const [waitZoro, setWaitZero] = useState(false)
+    const [episodes, setEpisodes] = useState<ZeroEpisode[]|[]>([])
+    const [waitZoro, setWaitZero] = useState(true)
     const [currEpisode, setCurrEpisode] = useState<AniwatchEpisodeLinks | null>(null)
     const [animeInfo, setAnimeInfo] = useState<AnimeInfo | null>()
     const getZoroEpisodes = async () => {
-        setWaitZero(true)
         try {
             const info = await aniwatch.getZoroEpisodesWithInfo({ searchTitle: title, type, userPreferredTitle })
             if (info) {
@@ -93,12 +92,12 @@ function Watch() {
 
     return (
         episodes && currEpisode && (
-            <div className='flex flex-col w-full pt-16 px-4  min-h-screen'>
+            <div className='flex flex-col w-full pt-16   min-h-screen'>
                 <hr />
                 {/* <div className="w-full  me-6 rounded-xl bg-orange-600 h-[60px]"></div> */}
-                <div className='flex flex-col items-center justify-center h-[460px] row space-x-2 space-y-2 w-full '>
+                <div className='flex flex-col items-center justify-center  row space-x-2 space-y-2 w-full '>
 
-                    <div className='w-full md:w-3/5 mt-10 rounded  '>
+                    <div className='w-full md:w-3/5  rounded  '>
                         <VideoPlayer
                             videoSrc={currEpisode?.sources[0].url}
                             subtitles={currEpisode?.tracks}
@@ -109,25 +108,17 @@ function Watch() {
                    
                 </div>
 
-                            <h1 className='md:text-4xl text-xl font-bold mt-16  m-2'>{title}</h1>
-                <div className='flex items-start justify-between '>
+                            <h1 className=' text-gray-300 font-bold mt-16  m-2 '>  <span className='text-xl font-bold'>EP {ep} {title}: </span><span className='text-md text-gray-500'>{episodes[Number(ep)-1]?.title}</span></h1>
+                <div className='flex md:flex-row flex-col items-start justify-between '>
                     
                
-                <div className='w-full  md:w-1/3 flex px-2 flex-col items-center scrollbar-hide overflow-y-scroll md:h-[460px] h-[400px]' >
-                        {
-                            episodes && episodes?.map((item: ZeroEpisode, index: number) => <Link href={'#'} className={`group w-full text-white relative border-2 p-2 my-1  text-start navlinks font-thin rounded ${(Number(ep) == item?.number) ? "bg-fuchsia-950" : "border-slate-700"}  hover:bg-fuchsia-500`} key={index + 21}><span className='text-xl font-bold'>{"Episode " + item?.number + ": "}</span>{item?.title}
-                                {item?.isFiller ? <span className='rounded p-1 inline-block group-hover:hidden bg-slate-600 ms-2 text-xs font-bold'>filler</span> : ""}
-                            </Link>
-                            )
-
-                        }
-                    </div>
+            
 
                     {animeInfo && (
-                        <div className='w-full md:w-2/3 flex flex-col p-5'>
+                        <div className='w-full md:w-2/3 flex flex-col '>
                             <div>
-                            <h1 className='text-2xl navlinks  p-1'>Characters & Voice Actor</h1>
-                            <div className='flex flex-wrap'>
+                            <h1 className='text-2xl text-sky-600 navlinks  p-4 underline'>Characters & Voice Actor</h1>
+                            <div className='flex overflow-x-scroll p-4 overflow-y-hidden scrollbar-hide w-full'>
                                 {animeInfo?.info?.charactersVoiceActors?.map((item,index:number)=><CaracterAndVoiceActorCard key={index} caracterImage={item.character.poster} caracterName={item?.character?.name} actorImage={item?.voiceActor?.poster} actorName={item?.voiceActor?.name}/>)}
                             </div>
 
@@ -135,11 +126,21 @@ function Watch() {
                             </div>
                             <div>
 
-                            <h1 className='text-2xl navlinks  p-1'>Description</h1>
-                            <p dangerouslySetInnerHTML={{ __html: animeInfo?.info?.description }} className='navlinks text-justify' title={""}></p>
+                            <h1 className='text-2xl text-sky-600 underline p-4 navlinks '>Description</h1>
+                            <p dangerouslySetInnerHTML={{ __html: animeInfo?.info?.description }} className='navlinks text-gray-200 px-4 text-xl text-justify' title={""}></p>
                             </div>
                         </div>
                     )}
+                        <div className='w-full  md:w-1/3 flex px-2 flex-col items-center scrollbar-hide overflow-y-scroll max-h-screen' >
+                        {
+                            episodes && episodes?.map((item: ZeroEpisode, index: number) => <Link href={'#'} className={`group w-full bg-black  relative border p-2 my-1  text-start navlinks font-thin rounded ${(Number(ep) == item?.number) ? "bg-fuchsia-950" : "border-slate-700"}  hover:bg-fuchsia-800`} key={index + 21}><span className='text-xl font-bold italic '>{"Episode " + item?.number + ": "}</span>
+                            <span className='text-white'>{item?.title}</span>
+                                {item?.isFiller ? <span className='rounded p-1 inline-block group-hover:hidden bg-slate-600 ms-2 text-xs font-bold'>filler</span> : ""}
+                            </Link>
+                            )
+
+                        }
+                    </div>
                 </div>
                
                 </div>
