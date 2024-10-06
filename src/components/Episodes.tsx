@@ -76,7 +76,7 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
     };
 
     return (itemsPerPage.length > 0 ?
-        <div className='flex sm:justify-start justify-around  mt-10 flex-wrap gap-4'>
+        <div className=' grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 sm:justify-start justify-around  mt-10  gap-4'>
             {itemsPerPage.map((item: StreamingEpsiode, index: number) => (
                 <StreamingEpisode
                     type={type}

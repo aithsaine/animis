@@ -4,6 +4,7 @@ interface AnilistMediaInfo {
     coverHash?: string,
     format: string,
     episodes: number,
+    bannerImage:string,
     averageScore: number,
     streamingEpisodes: {
 

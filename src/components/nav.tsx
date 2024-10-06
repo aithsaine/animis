@@ -28,7 +28,7 @@ const Nav = () => {
         }
     }
     return (
-        <nav className='flex fixed mb-36 bg-black  justify-between px-4 md:px-16 py-2 z-50 items-center w-full  '>
+        <nav className='flex fixed mb-36 bg-slate-950  justify-between px-4 md:px-16 py-2 z-50 items-center w-full  '>
             <div className='flex h-full space-x-4  items-center text-white'>
                 <Link href="/"> <Image width={120} src={logo} alt='logo' /></Link>
                 <div className='navlinks hidden md:block  text-2xl  space-x-4'>
@@ -44,7 +44,7 @@ const Nav = () => {
                 <BookmarkIcon className='text-white w-6 cursor-pointer hover:text-fuchsia-600  hover:scale-110' />
                 {authenticate !== null ?
                     (<button onClick={() => setIsOpenDropDownSettings(!isOpenDropDownSettings)} className='flex  relative   items-center'><Image width={40} className='cursor-pointer border-2 border-fuchsia-500 rounded-full' src={fakeProfileImage} alt="" /><FaCaretDown className='text-white w-4' />
-                        <div className={`md:absolute fixed ${isOpenDropDownSettings ? "flex" : "hidden"} p-2  sm:top-12 rounded-xl navlinks sm:justify-start  flex-col  bg-black w-screen h-screen items-center  top-5 -right-16 sm:w-72 md:min-h-screen  `}>
+                        <div className={`md:absolute fixed ${isOpenDropDownSettings ? "flex" : "hidden"} p-2  sm:top-12 rounded-xl navlinks sm:justify-start  flex-col  bg-slate-950 w-screen h-screen items-center  top-5 -right-16 sm:w-72 md:min-h-screen  `}>
                             <XCircleIcon className='bg-red fixed top-2 right-2 cursor-pointer block sm:hidden hover:text-red-700 w-11' />
                             <div className='w-full py-3 flex items-center  justify-between'>
                                 <div className='flex  items-center justify-start space-x-4 my-2'>

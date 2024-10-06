@@ -21,12 +21,13 @@ import animationData from "../../../../public/assets/lottiefiles/notavailable.js
 import aniwatch from '@/app/api/aniwatch'
 import Image from 'next/image'
 import CharacterImage from '@/components/ui/CharacterImage'
+import { usePathname, useSearchParams } from 'next/navigation'
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
 });
 
 
-const Page = ({ params }: { params: { id: string } }) => {
+const Page = ({ params }: { params: { id: string } }) => {  
 
     const { loading, user } = useAuth()
     const dispatch = useDispatch()
@@ -46,36 +47,36 @@ const Page = ({ params }: { params: { id: string } }) => {
     const [waitGogo, setWaitGogo] = useState(false)
 
     //  get Media Info from Tmdb api
-    const getTmdbMediaInfo = async (media: AnilistMediaInfo) => {
-        setWaitTmdb(true)
+    // const getTmdbMediaInfo = async (media: AnilistMediaInfo) => {
+    //     setWaitTmdb(true)
 
-        try {
-            const imdbMediaInfo = await getMediaInfo(
-                {
-                    search: true,
-                    seachTitle: media?.title?.romaji,
-                    releaseYear: media?.startDate?.year,
-                    type: media?.format
-                })
-            setWaitTmdb(false)
-            const episodes: StreamingEpsiode[] = []
-            const seasonCurr = imdbMediaInfo?.seasons?.find((elem) => (elem?.episodes[0]?.releaseDate) == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}` && elem.episodes.length == media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null)))
-            seasonCurr ? seasonCurr?.episodes?.map((eps: TmdbEps) => {
-                episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
-            }
+    //     try {
+    //         const imdbMediaInfo = await getMediaInfo(
+    //             {
+    //                 search: true,
+    //                 seachTitle: media?.title?.romaji,
+    //                 releaseYear: media?.startDate?.year,
+    //                 type: media?.format
+    //             })
+    //         setWaitTmdb(false)
+    //         const episodes: StreamingEpsiode[] = []
+    //         const seasonCurr = imdbMediaInfo?.seasons?.find((elem) => (elem?.episodes[0]?.releaseDate) == `${media?.startDate?.year}-${String(media?.startDate?.month).padStart(2, '0')}-${String(media?.startDate?.day).padStart(2, '0')}` && elem.episodes.length == media?.episodes ? media?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null)))
+    //         seasonCurr ? seasonCurr?.episodes?.map((eps: TmdbEps) => {
+    //             episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
+    //         }
 
-            ) : imdbMediaInfo?.seasons?.map((item) => item.episodes.map((eps: TmdbEps) => {
-                episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
-            }
+    //         ) : imdbMediaInfo?.seasons?.map((item) => item.episodes.map((eps: TmdbEps) => {
+    //             episodes.push({ id: eps.id, title: eps.title, description: eps.description, thumbnail: eps.img?.hd || eps?.img?.mobile, provider: "tmdb" })
+    //         }
 
-            ))
-            setTmdbEpisodes(episodes?.filter((item: StreamingEpsiode) => item.thumbnail != null && item.description !== null))
-            setTmdbMediaInfo(imdbMediaInfo)
+    //         ))
+    //         setTmdbEpisodes(episodes?.filter((item: StreamingEpsiode) => item.thumbnail != null && item.description !== null))
+    //         setTmdbMediaInfo(imdbMediaInfo)
 
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
     // get Anime Info From GogoAnime
     const getGogoAnimeMediaInfo = async (media: AnilistMediaInfo) => {
         setWaitGogo(true)
@@ -105,8 +106,9 @@ const Page = ({ params }: { params: { id: string } }) => {
         if (TmdbMediaInfo?.cover) {
             return TmdbMediaInfo?.cover
         }
-        return anilistMedia?.coverImage?.extraLarge
+        return anilistMedia?.bannerImage
     }
+
 
 
     useEffect(() => {
@@ -137,7 +139,6 @@ const Page = ({ params }: { params: { id: string } }) => {
                             url: string
                         }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "", provider: "anilist" }))
                         setAnilistEpisodes(episodes)
-                        getTmdbMediaInfo(media)
                     }
                     setAnilistMedia(media);
                 }
@@ -169,11 +170,6 @@ const Page = ({ params }: { params: { id: string } }) => {
         }
     };
 
-    useEffect(() => {
-        handleResize(); // Set initial value
-        window.addEventListener("resize", handleResize); // Add resize listener
-        return () => window.removeEventListener("resize", handleResize); // Cleanup
-    }, []);
 
     const nextSlide = () => {
         anilistMedia && setCurrentIndex((prevIndex) => (prevIndex + 1) % anilistMedia?.relations?.edges.length);
@@ -185,9 +181,9 @@ const Page = ({ params }: { params: { id: string } }) => {
         );
     }
 
-    if (waitTmdb || waitGogo || waitAnimix) {
-        return <Loading />
-    }
+    // if ( waitGogo || waitAnimix) {
+    //     return <Loading />
+    // }
 
 
     if (!anilistMedia) {
@@ -274,7 +270,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
                     {/* Episodes button with null check */}
                     <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {(aniwatchEpisodes.length || anilistMedia?.episodes) + " Episodes" ?? 'Episodes Unavailable'}
+                        {(aniwatchEpisodes.length || anilistMedia?.episodes)?(aniwatchEpisodes.length || anilistMedia?.episodes) + " Episodes" : 'Episodes Unavailable'}
                     </motion.button>
 
                 </div>
