@@ -177,7 +177,6 @@ const Page = ({ params }: { params: { id: string } }) => {
                         <h1 className="text-2xl lg:text-4xl  text-white  text-center line-clamp-6 font-sans >px-4 font-bold">{anilistMedia?.title?.romaji}</h1>
                     </div>
                     <div className='p-2 flex flex-wrap space-x-2 space-y-2'>
-
                         {anilistMedia?.genres?.map((genre: string, index: number) => <button className='px-3 py-1 text-sm border  bg-gray-800 border-gray-800 text-white rounded-xl hover:bg-fuchsia-950' key={index}>{genre}</button>)}
                     </div>
                 </div>

@@ -31,7 +31,14 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
 
     useEffect(() => {
         if (episodesCount && anilistEpisodes?.length === episodesCount) {
-            setEpisodes(anilistEpisodes);
+            if(anilistEpisodes[anilistEpisodes?.length-1]?.title?.split("Episode 1 ")){
+
+                setEpisodes(anilistEpisodes?.reverse());
+            }else{
+
+                setEpisodes(anilistEpisodes);
+            }
+
         }
         else if (episodesCount && tmdbEps?.length === episodesCount) {
             if (episodesCount && aniwatchEps?.length === episodesCount) {
@@ -49,9 +56,14 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
         else {
             setEpisodes(gogoAnimeEps);
         }
+
+       
+
+
     }, [episodesCount, anilistEpisodes, tmdbEps, gogoAnimeEps]);
 
     useEffect(() => {
+    
         // Set the initial items for the first page
         setItemsPerPage(episodes.slice(0, perPage));
         setPages(Math.ceil(episodes.length / perPage));

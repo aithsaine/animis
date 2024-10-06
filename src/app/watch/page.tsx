@@ -34,6 +34,9 @@ type AnimeInfo = {
                 cast: string
             }
         }[],
+        },
+        moreInfo:{
+            genres:string[]
         }
     
 
@@ -55,7 +58,6 @@ function Watch() {
             const info = await aniwatch.getZoroEpisodesWithInfo({ searchTitle: title, type, userPreferredTitle })
             if (info) {
                 setAnimeInfo(info?.info)
-                console.log(info?.info)
                 setEpisodes(info?.episodes)
 
                     const episode = await aniwatch.getStreamingEpisodeLinks({ episodeId: info?.episodes[Number(ep) - 1]?.episodeId })
@@ -70,9 +72,21 @@ function Watch() {
             setWaitZero(false)
         }
     }
+
+    const getUpdatedUrl = (newEp:string) => {
+        const queryParams = new URLSearchParams({
+          ep: newEp,
+          q: title, // fallback if query param is not available
+          userPreferredTitle: userPreferredTitle ,
+          type: type || "TV",
+        });
+        return `/watch?${queryParams.toString()}`;
+      };
+    
+
     useEffect(() => {
         getZoroEpisodes()
-    }, [])
+    }, [ep])
     if (waitZoro) {
         return <Loading />
     }
@@ -109,7 +123,10 @@ function Watch() {
                 </div>
 
                             <h1 className=' text-gray-300 font-bold mt-16  m-2 '>  <span className='text-xl font-bold'>EP {ep} {title}: </span><span className='text-md text-gray-500'>{episodes[Number(ep)-1]?.title}</span></h1>
-                <div className='flex md:flex-row flex-col items-start justify-between '>
+                            <div className="flex w-full flex-wrap space-x-2 space-y-2">
+                                {animeInfo&&animeInfo?.moreInfo?.genres.map((genre,index)=> <button className='px-3 py-1 text-sm border  bg-gray-800 border-gray-800 text-white rounded-xl hover:bg-fuchsia-950' key={index}>{genre}</button>)}
+                            </div>
+                <div className='flex md:flex-row flex-col-reverse items-start justify-between '>
                     
                
             
@@ -133,7 +150,7 @@ function Watch() {
                     )}
                         <div className='w-full  md:w-1/3 flex px-2 flex-col items-center scrollbar-hide overflow-y-scroll max-h-screen' >
                         {
-                            episodes && episodes?.map((item: ZeroEpisode, index: number) => <Link href={'#'} className={`group w-full bg-black  relative border p-2 my-1  text-start navlinks font-thin rounded ${(Number(ep) == item?.number) ? "bg-fuchsia-950" : "border-slate-700"}  hover:bg-fuchsia-800`} key={index + 21}><span className='text-xl font-bold italic '>{"Episode " + item?.number + ": "}</span>
+                            episodes && episodes?.map((item: ZeroEpisode, index: number) => <Link href={getUpdatedUrl(String(item?.number))} className={`group w-full bg-black  relative border p-2 my-1  text-start navlinks font-thin rounded ${(Number(ep) == item?.number) ? "bg-fuchsia-950" : "border-slate-700"}  hover:bg-fuchsia-800`} key={index + 21}><span className='text-xl font-bold italic '>{"Episode " + item?.number + ": "}</span>
                             <span className='text-white'>{item?.title}</span>
                                 {item?.isFiller ? <span className='rounded p-1 inline-block group-hover:hidden bg-slate-600 ms-2 text-xs font-bold'>filler</span> : ""}
                             </Link>
