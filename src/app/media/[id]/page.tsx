@@ -81,7 +81,7 @@ const Page = ({ params }: { params: { id: string } }) => {
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
             info?.episodes?.map((item) => gogoEps.push({
-                id: item?.id, title: "", description: "", thumbnail:  media?.coverImage?.extraLarge, provider: "gogo"
+                id: item?.id, title: "", description: "", thumbnail:  media?.coverImage?.extraLarge
             }))
             setGogoAnimeEpisodes(gogoEps)
         }
@@ -114,7 +114,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                             // setWaitAnimix(true)
                             const aniwatchEps: AniwatchEpisodes[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji ?? media?.title?.english, media?.title?.userPreferred, media?.format)
                             if (aniwatchEps) {
-                                setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisodes, index: number) => { return { id: item?.episodeId, title: item?.title ?? `Episode ${index + 1}`, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge, provider: "aniwatch" } }))
+                                setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisodes, index: number) => { return { id: item?.episodeId, title: item?.title ?? `Episode ${index + 1}`, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge} }))
                             }
                         } catch (error) {
 
@@ -128,7 +128,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                             thumbnail: string,
                             title: string,
                             url: string
-                        }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "", provider: "anilist" }))
+                        }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "" }))
                         setAnilistEpisodes(episodes)
                     }
                     setAnilistMedia(media);

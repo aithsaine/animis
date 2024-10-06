@@ -92,9 +92,7 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
             {itemsPerPage.map((item: StreamingEpsiode, index: number) => (
                 <StreamingEpisode
                     type={type}
-                    id={item?.id}
                     userPreferredTitle={userPreferredTitle}
-                    provider={item?.provider}
                     episodeNumber={(currentPage - 1) * perPage + index + 1}
                     title={item.title}
                     thumbnail={item.thumbnail}

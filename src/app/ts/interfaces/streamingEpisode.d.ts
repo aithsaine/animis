@@ -3,7 +3,6 @@ interface StreamingEpsiode {
     title: string,
     thumbnail: string,
     description: string,
-    provider: string,
 }
 
 
