@@ -29,34 +29,34 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [itemsPerPage, setItemsPerPage] = useState<StreamingEpsiode[]>([]);
 
+ const   getEpisodes = ()=>{
+    if (episodesCount && anilistEpisodes?.length === episodesCount) {
+      
+
+          return  setEpisodes(anilistEpisodes);
+    }
+    else if (episodesCount && tmdbEps?.length === episodesCount) {
+        if (episodesCount && aniwatchEps?.length === episodesCount) {
+
+        return    setEpisodes(tmdbEps?.map((item: StreamingEpsiode, index: number) => { return { ...item, title: anilistEpisodes[index]?.title } }));
+        } else {
+          return  setEpisodes(tmdbEps)
+
+        }
+    }
+
+    else if (aniwatchEps.length > 0) {
+        setEpisodes(aniwatchEps)
+    }
+    else {
+        setEpisodes(gogoAnimeEps);
+    }
+
+   
+
+ }
     useEffect(() => {
-        if (episodesCount && anilistEpisodes?.length === episodesCount) {
-            if(anilistEpisodes[anilistEpisodes?.length-1]?.title?.split("Episode 1 ")){
-
-                setEpisodes(anilistEpisodes?.reverse());
-            }else{
-
-                setEpisodes(anilistEpisodes);
-            }
-
-        }
-        else if (episodesCount && tmdbEps?.length === episodesCount) {
-            if (episodesCount && aniwatchEps?.length === episodesCount) {
-
-                setEpisodes(tmdbEps?.map((item: StreamingEpsiode, index: number) => { return { ...item, title: anilistEpisodes[index]?.title } }));
-            } else {
-                setEpisodes(tmdbEps)
-
-            }
-        }
-
-        else if (aniwatchEps.length > 0) {
-            setEpisodes(aniwatchEps)
-        }
-        else {
-            setEpisodes(gogoAnimeEps);
-        }
-
+      getEpisodes()
        
 
 

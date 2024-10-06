@@ -123,13 +123,22 @@ const Page = ({ params }: { params: { id: string } }) => {
                         }
                         getGogoAnimeMediaInfo(media)
                         const episodes: StreamingEpsiode[] = []
-                        media.streamingEpisodes.map((item: {
+                        media?.streamingEpisodes[media?.streamingEpisodes.length-1]?.title?.search("Episode 1 ")?  media.streamingEpisodes.map((item: {
                             site: string,
                             thumbnail: string,
                             title: string,
                             url: string
                         }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "" }))
-                        setAnilistEpisodes(episodes)
+
+:media.streamingEpisodes?.reverse().map((item: {
+    site: string,
+    thumbnail: string,
+    title: string,
+    url: string
+}) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "" }))
+
+                            setAnilistEpisodes(episodes)
+                        
                     }
                     setAnilistMedia(media);
                 }
@@ -228,7 +237,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
                     {/* Type button */}
                     <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {anilistMedia?.type || 'Unknown Type'}
+                        {anilistMedia?.format || 'Unknown Type'}
                     </motion.button>
 
                     {/* Status button */}

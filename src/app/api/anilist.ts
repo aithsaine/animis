@@ -57,12 +57,7 @@ const mediaByIdQueryRequest = (id: string) =>
                                     }
                                     updatedAt
                                     favourites
-                                    tags{
-                                        name
-                                        description
-                                        isAdult
-                                        isMediaSpoiler
-                                    }
+                                 
                                     characters(sort: [ROLE, FAVOURITES_DESC]){
                                         edges{
                                             id
@@ -260,7 +255,6 @@ const mediaByIdQueryRequest = (id: string) =>
                             }
                             bannerImage
                             type
-                            hashtag
                             favourites
                             trending
                             format
