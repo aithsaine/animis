@@ -8,20 +8,16 @@ import { motion } from "framer-motion"
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import AnimeCard from '@/components/ui/animeCard'
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import anilist from '@/app/api/anilist'
 import Loading from '@/components/loading'
-import { ImdbMediaInfo } from '@/app/ts/interfaces/imdbInterfaces'
 import styles from "../../../../public/assets/styles/coverStyle.module.css"
-import { getMediaInfo } from '@/app/api/consumetImdb'
 import Episodes from '@/components/Episodes'
 import gogoanime from '@/app/api/gogoanime'
 import dynamic from 'next/dynamic'
 import animationData from "../../../../public/assets/lottiefiles/notavailable.json"; // Ensure this path is correct
 import aniwatch from '@/app/api/aniwatch'
-import Image from 'next/image'
 import CharacterImage from '@/components/ui/CharacterImage'
-import { usePathname, useSearchParams } from 'next/navigation'
+import RelatedSlider from '@/components/relatedAnime'
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
 });
@@ -32,19 +28,16 @@ const Page = ({ params }: { params: { id: string } }) => {
     const { loading, user } = useAuth()
     const dispatch = useDispatch()
     const [anilistMedia, setAnilistMedia] = useState<AnilistMediaInfo | null>()
-    const [TmdbMediaInfo, setTmdbMediaInfo] = useState<ImdbMediaInfo | null>()
+    // const [TmdbMediaInfo, setTmdbMediaInfo] = useState<ImdbMediaInfo | null>()
     const [GogoAnimeMediaInfo, setGogoAnimeMediaInfo] = useState<GogoAnimeInfo | null>()
     // const [Manga, setManga] = useState()
     const [animeId] = useState<string | null>(params.id)
-    const [currentIndex, setCurrentIndex] = useState(0);
     const [aniwatchEpisodes, setAniwatchEpisodes] = useState<StreamingEpsiode[]>([])
-    const [slidesPerView, setSlidesPerView] = useState(4); // Default for large screens
-    const [waitTmdb, setWaitTmdb] = useState(false)
-    const [waitAnimix, setWaitAnimix] = useState(false)
+    // const [waitAnimix, setWaitAnimix] = useState(false)
     const [anilistEpisodes, setAnilistEpisodes] = useState<StreamingEpsiode[]>([])
-    const [tmdbEpisodes, setTmdbEpisodes] = useState<StreamingEpsiode[]>([])
+    // const [tmdbEpisodes, setTmdbEpisodes] = useState<StreamingEpsiode[]>([])
     const [gogoanimeEisodes, setGogoAnimeEpisodes] = useState<StreamingEpsiode[]>([])
-    const [waitGogo, setWaitGogo] = useState(false)
+    // const [waitGogo, setWaitGogo] = useState(false)
 
     //  get Media Info from Tmdb api
     // const getTmdbMediaInfo = async (media: AnilistMediaInfo) => {
@@ -79,7 +72,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     // }
     // get Anime Info From GogoAnime
     const getGogoAnimeMediaInfo = async (media: AnilistMediaInfo) => {
-        setWaitGogo(true)
+        // setWaitGogo(true)
         try {
             const info = await gogoanime.getGogoAnimeMediaInfo({
                 searchTitle: media?.title?.romaji,
@@ -88,28 +81,26 @@ const Page = ({ params }: { params: { id: string } }) => {
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
             info?.episodes?.map((item) => gogoEps.push({
-                id: item?.id, title: "", description: "", thumbnail: TmdbMediaInfo?.cover || media?.coverImage?.extraLarge, provider: "gogo"
+                id: item?.id, title: "", description: "", thumbnail:  media?.coverImage?.extraLarge, provider: "gogo"
             }))
             setGogoAnimeEpisodes(gogoEps)
         }
         catch (error) {
             console.log(error)
         } finally {
-            setWaitGogo(false)
+            // setWaitGogo(false)
 
         }
 
     }
 
     // change background image tmdb cover >>>>> anilist cover
-    const getBgImage = () => {
-        if (TmdbMediaInfo?.cover) {
-            return TmdbMediaInfo?.cover
-        }
-        return anilistMedia?.bannerImage
-    }
-
-
+    // const getBgImage = () => {
+    //     if (TmdbMediaInfo?.cover) {
+    //         return TmdbMediaInfo?.cover
+    //     }
+    //     return anilistMedia?.bannerImage
+    // }
 
     useEffect(() => {
 
@@ -120,7 +111,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                 if (media) {
                     if (media.type != "MANGA") {
                         try {
-                            setWaitAnimix(true)
+                            // setWaitAnimix(true)
                             const aniwatchEps: AniwatchEpisodes[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji ?? media?.title?.english, media?.title?.userPreferred, media?.format)
                             if (aniwatchEps) {
                                 setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisodes, index: number) => { return { id: item?.episodeId, title: item?.title ?? `Episode ${index + 1}`, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge, provider: "aniwatch" } }))
@@ -128,7 +119,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                         } catch (error) {
 
                         } finally {
-                            setWaitAnimix(false)
+                            // setWaitAnimix(false)
                         }
                         getGogoAnimeMediaInfo(media)
                         const episodes: StreamingEpsiode[] = []
@@ -155,35 +146,11 @@ const Page = ({ params }: { params: { id: string } }) => {
 
 
 
-    // Update number of slides based on screen size
-    const handleResize = () => {
-        const windowWidth = window.innerWidth;
-        if (windowWidth <= 550) {
-            setSlidesPerView(2); // Mobile view
-        }
-        else if (windowWidth <= 640) {
-            setSlidesPerView(3); // Mobile view
-        } else if (windowWidth <= 1024) {
-            setSlidesPerView(3); // Tablet view
-        } else {
-            setSlidesPerView(6); // Large desktop view
-        }
-    };
 
 
-    const nextSlide = () => {
-        anilistMedia && setCurrentIndex((prevIndex) => (prevIndex + 1) % anilistMedia?.relations?.edges.length);
-    };
 
-    const prevSlide = () => {
-        anilistMedia && setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? anilistMedia?.relations?.edges.length - 1 : prevIndex - 1
-        );
-    }
 
-    // if ( waitGogo || waitAnimix) {
-    //     return <Loading />
-    // }
+
 
 
     if (!anilistMedia) {
@@ -196,16 +163,18 @@ const Page = ({ params }: { params: { id: string } }) => {
                     id={styles.banner_background_container}
 
                     style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0.05), black 100%), url(${getBgImage()})`,
+                        background: `linear-gradient(rgba(0, 0, 0, 0.05), black 100%), url(${anilistMedia?.bannerImage})`,
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col  w-full h-full justify-end items-center  md:items-start   space-x-2 space-y-3 md:justify-end '>
-                        {TmdbMediaInfo?.logos[0] ? <Image className='px-4' width={400} height={200} src={TmdbMediaInfo?.logos[0]?.url} alt="" />
-                            :
+                        {/* {TmdbMediaInfo?.logos[0] ? <Image className='px-4' width={400} height={200} src={TmdbMediaInfo?.logos[0]?.url} alt="" />
+                            :getBgImage
+                         
                             <h1 style={{
                                 color: anilistMedia?.coverImage?.color
-                            }} className="text-2xl lg:text-4xl    text-center line-clamp-6 font-sans px-4 font-bold">{anilistMedia?.title?.romaji}</h1>
-                        }
+                            }} <className="text-2xl lg:text-4xl    text-center line-clamp-6 font-sans >px-4 font-bold">{anilistMedia?.title?.romaji<className="text-2xl lg:text-4xl    text-center line-clamp-6 font-sans >px-4 font-bold">{anilistMedia?.title?.romaji}</h1>}</h1><
+                        } */}
+                        <h1 className="text-2xl lg:text-4xl  text-white  text-center line-clamp-6 font-sans >px-4 font-bold">{anilistMedia?.title?.romaji}</h1>
                     </div>
                     <div className='p-2 flex flex-wrap'>
 
@@ -314,7 +283,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                                         <h1 className="text-xl  underline ">Episodes:</h1>
                                         {anilistMedia?.status !== "NOT_YET_RELEASED" ?
 
-                                            < Episodes type={anilistMedia?.format} userPreferredTitle={anilistMedia?.title?.userPreferred} animeName={GogoAnimeMediaInfo?.title || anilistMedia?.title?.english || anilistMedia?.title?.romaji} aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={aniwatchEpisodes.length || anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (TmdbMediaInfo?.totalEpisodes ?? null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={tmdbEpisodes} />
+                                            < Episodes type={anilistMedia?.format} userPreferredTitle={anilistMedia?.title?.userPreferred} animeName={GogoAnimeMediaInfo?.title || anilistMedia?.title?.english || anilistMedia?.title?.romaji} aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={aniwatchEpisodes.length || anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : ( null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={[]} />
 
 
                                             :
@@ -341,7 +310,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                         <div className="flex flex-col w-full justify-start">
                             <h1 className="text-xl py-3 underline">TRAILER:</h1>
 
-                            <iframe className='md:h-[200px] h-full' src={`https://www.youtube.com/embed/${anilistMedia.trailer?.id ?? TmdbMediaInfo?.trailer?.id}`} title="TVアニメ『薫る花は凛と咲く』ファーストPV" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                            <iframe className='md:h-[200px] h-full' src={`https://www.youtube.com/embed/${anilistMedia.trailer?.id }`} title="TVアニメ『薫る花は凛と咲く』ファーストPV" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                             <hr className="py-2" />
 
                         </div >
@@ -384,31 +353,18 @@ const Page = ({ params }: { params: { id: string } }) => {
                 </div >
                 {/* Related animes or manga*/}
                 < div className="pt-9 px-6" >
-                    <div className="w-full flex px-2 items-start  justify-between " >
-                        <h1 className="  text-pretty navlinks text-white text-2xl">Related :</h1>
-                        <div className="flex space-x-4">
+                        <h1 className="  text-pretty navlinks p-2 text-white text-2xl">Related :</h1>
 
-                            <button onClick={prevSlide} className="hover:bg-fuchsia-300 bg-white text-black rounded-full w-10 flex items-center justify-center h-10"><FaArrowLeft className="text-xl" /></button>
-                            <button onClick={nextSlide} className="hover:bg-fuchsia-300 bg-white text-black rounded-full w-10 flex items-center justify-center h-10"><FaArrowRight className="text-xl" /></button>
-                        </div>
-                    </div>
-                    <div className="relative w-full bg-slate-950 py-2 h-[400px]  flex items-center justify-center">
-
-                        <div className="flex items-start justify-center md:justify-start w-full  overflow-hidden">
-                            {anilistMedia?.relations?.nodes.slice(currentIndex, currentIndex + slidesPerView).concat(anilistMedia?.relations?.nodes.slice(0, Math.max(0, currentIndex + slidesPerView - anilistMedia?.relations?.nodes.length))
-                            ).map((anime, index: number) => (
-                                <AnimeCard key={index} anime={{ ...anime, image: anime?.coverImage?.extraLarge, title: anime.title?.romaji }} />
-                            ))}
-                        </div>
-                    </div>
+                    <RelatedSlider animes={anilistMedia?.relations?.nodes}/>
+                  
                 </div >
 
                 {/* Recommended animes or manga*/}
                 < div className="flex flex-col p-3 " >
 
-                    <h1 className="text-xl p-2  underline">SIMILAR ANIMES YOU MAY LIKE
+                    <h1 className="text-xl p-2 navlinks ">Similar Anime You May Like
                         :</h1>
-                    <div className='flex justify-around flex-wrap'>
+                    <div className='flex justify-around  sm:justify-start flex-wrap'>
 
                         {anilistMedia?.recommendations?.edges.map((recommend: RecommendItem, index: number) => <AnimeCard key={index} anime={{ ...recommend?.node?.mediaRecommendation, image: recommend?.node?.mediaRecommendation?.coverImage?.extraLarge, title: recommend?.node?.mediaRecommendation?.title?.romaji }} />)}
                     </div>

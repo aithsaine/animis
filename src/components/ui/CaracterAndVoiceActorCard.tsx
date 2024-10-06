@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react'
-import { MdOutlineSettingsVoice } from "react-icons/md";
 
 type Props = {
     caracterImage:string;

@@ -54,6 +54,7 @@ const AnimeCard = ({ anime }: {
                 <span >{anime.format && String(anime.format)}{anime.seasonYear && " | " + String(anime.seasonYear)}{anime.releaseDate && " | " + String(anime.releaseDate)}{anime.type !== "MANGA" ?? ' | ' + String(anime.episodes) + `  Eps `} {anime.status && ' | ' + anime.status}</span>
             </motion.div>
         </Link>
+
     );
 };
 

@@ -28,7 +28,7 @@ const Nav = () => {
         }
     }
     return (
-        <nav className='flex fixed mb-36 bg-slate-950  justify-between px-4 md:px-16 py-2 z-50 items-center w-full  '>
+        <nav className='flex fixed mb-28 bg-slate-950  justify-between px-4 md:px-16 py-2 z-50 items-center w-full  '>
             <div className='flex h-full space-x-4  items-center text-white'>
                 <Link href="/"> <Image width={120} src={logo} alt='logo' /></Link>
                 <div className='navlinks hidden md:block  text-2xl  space-x-4'>

@@ -1,35 +1,35 @@
-import Link from 'next/link'
+// import Link from 'next/link'
 import React from 'react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
-const geners = [
-    'Action',
-    'Adventure',
-    'Comedy',
-    'Drama',
-    'Fantasy',
-    'Horror',
-    'Isekai',
-    'Mecha',
-    'Mystery',
-    'Psychological',
-    'Romance',
-    'Sci-Fi',
-    'Slice of Life',
-    'Sports',
-    'Supernatural',
-    'Thriller',
-    'Shoujo',
-    'Shounen',
-    'Josei',
-    'Seinen',
-    'Ecchi',
-    'Harem'
-]
+// const geners = [
+//     'Action',
+//     'Adventure',
+//     'Comedy',
+//     'Drama',
+//     'Fantasy',
+//     'Horror',
+//     'Isekai',
+//     'Mecha',
+//     'Mystery',
+//     'Psychological',
+//     'Romance',
+//     'Sci-Fi',
+//     'Slice of Life',
+//     'Sports',
+//     'Supernatural',
+//     'Thriller',
+//     'Shoujo',
+//     'Shounen',
+//     'Josei',
+//     'Seinen',
+//     'Ecchi',
+//     'Harem'
+// ]
 const Footer = () => {
 
     return (
         <footer className='w-full  navlinks bg-gradient-to-r from-gray-800 via-gray-900 to-black border-t '>
-            <main>
+            {/* <main>
 
                 <div className="w-1/4 h-full flex  flex-col p-2">
                     <h1 className='text-white py-3   text-2xl '>Genre:</h1>
@@ -43,7 +43,7 @@ const Footer = () => {
                 <div className="w-1/4 h-full flex flex-col p-2"></div>
                 <div className="w-1/4 h-full flex flex-col p-2"></div>
 
-            </main>
+            </main> */}
             <div className=" text-gray-200 py-8 border-t border-gray-700">
                 <div className="container mx-auto px-4 flex flex-col items-center justify-center space-y-6 md:space-y-4">
 

@@ -33,7 +33,7 @@ export const TrendingAnimes = () => {
   return (
     <div className='flex flex-col py-5'>
       < h1 className=" px-5 py-9 text-pretty navlinks text-white text-2xl" > Trending Animes:</h1 >
-      <div className=' cursor-auto grid grid-cols-1  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 '>
+      <div className=' cursor-auto grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 '>
         {
           (true) && trendingAnimes?.map((anime, index: number) =>
             <AnimeCard key={index} anime={{ ...anime, id: anime?.id, releaseDate: Number(anime?.releaseDate), title: anime.title?.romaji, type: anime?.type }} />
