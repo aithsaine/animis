@@ -45,7 +45,6 @@ const RecentEpisodes = () => {
         <Swiper
           slidesPerView="auto" 
           spaceBetween={20}
-          navigation
           effect='fade'
           freeMode={true}
           modules={[Pagination, Navigation]}
