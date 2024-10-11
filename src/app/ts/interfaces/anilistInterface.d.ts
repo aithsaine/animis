@@ -111,7 +111,7 @@ interface AnilistMediaInfo {
 interface RecommendItem {
     node: {
         mediaRecommendation: {
-            coverImage: { extraLarge: string },
+            coverImage: { extraLarge: string ,large:string;medium:string},
             title: {
                 romaji: string
             }

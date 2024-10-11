@@ -393,7 +393,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                         :</h1>
                     <div className='flex justify-around  sm:justify-start flex-wrap'>
 
-                        {anilistMedia?.recommendations?.edges.map((recommend: RecommendItem, index: number) => <AnimeCard key={index} anime={{ ...recommend?.node?.mediaRecommendation, image: recommend?.node?.mediaRecommendation?.coverImage?.extraLarge, title: recommend?.node?.mediaRecommendation?.title?.romaji }} />)}
+                        {anilistMedia?.recommendations?.edges.map((recommend: RecommendItem, index: number) => <AnimeCard key={index} anime={{ ...recommend?.node?.mediaRecommendation, image: recommend?.node?.mediaRecommendation?.coverImage?.extraLarge||recommend?.node?.mediaRecommendation?.coverImage?.large||recommend?.node?.mediaRecommendation?.coverImage?.medium, title: recommend?.node?.mediaRecommendation?.title?.romaji }} />)}
                     </div>
                 </div >
             </div >
