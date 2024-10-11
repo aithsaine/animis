@@ -28,15 +28,38 @@ const Page = ({ params }: { params: { id: string } }) => {
     const { loading, user } = useAuth()
     const dispatch = useDispatch()
     const [anilistMedia, setAnilistMedia] = useState<AnilistMediaInfo | null>()
-    // const [TmdbMediaInfo, setTmdbMediaInfo] = useState<ImdbMediaInfo | null>()
     const [GogoAnimeMediaInfo, setGogoAnimeMediaInfo] = useState<GogoAnimeInfo | null>()
-    // const [Manga, setManga] = useState()
     const [animeId] = useState<string | null>(params.id)
     const [aniwatchEpisodes, setAniwatchEpisodes] = useState<StreamingEpsiode[]>([])
-    // const [waitAnimix, setWaitAnimix] = useState(false)
     const [anilistEpisodes, setAnilistEpisodes] = useState<StreamingEpsiode[]>([])
-    // const [tmdbEpisodes, setTmdbEpisodes] = useState<StreamingEpsiode[]>([])
     const [gogoanimeEisodes, setGogoAnimeEpisodes] = useState<StreamingEpsiode[]>([])
+    const [coverBg, setCoverBg] = useState<string | unknown>('');
+
+    const getBgImage = () => {
+        if (anilistMedia&& typeof window !== 'undefined' && window.innerWidth > 700) {
+          return setCoverBg(anilistMedia?.bannerImage);
+        }
+        return setCoverBg(anilistMedia?.coverImage?.extraLarge);
+      };
+      useEffect(() => {
+        getBgImage();
+    
+        const handleResize = () => {
+          getBgImage();
+        };
+    
+        if (typeof window !== 'undefined') {
+          window.addEventListener('resize', handleResize);
+        }
+    
+        return () => {
+          if (typeof window !== 'undefined') {
+            window.removeEventListener('resize', handleResize);
+          }
+        };
+      }, [anilistMedia]); // Ensure it updates if `anilistMedia` changes
+    
+    
     // const [waitGogo, setWaitGogo] = useState(false)
 
     //  get Media Info from Tmdb api
@@ -95,13 +118,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     }
 
     // change background image tmdb cover >>>>> anilist cover
-    // const getBgImage = () => {
-    //     if (TmdbMediaInfo?.cover) {
-    //         return TmdbMediaInfo?.cover
-    //     }
-    //     return anilistMedia?.bannerImage
-    // }
-
+   
     useEffect(() => {
 
         const fetchMediaInfo = async () => {
@@ -152,6 +169,8 @@ const Page = ({ params }: { params: { id: string } }) => {
 
     }, [animeId])
 
+    
+
 
 
 
@@ -172,7 +191,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                     id={styles.banner_background_container}
 
                     style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0.05), black 100%), url(${anilistMedia?.bannerImage})`,
+                        background: `linear-gradient(rgba(0, 0, 0, 0.05), black 100%), url(${coverBg})`,
                     }}
                     className="flex flex-col justify-center items-center  md:items-start w-full  h-[400px]">
                     <div className='flex flex-col  w-full h-full justify-end items-center  md:items-start   space-x-2 space-y-3 md:justify-end '>
@@ -242,14 +261,14 @@ const Page = ({ params }: { params: { id: string } }) => {
 
                     {/* Status button */}
                     <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {anilistMedia?.status || 'Unknown Status'}
+                        {anilistMedia?.status?.replaceAll("_",' ') || 'Unknown Status'}
                     </motion.button>
 
                     {/* Episodes button with null check */}
-                    <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {(aniwatchEpisodes.length || anilistMedia?.episodes)?(aniwatchEpisodes.length || anilistMedia?.episodes) + " Episodes" : 'Episodes Unavailable'}
+                   {anilistMedia?.status !=="NOT_YET_RELEASED"&& <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
+                        {(aniwatchEpisodes.length|| anilistMedia?.episodes)?(aniwatchEpisodes.length || anilistMedia?.episodes) + " Episodes" : 'Episodes Unavailable'}
                     </motion.button>
-
+}
                 </div>
 
 
