@@ -359,6 +359,20 @@ const anilist =
             }
 
         }
+    ),
+    getMangaInfo: cache(
+        async (mangaId:string) => {
+            try {
+                
+                const {data} = await consumet?.get(`meta/anilist-manga/info/${mangaId}?provider=mangahere`)
+                return data as AnilistMediaInfo
+            } catch (error) {
+                console.log(error)
+                return null
+                
+            }
+        }
+
     )
 
 }

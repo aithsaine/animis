@@ -18,12 +18,13 @@ import animationData from "../../../../public/assets/lottiefiles/notavailable.js
 import aniwatch from '@/app/api/aniwatch'
 import CharacterImage from '@/components/ui/CharacterImage'
 import RelatedSlider from '@/components/relatedAnime'
+import Chapters from '@/components/Chapters'
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
 });
 
 
-const Page = ({ params }: { params: { id: string } }) => {  
+const Page = ({ params }: { params: { id: string } }) => {
 
     const { loading, user } = useAuth()
     const dispatch = useDispatch()
@@ -34,32 +35,33 @@ const Page = ({ params }: { params: { id: string } }) => {
     const [anilistEpisodes, setAnilistEpisodes] = useState<StreamingEpsiode[]>([])
     const [gogoanimeEisodes, setGogoAnimeEpisodes] = useState<StreamingEpsiode[]>([])
     const [coverBg, setCoverBg] = useState<string | unknown>('');
+    const [mangaInfo,setMangaInfo] = useState<AnilistMediaInfo|null>(null)
 
     const getBgImage = () => {
-        if (anilistMedia&& typeof window !== 'undefined' && window.innerWidth > 700) {
-          return setCoverBg(anilistMedia?.bannerImage);
+        if (anilistMedia && typeof window !== 'undefined' && window.innerWidth > 700) {
+            return setCoverBg(anilistMedia?.bannerImage);
         }
         return setCoverBg(anilistMedia?.coverImage?.extraLarge);
-      };
-      useEffect(() => {
+    };
+    useEffect(() => {
         getBgImage();
-    
+
         const handleResize = () => {
-          getBgImage();
+            getBgImage();
         };
-    
+
         if (typeof window !== 'undefined') {
-          window.addEventListener('resize', handleResize);
+            window.addEventListener('resize', handleResize);
         }
-    
+
         return () => {
-          if (typeof window !== 'undefined') {
-            window.removeEventListener('resize', handleResize);
-          }
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('resize', handleResize);
+            }
         };
-      }, [anilistMedia]); // Ensure it updates if `anilistMedia` changes
-    
-    
+    }, [anilistMedia]); // Ensure it updates if `anilistMedia` changes
+
+
     // const [waitGogo, setWaitGogo] = useState(false)
 
     //  get Media Info from Tmdb api
@@ -104,7 +106,7 @@ const Page = ({ params }: { params: { id: string } }) => {
             setGogoAnimeMediaInfo(info)
             const gogoEps: StreamingEpsiode[] = []
             info?.episodes?.map((item) => gogoEps.push({
-                id: item?.id, title: "", description: "", thumbnail:  media?.coverImage?.extraLarge
+                id: item?.id, title: "", description: "", thumbnail: media?.coverImage?.extraLarge
             }))
             setGogoAnimeEpisodes(gogoEps)
         }
@@ -118,7 +120,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     }
 
     // change background image tmdb cover >>>>> anilist cover
-   
+
     useEffect(() => {
 
         const fetchMediaInfo = async () => {
@@ -131,7 +133,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                             // setWaitAnimix(true)
                             const aniwatchEps: AniwatchEpisodes[] | null = await aniwatch.AniwatchStreamingEpisodes(media?.title?.romaji ?? media?.title?.english, media?.title?.userPreferred, media?.format)
                             if (aniwatchEps) {
-                                setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisodes, index: number) => { return { id: item?.episodeId, title: item?.title ?? `Episode ${index + 1}`, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge} }))
+                                setAniwatchEpisodes(aniwatchEps?.map((item: AniwatchEpisodes, index: number) => { return { id: item?.episodeId, title: item?.title ?? `Episode ${index + 1}`, description: "aniwatch", thumbnail: media?.coverImage?.extraLarge } }))
                             }
                         } catch (error) {
 
@@ -140,22 +142,29 @@ const Page = ({ params }: { params: { id: string } }) => {
                         }
                         getGogoAnimeMediaInfo(media)
                         const episodes: StreamingEpsiode[] = []
-                        media?.streamingEpisodes[media?.streamingEpisodes.length-1]?.title?.search("Episode 1 ")?  media.streamingEpisodes.map((item: {
+                        media?.streamingEpisodes[media?.streamingEpisodes.length - 1]?.title?.search("Episode 1 ") ? media.streamingEpisodes.map((item: {
                             site: string,
                             thumbnail: string,
                             title: string,
                             url: string
                         }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "" }))
 
-:media.streamingEpisodes?.reverse().map((item: {
-    site: string,
-    thumbnail: string,
-    title: string,
-    url: string
-}) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "" }))
+                            : media.streamingEpisodes?.reverse().map((item: {
+                                site: string,
+                                thumbnail: string,
+                                title: string,
+                                url: string
+                            }) => episodes.push({ id: "", title: item.title, thumbnail: item.thumbnail, description: "" }))
 
-                            setAnilistEpisodes(episodes)
-                        
+                        setAnilistEpisodes(episodes)
+
+                    }
+                    else {
+                        const mgInfo = await anilist?.getMangaInfo(String(animeId))
+                        if(mgInfo){
+                            setMangaInfo(mgInfo)
+                        }
+
                     }
                     setAnilistMedia(media);
                 }
@@ -168,17 +177,6 @@ const Page = ({ params }: { params: { id: string } }) => {
 
 
     }, [animeId])
-
-    
-
-
-
-
-
-
-
-
-
 
 
     if (!anilistMedia) {
@@ -261,14 +259,14 @@ const Page = ({ params }: { params: { id: string } }) => {
 
                     {/* Status button */}
                     <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {anilistMedia?.status?.replaceAll("_",' ') || 'Unknown Status'}
+                        {anilistMedia?.status?.replaceAll("_", ' ') || 'Unknown Status'}
                     </motion.button>
 
                     {/* Episodes button with null check */}
-                   {anilistMedia?.status !=="NOT_YET_RELEASED"&& <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
-                        {(aniwatchEpisodes.length|| anilistMedia?.episodes)?(aniwatchEpisodes.length || anilistMedia?.episodes) + " Episodes" : 'Episodes Unavailable'}
+                    {anilistMedia?.status !== "NOT_YET_RELEASED" && <motion.button className="text-lg cursor-auto border-slate-800 text-slate-100 bg-slate-800 hover:text-slate-400 flex items-center justify-center border-2 font-bold py-2 px-4 rounded-xl">
+                        {(aniwatchEpisodes.length || anilistMedia?.episodes) ? (aniwatchEpisodes.length || anilistMedia?.episodes) + " Episodes" : 'Episodes Unavailable'}
                     </motion.button>
-}
+                    }
                 </div>
 
 
@@ -296,9 +294,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
                         </div>
 
-                        {/* Episodes */}
-
-
+                        {/* Episodes if is an anime*/}
 
                         {anilistMedia.type != "MANGA" && < div className="w-full ">
 
@@ -310,7 +306,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                                         <h1 className="text-xl  underline ">Episodes:</h1>
                                         {anilistMedia?.status !== "NOT_YET_RELEASED" ?
 
-                                            < Episodes type={anilistMedia?.format} userPreferredTitle={anilistMedia?.title?.userPreferred} animeName={GogoAnimeMediaInfo?.title || anilistMedia?.title?.english || anilistMedia?.title?.romaji} aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={aniwatchEpisodes.length || anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : ( null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={[]} />
+                                            < Episodes type={anilistMedia?.format} userPreferredTitle={anilistMedia?.title?.userPreferred} animeName={GogoAnimeMediaInfo?.title || anilistMedia?.title?.english || anilistMedia?.title?.romaji} aniwatchEps={aniwatchEpisodes} gogoAnimeEps={gogoanimeEisodes} anilistEpisodes={anilistEpisodes} episodesCount={aniwatchEpisodes.length || anilistMedia?.episodes ? anilistMedia?.episodes : (GogoAnimeMediaInfo?.totalEpisodes ? GogoAnimeMediaInfo?.totalEpisodes : (null))} anilistEpsCount={anilistMedia?.episodes || 0} tmdbEps={[]} />
 
 
                                             :
@@ -324,6 +320,29 @@ const Page = ({ params }: { params: { id: string } }) => {
                             </div>
                         </div>}
 
+                        {/* Chapters if is a manga*/}
+
+                        {(mangaInfo && anilistMedia.type == "MANGA") && < div className="w-full ">
+
+
+                            <div className="w-full">
+                                    < div className="py-7 relative ">
+
+                                        <h1 className="text-xl  underline ">Chapters:</h1>
+                                        {anilistMedia?.status !== "NOT_YET_RELEASED" ?
+
+                    <Chapters chapters={mangaInfo?.chapters}/>
+
+                                            :
+                                            <div className="flex bg-white shadow-inner shadow-black items-center h-[200px] justify-center w-full flex-col rounded">
+                                                <Lottie className='w-[100px]' animationData={animationData} width={50} loop={true} autoplay={true} />
+                                                <span className='font-bold text-black'>Sorry! Not Yet Released</span>
+
+                                            </div>
+                                        }
+                                    </div>
+                            </div>
+                        </div>}
 
 
 
@@ -332,12 +351,11 @@ const Page = ({ params }: { params: { id: string } }) => {
                     </div>
                     {/*  trailer and more*/}
 
-
                     <div className="md:w-2/6  flex flex-col justify-start  w-full py-3 ">
                         <div className="flex flex-col w-full justify-start">
                             <h1 className="text-xl py-3 underline">TRAILER:</h1>
 
-                            <iframe className='md:h-[200px] h-full' src={`https://www.youtube.com/embed/${anilistMedia.trailer?.id }`} title="TVアニメ『薫る花は凛と咲く』ファーストPV" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                            <iframe className='md:h-[200px] h-full' src={`https://www.youtube.com/embed/${anilistMedia.trailer?.id}`} title="TVアニメ『薫る花は凛と咲く』ファーストPV" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                             <hr className="py-2" />
 
                         </div >
@@ -380,10 +398,10 @@ const Page = ({ params }: { params: { id: string } }) => {
                 </div >
                 {/* Related animes or manga*/}
                 < div className="pt-9 px-6" >
-                        <h1 className="  text-pretty navlinks p-2 text-white text-2xl">Related :</h1>
+                    <h1 className="  text-pretty navlinks p-2 text-white text-2xl">Related :</h1>
 
-                    <RelatedSlider animes={anilistMedia?.relations?.nodes}/>
-                  
+                    <RelatedSlider animes={anilistMedia?.relations?.nodes} />
+
                 </div >
 
                 {/* Recommended animes or manga*/}
@@ -393,7 +411,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                         :</h1>
                     <div className='flex justify-around  sm:justify-start flex-wrap'>
 
-                        {anilistMedia?.recommendations?.edges.map((recommend: RecommendItem, index: number) => <AnimeCard key={index} anime={{ ...recommend?.node?.mediaRecommendation, image: recommend?.node?.mediaRecommendation?.coverImage?.extraLarge||recommend?.node?.mediaRecommendation?.coverImage?.large||recommend?.node?.mediaRecommendation?.coverImage?.medium, title: recommend?.node?.mediaRecommendation?.title?.romaji }} />)}
+                        {anilistMedia?.recommendations?.edges.map((recommend: RecommendItem, index: number) => <AnimeCard key={index} anime={{ ...recommend?.node?.mediaRecommendation, image: recommend?.node?.mediaRecommendation?.coverImage?.extraLarge || recommend?.node?.mediaRecommendation?.coverImage?.large || recommend?.node?.mediaRecommendation?.coverImage?.medium, title: recommend?.node?.mediaRecommendation?.title?.romaji }} />)}
                     </div>
                 </div >
             </div >

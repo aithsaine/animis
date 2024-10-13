@@ -1,6 +1,7 @@
 interface AnilistMediaInfo {
     id: string,
     synonyms: string[],
+    chapters:Chapter[]
     coverHash?: string,
     format: string,
     episodes: number,
@@ -161,5 +162,12 @@ interface RecentEpisode {
     episodeId: string,
     episodeTitle: string,
     episodeNumber: number,
-    type: string
+    type: string,
+  
+}
+
+interface Chapter {
+    id: string,
+    title: string,
+    releasedDate: string
 }
