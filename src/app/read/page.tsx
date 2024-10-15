@@ -29,12 +29,15 @@ export default function Page() {
   }
   
   const getStreamingChapters = async()=>{
+    setWaitChapter(true)
     try {
       const pages = await anilist?.getStreamingChapter(String(id))
       setChapters(pages)
       
     } catch (error) {
       
+    }finally{
+      setWaitChapter(false)
     }
   }
 
@@ -47,7 +50,7 @@ export default function Page() {
     getStreamingChapters()
 
   },[id])
-  if(wait){
+  if(wait || waitChapter){
     return <Loading/>
   }
 
@@ -69,7 +72,7 @@ export default function Page() {
       </div>
      <div className='flex w-full flex-col overflow-y-scroll scrollbar-hide md:w-2/3'>
      {
-     chapters&&  chapters?.map(item=> <Image src={item?.img}  width={800} height={1000}  alt={item?.img}/> )
+     chapters&&  chapters?.map(item=> <Image src={item?.img} key={item?.img}  width={800} height={1000}  alt={item?.img}/> )
      }
       
       </div>
