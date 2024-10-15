@@ -331,7 +331,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                                         <h1 className="text-xl  underline ">Chapters:</h1>
                                         {anilistMedia?.status !== "NOT_YET_RELEASED" ?
 
-                    <Chapters chapters={mangaInfo?.chapters}/>
+                    <Chapters mangaId={mangaInfo?.id} chapters={mangaInfo?.chapters?.filter(chapter => chapter.id.includes('/en/'))}/>
 
                                             :
                                             <div className="flex bg-white shadow-inner shadow-black items-center h-[200px] justify-center w-full flex-col rounded">

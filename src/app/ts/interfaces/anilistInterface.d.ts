@@ -169,5 +169,10 @@ interface RecentEpisode {
 interface Chapter {
     id: string,
     title: string,
-    releasedDate: string
+    chapter: string
 }
+
+type StreamingChapter = {
+    img:string,
+    page:number
+}[]

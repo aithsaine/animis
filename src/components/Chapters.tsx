@@ -1,12 +1,14 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 
 type Props = {
   chapters: Chapter[];
+  mangaId:string
 };
 
-const Chapters = ({ chapters }: Props) => {
+const Chapters = ({ chapters,mangaId }: Props) => {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const chaptersPerPage = 10;
@@ -30,12 +32,13 @@ const Chapters = ({ chapters }: Props) => {
     <div className="flex flex-col space-y-4">
       <div className="flex flex-col px-5 space-y-3">
         {currentChapters.map((item) => (
-          <button
+          <Link
             key={item.id}
+            href={`/read?manga=${mangaId}&id=${item?.id}`}
             className="w-full px-4 py-3 navlinks text-left text-lg font-semibold rounded-xl bg-gray-900 text-white transition-transform transform hover:scale-105 hover:shadow-lg"
           >
             {item.title}
-          </button>
+          </Link>
         ))}
       </div>
 

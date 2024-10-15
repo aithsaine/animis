@@ -364,10 +364,22 @@ const anilist =
         async (mangaId:string) => {
             try {
                 
-                const {data} = await consumet?.get(`meta/anilist-manga/info/${mangaId}?provider=mangahere`)
+                const {data} = await consumet?.get(`meta/anilist-manga/info/${mangaId}?provider=mangareader`)
                 return data as AnilistMediaInfo
             } catch (error) {
                 console.log(error)
+                return null
+                
+            }
+        }
+
+    ),
+    getStreamingChapter:cache(
+        async(chapterId:string)=>{
+            try {
+                const {data} = await consumet?.get(`meta/anilist-manga/read?chapterId=${chapterId}&provider=mangareader`)
+                return data as StreamingChapter
+            } catch (error) {
                 return null
                 
             }
