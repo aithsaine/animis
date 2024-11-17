@@ -39,10 +39,10 @@ const Nav = () => {
                 </div>
             </div>
 
-            <div className='flex items-center h-full  space-x-6'>
+            <div className='flex items-center h-full space-x-6'>
                 <Link className='' href={"#"}><MagnifyingGlassIcon className='text-white hover:text-fuchsia-600  cursor-pointer w-6 hover:scale-110' /></Link>
                 <BookmarkIcon className='text-white w-6 cursor-pointer hover:text-fuchsia-600  hover:scale-110' />
-                {authenticate !== null ?
+                {/* {authenticate !== null ?
                     (<button onClick={() => setIsOpenDropDownSettings(!isOpenDropDownSettings)} className='flex  relative   items-center'><Image width={40} className='cursor-pointer border-2 border-fuchsia-500 rounded-full' src={fakeProfileImage} alt="" /><FaCaretDown className='text-white w-4' />
                         <div className={`md:absolute fixed ${isOpenDropDownSettings ? "flex" : "hidden"} p-2  sm:top-12 rounded-xl navlinks sm:justify-start  flex-col  bg-slate-950 w-screen h-screen items-center  top-5 -right-16 sm:w-72 md:min-h-screen  `}>
                             <XCircleIcon className='bg-red fixed top-2 right-2 cursor-pointer block sm:hidden hover:text-red-700 w-11' />
@@ -65,7 +65,7 @@ const Nav = () => {
                         className='text-white w-6 cursor-pointer  hover:text-fuchsia-600  hover:scale-110'
                         onClick={() => dispatch(toggleModalAuth(true))}
                     />)
-                }
+                } */}
 
 
 

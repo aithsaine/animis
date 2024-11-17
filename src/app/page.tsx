@@ -8,7 +8,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <Caroussel />
+      {/* <Caroussel /> */}
       <RecentEpisodes />
       <TrendingAnimes />
     </>

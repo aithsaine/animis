@@ -39,7 +39,7 @@ const RecentEpisodes = () => {
     return (
 
 
-        <div className="w-full mx-auto px-1">
+        <div className="w-full mx-auto pt-7 px-1">
       < h1 className=" px-5 py-9 text-pretty navlinks text-white text-2xl" > Recent Episodes:</h1 >
 
         <Swiper
