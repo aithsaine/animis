@@ -19,6 +19,7 @@ import aniwatch from '@/app/api/aniwatch'
 import CharacterImage from '@/components/ui/CharacterImage'
 import RelatedSlider from '@/components/relatedAnime'
 import Chapters from '@/components/Chapters'
+import Skeleton from '@/components/mediaSkeleton'
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
 });
@@ -180,7 +181,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
 
     if (!anilistMedia) {
-        return <Loading />
+        return <Skeleton />
     }
     return (
         <>
