@@ -1,79 +1,166 @@
-"use client"
-import React from 'react'
-import Image from "next/image"
-import logo from "../../public/assets/images/logo.png"
-import '../../public/assets/styles/nav.css'
-import { BookmarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-// import fakeProfileImage from "../../public/assets/images/ninja.png"
-// import { FaCaretDown } from 'react-icons/fa'
-// import { useDispatch } from 'react-redux'
-// import { signOut, auth } from '../firebase/client'
-// import { addAuthenticateUser } from '@/redux/actions/actionCreator'
-// // import { AdjustmentsHorizontalIcon } from '@heroicons/react/16/solid'
-import Link from 'next/link'
-// import { StatesType } from '@/redux/reducers/mainReducer'
+"use client";
+
+import React, { useState, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  BookmarkIcon,
+  MagnifyingGlassIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import logo from "../../public/assets/images/logo.png";
+import anilist from "@/app/api/anilist";
+import SearchItemCard from "./ui/SearchItem";
+
 const Nav = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<SearchItemInterface[]>([]);
+  const typingTimeout = useRef<NodeJS.Timeout | null>(null);
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
-    // const [isOpenDropDownSettings, setIsOpenDropDownSettings] = useState(false)
-    // const { authenticate } = useSelector((state: StatesType) => state)
-    // const dispatch = useDispatch()
-    // const signout = async () => {
-    //     try {
-    //         await signOut(auth)
-    //         dispatch(addAuthenticateUser(null))
-    //     } catch (error) {
-    //         console.log(error)
+  const closeModalOnBackdropClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (e.target === e.currentTarget) {
+      setIsModalOpen(false);
+    }
+  };
 
-    //     }
-    // }
-    return (
-        <nav className='flex fixed mb-28 bg-slate-950  justify-between px-4 md:px-16 py-2 z-50 items-center w-full  '>
-            <div className='flex h-full space-x-4  items-center text-white'>
-                <Link href="/"> <Image width={120} src={logo} alt='logo' /></Link>
-                <div className='navlinks hidden md:block  text-2xl  space-x-4'>
-                    <Link href={"/LDKe"} className='hover:text-fuchsia-200'>Anime</Link>
-                    <button className='hover:text-fuchsia-200'>Manga</button>
-                    <button className='hover:text-fuchsia-200'>News</button>
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
 
-                </div>
+    if (typingTimeout.current) {
+      clearTimeout(typingTimeout.current);
+    }
+
+    typingTimeout.current = setTimeout(() => {
+      triggerSearch(value);
+    }, 2000);
+  };
+
+  const triggerSearch = async (value: string) => {
+    if (!value.trim()) return;
+
+    setIsSearching(true);
+    try {
+      const items = await anilist.SearchMediaByQuery(value);
+      setSearchResults(items);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  return (
+    <>
+      <nav className="flex fixed mb-28 bg-slate-950 justify-between px-4 md:px-16 py-2 z-50 items-center w-full">
+        <div className="flex h-full space-x-4 items-center text-white">
+          <Link href="/">
+            <Image width={120} src={logo} alt="logo" />
+          </Link>
+          <div className="navlinks hidden md:block text-2xl space-x-4">
+            <Link href={"/anime"} className="hover:text-fuchsia-200">
+              Anime
+            </Link>
+            <button className="hover:text-fuchsia-200">Manga</button>
+            <button className="hover:text-fuchsia-200">News</button>
+          </div>
+        </div>
+
+        <div className="flex items-center h-full space-x-6">
+          <button onClick={toggleModal}>
+            <MagnifyingGlassIcon className="text-white hover:text-fuchsia-600 cursor-pointer w-6 hover:scale-110" />
+          </button>
+          <BookmarkIcon className="text-white w-6 cursor-pointer hover:text-fuchsia-600 hover:scale-110" />
+        </div>
+      </nav>
+
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black bg-opacity-60 backdrop-blur-sm"
+          onClick={closeModalOnBackdropClick}
+        >
+          <div className="relative w-11/12 md:w-1/2 bg-slate-950 rounded-lg shadow-lg p-6">
+            <button
+              onClick={toggleModal}
+              className="absolute top-3 right-3 text-gray-400 hover:text-fuchsia-500"
+            >
+              <XMarkIcon className="w-6 h-6" />
+            </button>
+
+            <div className="flex flex-col space-y-4">
+              <h2 className="text-white text-center text-2xl font-semibold">
+                Search
+              </h2>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search for anime, manga, or news..."
+                  value={query}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-gray-800 text-white rounded-lg outline-none focus:ring-2 focus:ring-fuchsia-500"
+                />
+                {isSearching && (
+                  <div className="absolute inset-y-0 right-3 flex items-center">
+                    <svg
+                      className="animate-spin h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v8H4z"
+                      ></path>
+                    </svg>
+                  </div>
+                )}
+              </div>
+
+              {/* Scrollable Results */}
+              <div className="space-y-4 mt-4 max-h-64 overflow-y-auto custom-scrollbar">
+                {searchResults.length > 0 ? (
+                  searchResults.map((result) => (
+                    <SearchItemCard
+                      key={result.id}
+                      title={result?.title?.romaji}
+                      image={result?.image}
+                      id={result?.id}
+                      releaseDate={result?.releaseDate}
+                      rating={result?.rating}
+                      type={result?.type}
+                    />
+                  ))
+                ) : (
+                  !isSearching && (
+                    <p className="text-gray-400 text-center">
+                      No results found.
+                    </p>
+                  )
+                )}
+              </div>
             </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
-            <div className='flex items-center h-full space-x-6'>
-                <Link className='' href={"#"}><MagnifyingGlassIcon className='text-white hover:text-fuchsia-600  cursor-pointer w-6 hover:scale-110' /></Link>
-                <BookmarkIcon className='text-white w-6 cursor-pointer hover:text-fuchsia-600  hover:scale-110' />
-                {/* {authenticate !== null ?
-                    (<button onClick={() => setIsOpenDropDownSettings(!isOpenDropDownSettings)} className='flex  relative   items-center'><Image width={40} className='cursor-pointer border-2 border-fuchsia-500 rounded-full' src={fakeProfileImage} alt="" /><FaCaretDown className='text-white w-4' />
-                        <div className={`md:absolute fixed ${isOpenDropDownSettings ? "flex" : "hidden"} p-2  sm:top-12 rounded-xl navlinks sm:justify-start  flex-col  bg-slate-950 w-screen h-screen items-center  top-5 -right-16 sm:w-72 md:min-h-screen  `}>
-                            <XCircleIcon className='bg-red fixed top-2 right-2 cursor-pointer block sm:hidden hover:text-red-700 w-11' />
-                            <div className='w-full py-3 flex items-center  justify-between'>
-                                <div className='flex  items-center justify-start space-x-4 my-2'>
-
-                                    <Image src={fakeProfileImage} alt='profile' className='w-14 h-w-14 rounded-full' />
-                                    <span>{authenticate && authenticate.displayName}</span>
-                                </div>
-                                <AdjustmentsHorizontalIcon className='w-8' />
-                            </div>
-                            <hr />
-                            <button className='my-1  w-full hover:bg-fuchsia-600  px-2 py-2  rounded-lg bg-transparent text-white flex items-center '><Cog8ToothIcon width={20} className='mx-1' /> Settings</button>
-                            <button className='my-1  w-full hover:bg-fuchsia-600 px-2 py-2  rounded-lg bg-transparent text-white flex items-center '><EyeIcon width={20} className='mx-1' /> WachList</button>
-                            <button onClick={signout} className='my-1 w-full hover:bg-fuchsia-600   px-2 py-1 rounded-lg bg-transparent text-white flex items-center '><ArrowLeftEndOnRectangleIcon width={20} className='mx-1' /> Logout</button>
-                        </div>
-
-                    </button>) :
-                    (<UserIcon
-                        className='text-white w-6 cursor-pointer  hover:text-fuchsia-600  hover:scale-110'
-                        onClick={() => dispatch(toggleModalAuth(true))}
-                    />)
-                } */}
-
-
-
-            </div>
-
-        </nav>
-
-    )
-}
-
-export default Nav
+export default Nav;

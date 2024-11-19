@@ -385,6 +385,12 @@ const anilist =
             }
         }
 
+    ),
+    SearchMediaByQuery:cache(
+        async(query:string)=>{
+            const {data} = await consumet?.get(`meta/anilist/${query}`)
+            return data?.results as SearchItemInterface[]
+        }
     )
 
 }

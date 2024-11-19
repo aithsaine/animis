@@ -176,3 +176,12 @@ type StreamingChapter = {
     img:string,
     page:number
 }[]
+
+
+interface SearchItemInterface    {
+    id: string;
+    title: {romaji:string};
+    image: string;
+    type: string;
+    rating: number;
+    releaseDate: string;      }
