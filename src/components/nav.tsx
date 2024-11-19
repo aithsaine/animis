@@ -65,13 +65,13 @@ const Nav = () => {
           <Link href="/">
             <Image width={120} src={logo} alt="logo" />
           </Link>
-          <div className="navlinks hidden md:block text-2xl space-x-4">
+          {/* <div className="navlinks hidden md:block text-2xl space-x-4">
             <Link href={"/anime"} className="hover:text-fuchsia-200">
               Anime
             </Link>
             <button className="hover:text-fuchsia-200">Manga</button>
             <button className="hover:text-fuchsia-200">News</button>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex items-center h-full space-x-6">

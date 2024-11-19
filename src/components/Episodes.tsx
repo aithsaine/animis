@@ -30,7 +30,10 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
     const [itemsPerPage, setItemsPerPage] = useState<StreamingEpsiode[]>([]);
 
  const   getEpisodes = ()=>{
-    if (episodesCount && anilistEpisodes?.length === episodesCount) {
+    if (aniwatchEps.length > 0) {
+        setEpisodes(aniwatchEps)
+    }
+    else if (episodesCount && anilistEpisodes?.length === episodesCount) {
       
 
           return  setEpisodes(anilistEpisodes);
@@ -45,9 +48,6 @@ const Episodes = ({ tmdbEps, type, anilistEpisodes, aniwatchEps, gogoAnimeEps, e
         }
     }
 
-    else if (aniwatchEps.length > 0) {
-        setEpisodes(aniwatchEps)
-    }
     else {
         setEpisodes(gogoAnimeEps);
     }

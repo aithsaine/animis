@@ -19,7 +19,7 @@ const SearchItemCard: React.FC<SearchItemProps> = ({
   releaseDate,
 }) => {
   return (
-    <Link href={`media/${id}`} className="flex items-center bg-gray-900 rounded-lg shadow-md p-4 space-x-4">
+    <Link href={`/media/${id}`} className="flex items-center bg-gray-900 rounded-lg shadow-md p-4 space-x-4">
       {/* Image */}
       <img
         src={image}

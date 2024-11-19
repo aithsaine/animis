@@ -31,7 +31,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ subtitles, videoSrc }) => {
     return (
         <MediaPlayer
             playsInline
-            autoPlay
+            autoPlay={true}
             src={videoSrc}
         >
             <MediaProvider>

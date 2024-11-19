@@ -351,7 +351,7 @@ const anilist =
     getRecentEpisodes: cache(
         async () => {
             try {
-                const { data } = await consumet.get(`/meta/anilist/recent-episodes?perPage=8`)
+                const { data } = await consumet.get(`/meta/anilist/recent-episodes?perPage=12`)
                 return data?.results
 
             } catch (error) {

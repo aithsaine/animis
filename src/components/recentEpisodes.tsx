@@ -49,7 +49,7 @@ const RecentEpisodes = () => {
           freeMode={true}
           modules={[Pagination, Navigation]}
         >
-                    {recentEpisodes.length > 0 ? recentEpisodes && recentEpisodes?.map((episode, index: number) =>(
+                    {recentEpisodes.length > 0 ? recentEpisodes && recentEpisodes?.reverse().map((episode, index: number) =>(
             <SwiperSlide 
               key={episode.id} 
               className="flex" 

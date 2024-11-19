@@ -5,11 +5,11 @@ import Link from 'next/link'
 import { TvIcon } from '@heroicons/react/24/outline'
 const EpisodeCard = ({ episode }: { episode: EpisodeInfo }) => {
     return (
-        <Link href={`/media/${episode.id}`}>
+        <Link href={` /watch?ep=${episode?.episodeNumber}&q=${episode?.title?.romaji}&userPreferredTitle=${episode?.title?.english}&type=${episode?.type}`}>
             <motion.div
                 key={episode.episodeTitle}
                 title={episode.episodeTitle}
-                className="relative group flex flex-col rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
+                className="relative group sm:w-[170px] w-[150px] h-[250px] rounded-md overflow-hidden cursor-pointer m-2 shadow-md"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
             >

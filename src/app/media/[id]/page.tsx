@@ -19,6 +19,7 @@ import CharacterImage from '@/components/ui/CharacterImage'
 import RelatedSlider from '@/components/relatedAnime'
 import Chapters from '@/components/Chapters'
 import Skeleton from '@/components/mediaSkeleton'
+import { useRouter } from 'next/navigation'
 const Lottie = dynamic(() => import('lottie-react'), {
     ssr: false
 });
@@ -35,6 +36,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     const [anilistEpisodes, setAnilistEpisodes] = useState<StreamingEpsiode[]>([])
     const [gogoanimeEisodes, setGogoAnimeEpisodes] = useState<StreamingEpsiode[]>([])
     const [coverBg, setCoverBg] = useState<string | unknown>('');
+    const navigate = useRouter()
     const [mangaInfo,setMangaInfo] = useState<AnilistMediaInfo|null>(null)
 
     const getBgImage = () => {
@@ -202,7 +204,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                         } */}
                         <h1 className="text-2xl lg:text-4xl  text-white  text-center line-clamp-6 font-sans >px-4 font-bold">{anilistMedia?.title?.romaji}</h1>
                     </div>
-                    <div className='p-2 flex flex-wrap space-x-2 space-y-2'>
+                    <div className='p-2 space-x-2 space-y-2'>
                         {anilistMedia?.genres?.map((genre: string, index: number) => <button className='px-3 py-1 text-sm border  bg-gray-800 border-gray-800 text-white rounded-xl hover:bg-fuchsia-950' key={index}>{genre}</button>)}
                     </div>
                 </div>
@@ -213,15 +215,11 @@ const Page = ({ params }: { params: { id: string } }) => {
                     {anilistMedia?.type !== "MANGA" ? (
                         <motion.button
                             whileTap={{ scale: 0.95 }}
-                            onClick={() => {
-                                if (!loading && !user) {
-                                    dispatch(toggleModalAuth(true));
-                                }
-                            }}
+                            onClick={() => navigate?.push(`/watch?ep=1&q=${anilistMedia?.title?.romaji}&userPreferredTitle=${anilistMedia?.title?.userPreferred}&type=${anilistMedia?.format}`)}
                             className="text-lg hover:bg-orange-500 border-orange-400 bg-orange-400 text-slate-800 hover:text-black flex items-center justify-center border-2 font-bold py-2 px-4 space-x-2 rounded-xl"
                         >
                             <PlayCircleIcon className="w-6" />
-                            <span>Watch Now</span>
+                            <span>Watch Now E1</span>
                         </motion.button>
                     ) : (
                         <motion.button
