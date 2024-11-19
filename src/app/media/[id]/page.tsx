@@ -9,7 +9,6 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import AnimeCard from '@/components/ui/animeCard'
 import anilist from '@/app/api/anilist'
-import Loading from '@/components/loading'
 import styles from "../../../../public/assets/styles/coverStyle.module.css"
 import Episodes from '@/components/Episodes'
 import gogoanime from '@/app/api/gogoanime'
